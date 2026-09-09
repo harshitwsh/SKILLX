@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKILLX - Find Projects & Freelance Work</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       1. Navigation Bar
+       ========================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="skillx.html" class="logo" style="color: #10b981;">SKILLX</a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="find-work.html" class="active" style="color: #10b981; font-weight: 600;">Find Work</a></li>
+        <li><a href="skillx.html">Find Talent</a></li>
+        <li><a href="find-work.html">Projects</a></li>
+      </ul>
+
+      <!-- Right Action / Login Buttons -->
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-ghost">Login</a>
+        <a href="login.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       Main Content Container
+       ========================================== -->
+  <main class="container">
+
+    <!-- 2. Page Hero & Big Search Bar -->
+    <section class="page-hero">
+      <h1>Find Projects & Freelance Work</h1>
+      <p>Explorer the opportunities, build your verified portfolio, and earn on your schedule.</p>
+
+      <!-- Pill Shaped Search Bar -->
+      <div class="search-bar-large">
+        <span class="material-symbols-outlined search-icon">search</span>
+        <input type="text" id="projectSearchInput" placeholder="Search projects..." />
+        <button type="button" class="btn-search">Search</button>
+      </div>
+    </section>
+
+    <!-- 3. Browse by Category Section (3x2 Grid) -->
+    <section class="category-section">
+      <div class="section-top-row">
+        <h2>Browse by Category</h2>
+        <span class="badge-counter">6 SPECIALIZATIONS</span>
+      </div>
+
+      <div class="categories-grid">
+        <!-- Category 1: Web Development -->
+        <div class="cat-card">
+          <div class="cat-icon-box">
+            <span class="material-symbols-outlined">code</span>
+          </div>
+          <div class="cat-info">
+            <h3>Web Development</h3>
+            <p>42 active gigs</p>
+          </div>
+          <span class="material-symbols-outlined cat-arrow">chevron_right</span>
+        </div>
+
+        <!-- Category 2: App Development -->
+        <div class="cat-card">
+          <div class="cat-icon-box">
+            <span class="material-symbols-outlined">smartphone</span>
+          </div>
+          <div class="cat-info">
+            <h3>App Development</h3>
+            <p>28 active gigs</p>
+          </div>
+          <span class="material-symbols-outlined cat-arrow">chevron_right</span>
+        </div>
+
+        <!-- Category 3: UI/UX -->
+        <div class="cat-card">
+          <div class="cat-icon-box">
+            <span class="material-symbols-outlined">draw</span>
+          </div>
+          <div class="cat-info">
+            <h3>UI/UX</h3>
+            <p>35 active gigs</p>
+          </div>
+          <span class="material-symbols-outlined cat-arrow">chevron_right</span>
+        </div>
+
+        <!-- Category 4: Data Science -->
+        <div class="cat-card">
+          <div class="cat-icon-box">
+            <span class="material-symbols-outlined">bar_chart</span>
+          </div>
+          <div class="cat-info">
+            <h3>Data Science</h3>
+            <p>19 active gigs</p>
+          </div>
+          <span class="material-symbols-outlined cat-arrow">chevron_right</span>
+        </div>
+
+        <!-- Category 5: Content Writing -->
+        <div class="cat-card">
+          <div class="cat-icon-box">
+            <span class="material-symbols-outlined">edit_note</span>
+          </div>
+          <div class="cat-info">
+            <h3>Content Writing</h3>
+            <p>31 active gigs</p>
+          </div>
+          <span class="material-symbols-outlined cat-arrow">chevron_right</span>
+        </div>
+
+        <!-- Category 6: DevOps -->
+        <div class="cat-card">
+          <div class="cat-icon-box">
+            <span class="material-symbols-outlined">science</span>
+          </div>
+          <div class="cat-info">
+            <h3>DevOps</h3>
+            <p>14 active gigs</p>
+          </div>
+          <span class="material-symbols-outlined cat-arrow">chevron_right</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Latest Projects Section -->
+    <section class="projects-section">
+      <div class="project-section-header">
+        <div>
+          <h2>Latest Projects</h2>
+          <p>Fresh opportunities posted by verified student clubs and campus ventures</p>
+        </div>
+        <a href="#all-projects" class="link-with-arrow">
+          View all projects <span>&rarr;</span>
+        </a>
+      </div>
+
+      <div class="project-list">
+        <!-- Project Card 1 -->
+        <article class="project-item-card">
+          <div class="project-left">
+            <div class="project-title-row">
+              <h3>Campus Club Event Registration Web App</h3>
+              <span class="category-tag">Web Development</span>
+            </div>
+            <p class="project-desc">
+              Build a responsive portal for university student societies to handle tickets, check-ins, and club membership renewals.
+            </p>
+            <div class="project-tags-meta">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="project-meta-text">&bull; Posted 2 hours ago by Robotics Club</span>
+            </div>
+          </div>
+
+          <div class="project-right">
+            <div class="budget-box">
+              <span class="budget-label">Fixed Budget</span>
+              <div class="budget-amount">$280</div>
+            </div>
+            <a href="login.html" class="btn-apply">Apply Now</a>
+          </div>
+        </article>
+
+        <!-- Project Card 2 -->
+        <article class="project-item-card">
+          <div class="project-left">
+            <div class="project-title-row">
+              <h3>Mobile App UI/UX Redesign for Student Carpooling</h3>
+              <span class="category-tag">UI/UX</span>
+            </div>
+            <p class="project-desc">
+              Design a high-fidelity Figma prototype with 10 key flows for an intra-campus ride-sharing initiative.
+            </p>
+            <div class="project-tags-meta">
+              <span class="tech-tag">Figma</span>
+              <span class="tech-tag">Wireframing</span>
+              <span class="tech-tag">Design System</span>
+              <span class="project-meta-text">&bull; Posted 5 hours ago by Campus Transit Initiative</span>
+            </div>
+          </div>
+
+          <div class="project-right">
+            <div class="budget-box">
+              <span class="budget-label">Fixed Budget</span>
+              <div class="budget-amount">$350</div>
+            </div>
+            <a href="login.html" class="btn-apply">Apply Now</a>
+          </div>
+        </article>
+
+        <!-- Project Card 3 -->
+        <article class="project-item-card">
+          <div class="project-left">
+            <div class="project-title-row">
+              <h3>Machine Learning Dataset Annotation & Cleansing</h3>
+              <span class="category-tag">Data Science</span>
+            </div>
+            <p class="project-desc">
+              Clean and label 3,000 academic research audio clips with metadata tags for a graduate NLP research group.
+            </p>
+            <div class="project-tags-meta">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">Audio NLP</span>
+              <span class="project-meta-text">&bull; Posted 1 day ago by AI Lab</span>
+            </div>
+          </div>
+
+          <div class="project-right">
+            <div class="budget-box">
+              <span class="budget-label">Fixed Budget</span>
+              <div class="budget-amount">$200</div>
+            </div>
+            <a href="login.html" class="btn-apply">Apply Now</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. Trust / Guarantees Banner (3 Pillars) -->
+    <section class="trust-banner-card">
+      <!-- Pillar 1: Verified Clients -->
+      <div class="trust-item">
+        <div class="trust-icon-box blue-bg">
+          <span class="material-symbols-outlined">verified_user</span>
+        </div>
+        <div>
+          <h4>Verified Clients</h4>
+          <p>Every job poster is an authenticated campus student, recognized club leader, or vetted faculty partner.</p>
+        </div>
+      </div>
+
+      <!-- Pillar 2: Secure Payments -->
+      <div class="trust-item">
+        <div class="trust-icon-box blue-bg">
+          <span class="material-symbols-outlined">lock</span>
+        </div>
+        <div>
+          <h4>Secure Payments</h4>
+          <p>Funds are safely held in escrow before work begins and released immediately upon project milestone signoff.</p>
+        </div>
+      </div>
+
+      <!-- Pillar 3: No Fake Projects -->
+      <div class="trust-item">
+        <div class="trust-icon-box blue-bg">
+          <span class="material-symbols-outlined">shield</span>
+        </div>
+        <div>
+          <h4>No Fake Projects</h4>
+          <p>Zero spam or ghost listings. Strict moderation ensures genuine paid assignments for real student portfolios.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       6. Simple Clean Footer
+       ========================================== -->
+  <footer class="simple-footer">
+    <div class="container">
+      <a href="#">About</a> | 
+      <a href="#">Contact</a> | 
+      <a href="#">Terms</a>
+    </div>
+  </footer>
+
+</body>
+</html>

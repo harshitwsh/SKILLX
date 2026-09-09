@@ -1,438 +1,299 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKILLX - Hire Top-Tier Web Developers</title>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SKILLX - Hire Top-Tier Web Developers</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                      "tertiary-container": "#5e6e85",
-                      "on-primary-container": "#eeefff",
-                      "surface-container-low": "#f2f4f6",
-                      "on-error": "#ffffff",
-                      "secondary-fixed-dim": "#4edea3",
-                      "on-primary-fixed-variant": "#003ea8",
-                      "on-secondary": "#ffffff",
-                      "secondary-container": "#6cf8bb",
-                      "error": "#ba1a1a",
-                      "on-surface": "#191c1e",
-                      "on-tertiary-container": "#e9f0ff",
-                      "surface-container-lowest": "#ffffff",
-                      "on-primary-fixed": "#00174b",
-                      "surface-container": "#eceef0",
-                      "outline": "#737686",
-                      "primary": "#004ac6",
-                      "inverse-primary": "#b4c5ff",
-                      "on-secondary-fixed-variant": "#005236",
-                      "on-tertiary-fixed-variant": "#38485d",
-                      "on-error-container": "#93000a",
-                      "surface": "#f7f9fb",
-                      "primary-fixed": "#dbe1ff",
-                      "surface-bright": "#f7f9fb",
-                      "surface-container-highest": "#e0e3e5",
-                      "surface-container-high": "#e6e8ea",
-                      "tertiary-fixed-dim": "#b7c8e1",
-                      "primary-container": "#2563eb",
-                      "on-secondary-fixed": "#002113",
-                      "background": "#f7f9fb",
-                      "secondary-fixed": "#6ffbbe",
-                      "on-surface-variant": "#434655",
-                      "outline-variant": "#c3c6d7",
-                      "surface-tint": "#0053db",
-                      "on-primary": "#ffffff",
-                      "on-secondary-container": "#00714d",
-                      "inverse-surface": "#2d3133",
-                      "error-container": "#ffdad6",
-                      "on-tertiary": "#ffffff",
-                      "surface-dim": "#d8dadc",
-                      "on-background": "#191c1e",
-                      "primary-fixed-dim": "#b4c5ff",
-                      "surface-variant": "#e0e3e5",
-                      "tertiary-fixed": "#d3e4fe",
-                      "inverse-on-surface": "#eff1f3",
-                      "tertiary": "#46566c",
-                      "secondary": "#006c49",
-                      "on-tertiary-fixed": "#0b1c30"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.25rem",
-                      "lg": "0.5rem",
-                      "xl": "0.75rem",
-                      "full": "9999px"
-              },
-              "spacing": {
-                      "stack-md": "12px",
-                      "base": "8px",
-                      "container-max": "1280px",
-                      "stack-sm": "4px",
-                      "gutter": "24px",
-                      "margin-mobile": "16px",
-                      "stack-lg": "24px",
-                      "margin-desktop": "40px"
-              },
-              "fontFamily": {
-                      "label-caps": [
-                              "Inter"
-                      ],
-                      "body-sm": [
-                              "Inter"
-                      ],
-                      "body-lg": [
-                              "Inter"
-                      ],
-                      "body-md": [
-                              "Inter"
-                      ],
-                      "display": [
-                              "Inter"
-                      ],
-                      "headline-lg-mobile": [
-                              "Inter"
-                      ],
-                      "label-code": [
-                              "JetBrains Mono"
-                      ],
-                      "headline-lg": [
-                              "Inter"
-                      ],
-                      "headline-md": [
-                              "Inter"
-                      ]
-              },
-              "fontSize": {
-                      "label-caps": [
-                              "12px",
-                              {
-                                      "lineHeight": "16px",
-                                      "letterSpacing": "0.05em",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "body-sm": [
-                              "14px",
-                              {
-                                      "lineHeight": "20px",
-                                      "fontWeight": "400"
-                              }
-                      ],
-                      "body-lg": [
-                              "18px",
-                              {
-                                      "lineHeight": "28px",
-                                      "fontWeight": "400"
-                              }
-                      ],
-                      "body-md": [
-                              "16px",
-                              {
-                                      "lineHeight": "24px",
-                                      "fontWeight": "400"
-                              }
-                      ],
-                      "display": [
-                              "48px",
-                              {
-                                      "lineHeight": "56px",
-                                      "letterSpacing": "-0.02em",
-                                      "fontWeight": "700"
-                              }
-                      ],
-                      "headline-lg-mobile": [
-                              "24px",
-                              {
-                                      "lineHeight": "32px",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "label-code": [
-                              "13px",
-                              {
-                                      "lineHeight": "16px",
-                                      "fontWeight": "500"
-                              }
-                      ],
-                      "headline-lg": [
-                              "32px",
-                              {
-                                      "lineHeight": "40px",
-                                      "letterSpacing": "-0.01em",
-                                      "fontWeight": "600"
-                              }
-                      ],
-                      "headline-md": [
-                              "24px",
-                              {
-                                      "lineHeight": "32px",
-                                      "fontWeight": "600"
-                              }
-                      ]
-              }
-      },
-          },
-        }
-      </script>
-<style>
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .hero-gradient {
-            background: radial-gradient(circle at 100% 0%, #EFF6FF 0%, transparent 50%),
-                        radial-gradient(circle at 0% 100%, #EFF6FF 0%, transparent 50%);
-        }
-      </style>
+  <!-- Google Fonts: Inter for Clean Text & JetBrains Mono for Code Tags -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <!-- Google Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- Main External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col pt-16">
-<!-- TopNavBar Component -->
-<nav class="bg-surface dark:bg-inverse-surface fixed top-0 w-full z-50 border-b border-outline-variant dark:border-outline">
-<div class="flex justify-between items-center h-16 px-margin-desktop max-w-container-max mx-auto">
-<div class="flex items-center space-x-8">
-<a class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim" href="#">
-                    DevConnect
-                </a>
-<div class="hidden md:flex space-x-6">
-<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors scale-95 active:scale-90 transition-transform" href="#">Find Work</a>
-<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors scale-95 active:scale-90 transition-transform" href="#">Hire Talent</a>
-<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors scale-95 active:scale-90 transition-transform" href="#">Why Us</a>
-</div>
-</div>
-<div class="flex items-center space-x-4">
-<div class="hidden md:flex items-center bg-surface-container-low rounded-full px-3 py-1.5 border border-outline-variant">
-<span class="material-symbols-outlined text-on-surface-variant mr-2" style="font-size: 18px;">search</span>
-<input class="bg-transparent border-none focus:ring-0 text-body-sm w-32 focus:w-48 transition-all duration-300" placeholder="Search..." type="text"/>
-</div>
-<a class="text-primary font-body-md font-bold px-4 py-2 hover:bg-surface-container-low rounded-lg transition-colors scale-95 active:scale-90 transition-transform" href="#">Login</a>
-<a class="bg-primary text-on-primary font-body-md font-bold px-4 py-2 rounded-lg hover:bg-primary-container transition-colors shadow-sm scale-95 active:scale-90 transition-transform" href="#">Sign Up</a>
-</div>
-</div>
-</nav>
-<main class="flex-grow">
-<!-- Hero Section -->
-<section class="relative overflow-hidden bg-surface hero-gradient py-24 px-margin-desktop md:px-margin-desktop">
-<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
-<div class="md:col-span-7 space-y-stack-lg z-10">
-<h1 class="font-display text-display text-on-surface leading-tight">
-                        Hire Top-Tier Web Developers for Your Next Big Idea
-                    </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-                        Connect with expert freelancers in React, Node.js, Python, and more. Quality code, delivered on time. Built for precision and performance.
-                    </p>
-<div class="flex flex-col sm:flex-row gap-4 pt-4">
-<a class="bg-primary text-on-primary font-body-md font-bold px-8 py-3 rounded-lg text-center hover:bg-primary-container transition-colors shadow-md hover:shadow-lg" href="#">
-                            Hire Talent
-                        </a>
-<a class="bg-surface text-primary border border-primary font-body-md font-bold px-8 py-3 rounded-lg text-center hover:bg-primary-fixed transition-colors" href="#">
-                            Find Work
-                        </a>
-</div>
-<div class="pt-8 flex items-center gap-4 text-on-surface-variant font-body-sm">
-<div class="flex -space-x-2">
-<img class="w-8 h-8 rounded-full border-2 border-surface object-cover" data-alt="A macro shot of a sleek silver laptop keyboard with glowing blue backlights in a modern tech office setting, conveying precision and coding expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMK9M4Ttoea4W2BvnMwGsJLuOGhFNnYdaXp03x3gUB5l17Q9_rjFqHtTnQ3yJWcwnOZDzleF1Pl6y9pOnMuoCbwvzGvfPnZk9Ia2StZEkKcLjibWt--xwq04vgltZdcBrxpLX269rolBqbz3xy2M7A0e92zzkpBGboBzEbZC11RD2LpT3weKlh5ui9JPCxTe_S0J0ynJkt3JVzTLIdIyLSOq6L0DguJtitKy-iIzQ-qKn-WMi1Nv0X8A"/>
-<img class="w-8 h-8 rounded-full border-2 border-surface object-cover" data-alt="A close-up of a modern IDE screen showing colorful syntax highlighting for JavaScript on a dark theme, representing high-quality programming work." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuh95fwkuG7wwgL1idkSwt5I-cN5MINMzNSJbd2_5U7bpv3Tf_NtWCIbHd6gkn7_JzLcjyk71f9oXOix5I-tcHLNNfEF-NYfhrnDJrVAiCgYDePPGYWE2q52jQ_s-MJxKrLgQWqI-7EA3u5xaoKPX3u07JvdSVt7mv5IZCAA_q_y4t_F2-4wriwOJa_Na-_8FycgQkijJWB6qEMzjrHHKkZkoOgBTCZh0-HVsmUFHDM7I-iV3zzuXETQ"/>
-<img class="w-8 h-8 rounded-full border-2 border-surface object-cover" data-alt="A portrait of a focused software developer in a minimalist white and blue office, wearing headphones and looking at a screen, conveying professionalism and concentration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8rHqJ1gEuGHVepaXnMb9cjpX4OaxGajYnhiXpQsSmmGWDP6wardcxSGWqbVMUyhDpt3bEk0YppqvE4D_z5qXV1WC0JWAal3Rai02TpreKc3J2HnrksbNEMnQF_r34BJvYeFSwlVGwN-LcqHW6J5VOFZF05YxBdObINj3x54ps5jrBb9pICwNpxou_SbIKJyGFrAGwA3m-yzHUNNZSypbxPCRdiMv5OSj_HULil43CN03bvB19b8ciPg"/>
-</div>
-<span>Join 10,000+ businesses and developers</span>
-</div>
-</div>
-<div class="md:col-span-5 relative hidden md:block">
-<div class="relative w-full h-[500px] rounded-2xl overflow-hidden border border-outline-variant shadow-xl">
-<img class="w-full h-full object-cover" data-alt="A bright, modern, minimalist co-working space featuring a high-end dual-monitor setup displaying complex web architecture diagrams and code. The aesthetic is crisp with white and subtle blue tones, exuding professional tech credibility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHxjSsvWWz8xAPo23ME2yJ4XSHy-fAMXxduQqdkrSr9K1Yu1Bg7T999eUX8rWJonwRsIBO3OX7HKxATTaVACyM7M8qiBBdEP6jTS0EEH5JwA_Ux3_cRRLnc1GCu_2cOjlo9nmh6w8i9wX-BSVDmZQkdYvd8tnwHSi8dLOY3tB72M8mbWeyqPs5O2GmR7I2qdZxCweMSAoka1vzWl9-s39kyzxzp12Al8wgJcegLJ9SKa0nD-K2yTaVdA"/>
-<!-- Floating Glass Card -->
-<div class="absolute bottom-8 left-8 right-8 glass-card rounded-xl p-4 flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
-<span class="material-symbols-outlined" data-weight="fill">verified</span>
-</div>
-<div>
-<h4 class="font-headline-md text-body-md font-bold text-on-surface">Verified Expert</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Top 1% React Developer</p>
-</div>
-<div class="ml-auto text-right">
-<span class="font-label-code text-label-code bg-[#EFF6FF] text-[#1D4ED8] px-2 py-1 rounded">Available</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Trust Bar -->
-<section class="border-y border-outline-variant bg-surface-container-lowest py-8">
-<div class="max-w-container-max mx-auto px-margin-desktop text-center">
-<p class="font-label-caps text-label-caps text-on-surface-variant mb-6">TRUSTED BY INNOVATIVE TEAMS WORLDWIDE</p>
-<div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-<!-- Placeholder text for logos to keep it clean and literal per instructions -->
-<span class="font-display text-body-lg font-bold text-on-surface">TechCorp</span>
-<span class="font-display text-body-lg font-bold text-on-surface">InnovateIO</span>
-<span class="font-display text-body-lg font-bold text-on-surface">CloudScale</span>
-<span class="font-display text-body-lg font-bold text-on-surface">NextGen Web</span>
-<span class="font-display text-body-lg font-bold text-on-surface">DevStack</span>
-</div>
-</div>
-</section>
-<!-- Popular Skills / Categories (Bento Grid) -->
-<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface">
-<div class="text-center mb-16">
-<h2 class="font-headline-lg text-headline-lg md:text-display text-on-surface font-bold mb-4">Explore Popular Skills</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Find the exact technical expertise you need for your project architecture.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-<!-- Large Card: Front-end -->
-<div class="md:col-span-8 bg-surface-container-lowest rounded-xl border border-outline-variant p-6 hover:shadow-[0px_4px_12px_rgba(15,23,42,0.08)] transition-shadow duration-300 group cursor-pointer">
-<div class="flex justify-between items-start mb-12">
-<div class="w-12 h-12 rounded-lg bg-[#EFF6FF] text-primary flex items-center justify-center">
-<span class="material-symbols-outlined" style="font-size: 24px;">web</span>
-</div>
-<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_outward</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Front-end Development</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">Craft pixel-perfect, responsive user interfaces.</p>
-<div class="flex gap-2 flex-wrap">
-<span class="font-label-code text-label-code bg-[#EFF6FF] text-[#1D4ED8] px-3 py-1 rounded">React</span>
-<span class="font-label-code text-label-code bg-[#EFF6FF] text-[#1D4ED8] px-3 py-1 rounded">Vue.js</span>
-<span class="font-label-code text-label-code bg-[#EFF6FF] text-[#1D4ED8] px-3 py-1 rounded">Next.js</span>
-<span class="font-label-code text-label-code bg-[#EFF6FF] text-[#1D4ED8] px-3 py-1 rounded">TailwindCSS</span>
-</div>
-</div>
-<!-- Medium Card: UI/UX -->
-<div class="md:col-span-4 bg-surface-container-lowest rounded-xl border border-outline-variant p-6 hover:shadow-[0px_4px_12px_rgba(15,23,42,0.08)] transition-shadow duration-300 group cursor-pointer">
-<div class="flex justify-between items-start mb-12">
-<div class="w-12 h-12 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
-<span class="material-symbols-outlined" style="font-size: 24px;">design_services</span>
-</div>
-<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_outward</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-2">UI/UX Design</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">Design systems and user flows.</p>
-<div class="flex gap-2 flex-wrap">
-<span class="font-label-code text-label-code bg-surface-container text-on-surface px-3 py-1 rounded">Figma</span>
-<span class="font-label-code text-label-code bg-surface-container text-on-surface px-3 py-1 rounded">Prototyping</span>
-</div>
-</div>
-<!-- Medium Card: Back-end -->
-<div class="md:col-span-5 bg-surface-container-lowest rounded-xl border border-outline-variant p-6 hover:shadow-[0px_4px_12px_rgba(15,23,42,0.08)] transition-shadow duration-300 group cursor-pointer">
-<div class="flex justify-between items-start mb-12">
-<div class="w-12 h-12 rounded-lg bg-[#EFF6FF] text-primary flex items-center justify-center">
-<span class="material-symbols-outlined" style="font-size: 24px;">dns</span>
-</div>
-<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_outward</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Back-end Development</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">Robust APIs and database architecture.</p>
-<div class="flex gap-2 flex-wrap">
-<span class="font-label-code text-label-code bg-[#EFF6FF] text-[#1D4ED8] px-3 py-1 rounded">Node.js</span>
-<span class="font-label-code text-label-code bg-[#EFF6FF] text-[#1D4ED8] px-3 py-1 rounded">Python</span>
-<span class="font-label-code text-label-code bg-[#EFF6FF] text-[#1D4ED8] px-3 py-1 rounded">PostgreSQL</span>
-</div>
-</div>
-<!-- Large Card: Full-stack -->
-<div class="md:col-span-7 bg-surface-container-lowest rounded-xl border border-outline-variant p-6 hover:shadow-[0px_4px_12px_rgba(15,23,42,0.08)] transition-shadow duration-300 group cursor-pointer relative overflow-hidden">
-<div class="relative z-10">
-<div class="flex justify-between items-start mb-12">
-<div class="w-12 h-12 rounded-lg bg-[#EFF6FF] text-primary flex items-center justify-center">
-<span class="material-symbols-outlined" style="font-size: 24px;">layers</span>
-</div>
-<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_outward</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Full-stack Engineering</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">End-to-end solutions from database to DOM.</p>
-<div class="flex gap-2 flex-wrap">
-<span class="font-label-code text-label-code bg-[#EFF6FF] text-[#1D4ED8] px-3 py-1 rounded">MERN</span>
-<span class="font-label-code text-label-code bg-[#EFF6FF] text-[#1D4ED8] px-3 py-1 rounded">JAMstack</span>
-<span class="font-label-code text-label-code bg-[#EFF6FF] text-[#1D4ED8] px-3 py-1 rounded">Serverless</span>
-</div>
-</div>
-<!-- Subtle background pattern for fullstack -->
-<div class="absolute -bottom-10 -right-10 w-48 h-48 bg-primary-fixed opacity-20 rounded-full blur-2xl"></div>
-</div>
-</div>
-</section>
-<!-- How It Works Section -->
-<section class="py-24 bg-surface-container-lowest border-y border-outline-variant">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-16">
-<h2 class="font-headline-lg text-headline-lg md:text-display text-on-surface font-bold mb-4">How DevConnect Works</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">A streamlined workflow designed for technical precision and speed.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-<!-- Connector Line (Desktop) -->
-<div class="hidden md:block absolute top-8 left-[15%] right-[15%] h-[2px] bg-outline-variant z-0"></div>
-<!-- Step 1 -->
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="w-16 h-16 rounded-full bg-surface border-2 border-primary flex items-center justify-center mb-6 shadow-sm">
-<span class="material-symbols-outlined text-primary" style="font-size: 28px;">edit_document</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-3">1. Post a Job</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Detail your project requirements, tech stack, and timeline. Our AI matches you instantly.</p>
-</div>
-<!-- Step 2 -->
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="w-16 h-16 rounded-full bg-surface border-2 border-primary flex items-center justify-center mb-6 shadow-sm">
-<span class="material-symbols-outlined text-primary" style="font-size: 28px;">group_add</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-3">2. Review Proposals</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Evaluate vetted developers based on their code portfolios, github stats, and ratings.</p>
-</div>
-<!-- Step 3 -->
-<div class="relative z-10 flex flex-col items-center text-center">
-<div class="w-16 h-16 rounded-full bg-primary text-on-primary border-2 border-primary flex items-center justify-center mb-6 shadow-sm">
-<span class="material-symbols-outlined" data-weight="fill" style="font-size: 28px;">task_alt</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface mb-3">3. Hire &amp; Pay</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Collaborate via our secure workspace. Payments are held in escrow until milestones are met.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="py-24 px-margin-mobile md:px-margin-desktop">
-<div class="max-w-4xl mx-auto bg-primary rounded-2xl p-12 text-center text-on-primary shadow-lg relative overflow-hidden">
-<!-- Abstract tech pattern background -->
-<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
-<div class="relative z-10">
-<h2 class="font-display text-display font-bold mb-6">Ready to build something amazing?</h2>
-<p class="font-body-lg text-body-lg text-primary-fixed mb-8 max-w-xl mx-auto">
-                        Join thousands of companies accelerating their roadmap with top-tier freelance engineering talent.
-                    </p>
-<a class="inline-block bg-surface-container-lowest text-primary font-body-lg font-bold px-10 py-4 rounded-lg hover:bg-surface transition-colors shadow-md hover:shadow-lg" href="#">
-                        Start Now
-                    </a>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer Component -->
-<footer class="bg-surface-container-highest dark:bg-surface-dim w-full">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-stack-lg max-w-container-max mx-auto">
-<!-- Brand Column -->
-<div class="flex flex-col space-y-4">
-<span class="text-headline-md font-headline-md font-bold text-on-surface dark:text-on-surface-variant">DevConnect</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">
-                    © 2024 DevConnect Inc. All rights reserved.
-                </p>
-</div>
-<!-- Links Columns -->
-<div class="flex flex-col space-y-3">
-<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:underline transition-all opacity-80 hover:opacity-100" href="#">Browse Developers</a>
-<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:underline transition-all opacity-80 hover:opacity-100" href="#">Find Projects</a>
-</div>
-<div class="flex flex-col space-y-3">
-<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:underline transition-all opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
-<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:underline transition-all opacity-80 hover:opacity-100" href="#">Terms of Service</a>
-</div>
-<div class="flex flex-col space-y-3">
-<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant hover:underline transition-all opacity-80 hover:opacity-100" href="#">Help Center</a>
-</div>
-</div>
-</footer>
-</body></html>
+<body>
+
+  <!-- ==========================================
+       1. Navigation Bar
+       ========================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="logo">SKILLX</a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="find-work.html">Find Work</a></li>
+        <li><a href="index.html" class="active">Hire Talent</a></li>
+        <li><a href="find-work.html">Projects</a></li>
+      </ul>
+
+      <!-- Right Search & Auth Buttons -->
+      <div class="nav-actions">
+        <div class="search-box">
+          <span class="material-symbols-outlined" style="font-size: 18px; color: var(--text-muted);">search</span>
+          <input type="text" placeholder="Search skills..." />
+        </div>
+        <a href="login.html" class="btn btn-ghost">Login</a>
+        <a href="login.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- ==========================================
+         2. Hero Section
+         ========================================== -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <!-- Hero Left Column: Headline & Action Buttons -->
+        <div class="hero-text">
+          <h1>Hire Top-Tier Web Developers for Your Next Big Idea</h1>
+          <p>
+            Connect with expert freelancers in React, Node.js, Python, and more. 
+            Quality code, delivered on time. Built for precision and performance.
+          </p>
+          
+          <div class="hero-buttons">
+            <a href="#popular-skills" class="btn btn-primary btn-lg">Hire Talent</a>
+            <a href="find-work.html" class="btn btn-outline btn-lg">Find Work</a>
+          </div>
+
+          <!-- Social Proof / Member Avatars -->
+          <div class="social-proof">
+            <div class="avatar-stack">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMK9M4Ttoea4W2BvnMwGsJLuOGhFNnYdaXp03x3gUB5l17Q9_rjFqHtTnQ3yJWcwnOZDzleF1Pl6y9pOnMuoCbwvzGvfPnZk9Ia2StZEkKcLjibWt--xwq04vgltZdcBrxpLX269rolBqbz3xy2M7A0e92zzkpBGboBzEbZC11RD2LpT3weKlh5ui9JPCxTe_S0J0ynJkt3JVzTLIdIyLSOq6L0DguJtitKy-iIzQ-qKn-WMi1Nv0X8A" alt="Developer 1" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuh95fwkuG7wwgL1idkSwt5I-cN5MINMzNSJbd2_5U7bpv3Tf_NtWCIbHd6gkn7_JzLcjyk71f9oXOix5I-tcHLNNfEF-NYfhrnDJrVAiCgYDePPGYWE2q52jQ_s-MJxKrLgQWqI-7EA3u5xaoKPX3u07JvdSVt7mv5IZCAA_q_y4t_F2-4wriwOJa_Na-_8FycgQkijJWB6qEMzjrHHKkZkoOgBTCZh0-HVsmUFHDM7I-iV3zzuXETQ" alt="Developer 2" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8rHqJ1gEuGHVepaXnMb9cjpX4OaxGajYnhiXpQsSmmGWDP6wardcxSGWqbVMUyhDpt3bEk0YppqvE4D_z5qXV1WC0JWAal3Rai02TpreKc3J2HnrksbNEMnQF_r34BJvYeFSwlVGwN-LcqHW6J5VOFZF05YxBdObINj3x54ps5jrBb9pICwNpxou_SbIKJyGFrAGwA3m-yzHUNNZSypbxPCRdiMv5OSj_HULil43CN03bvB19b8ciPg" alt="Developer 3" />
+            </div>
+            <span>Join 10,000+ businesses and developers on SKILLX</span>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Visual Image with Floating Card -->
+        <div class="hero-image-wrapper">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHxjSsvWWz8xAPo23ME2yJ4XSHy-fAMXxduQqdkrSr9K1Yu1Bg7T999eUX8rWJonwRsIBO3OX7HKxATTaVACyM7M8qiBBdEP6jTS0EEH5JwA_Ux3_cRRLnc1GCu_2cOjlo9nmh6w8i9wX-BSVDmZQkdYvd8tnwHSi8dLOY3tB72M8mbWeyqPs5O2GmR7I2qdZxCweMSAoka1vzWl9-s39kyzxzp12Al8wgJcegLJ9SKa0nD-K2yTaVdA" alt="Developer Workspace" />
+          
+          <!-- Floating Badge -->
+          <div class="glass-badge">
+            <div class="badge-icon">
+              <span class="material-symbols-outlined">verified</span>
+            </div>
+            <div class="badge-info">
+              <h4>Verified Expert</h4>
+              <p>Top 1% React Developer</p>
+            </div>
+            <span class="badge-status">Available</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3. Trust Bar
+         ========================================== -->
+    <section class="trust-bar">
+      <div class="container">
+        <p class="trust-title">Trusted by innovative teams worldwide</p>
+        <div class="logos-wrapper">
+          <span>TechCorp</span>
+          <span>InnovateIO</span>
+          <span>CloudScale</span>
+          <span>NextGen Web</span>
+          <span>DevStack</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. Popular Skills (Bento Card Grid)
+         ========================================== -->
+    <section class="skills-section" id="popular-skills">
+      <div class="container">
+        <div class="section-header">
+          <h2>Explore Popular Skills</h2>
+          <p>Find the exact technical expertise you need for your project architecture.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Card 1: Front-end (Wide) -->
+          <div class="skill-card card-wide">
+            <div class="card-top">
+              <div class="card-icon">
+                <span class="material-symbols-outlined">web</span>
+              </div>
+            </div>
+            <h3>Front-end Development</h3>
+            <p>Craft pixel-perfect, highly responsive and intuitive user interfaces.</p>
+            <div class="tags">
+              <span class="tag">React</span>
+              <span class="tag">Vue.js</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">TailwindCSS</span>
+            </div>
+          </div>
+
+          <!-- Card 2: UI/UX Design (Narrow) -->
+          <div class="skill-card card-narrow">
+            <div class="card-top">
+              <div class="card-icon alt-color">
+                <span class="material-symbols-outlined">design_services</span>
+              </div>
+            </div>
+            <h3>UI/UX Design</h3>
+            <p>Design modern design systems, wireframes, and interactive user flows.</p>
+            <div class="tags">
+              <span class="tag tag-secondary">Figma</span>
+              <span class="tag tag-secondary">Prototyping</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Back-end Development (Narrow) -->
+          <div class="skill-card card-narrow">
+            <div class="card-top">
+              <div class="card-icon">
+                <span class="material-symbols-outlined">dns</span>
+              </div>
+            </div>
+            <h3>Back-end Development</h3>
+            <p>Build robust APIs, cloud microservices, and database architectures.</p>
+            <div class="tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Python</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Full-stack Engineering (Wide) -->
+          <div class="skill-card card-wide">
+            <div class="card-top">
+              <div class="card-icon">
+                <span class="material-symbols-outlined">layers</span>
+              </div>
+            </div>
+            <h3>Full-stack Engineering</h3>
+            <p>End-to-end full lifecycle solutions from database design to frontend DOM rendering.</p>
+            <div class="tags">
+              <span class="tag">MERN</span>
+              <span class="tag">JAMstack</span>
+              <span class="tag">Serverless</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. How It Works Section
+         ========================================== -->
+    <section class="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2>How SKILLX Works</h2>
+          <p>A streamlined workflow designed for technical precision, quality, and speed.</p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-number">
+              <span class="material-symbols-outlined">edit_document</span>
+            </div>
+            <h3>1. Post a Job</h3>
+            <p>Detail your project requirements, tech stack, and timeline. Our system matches you instantly.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-number">
+              <span class="material-symbols-outlined">group_add</span>
+            </div>
+            <h3>2. Review Proposals</h3>
+            <p>Evaluate vetted developers based on their verified code portfolios, GitHub stats, and client ratings.</p>
+          </div>
+
+          <!-- Step 3 (Featured) -->
+          <div class="step-card featured">
+            <div class="step-number">
+              <span class="material-symbols-outlined">task_alt</span>
+            </div>
+            <h3>3. Hire & Pay</h3>
+            <p>Collaborate via our secure workspace. Payments are held safely in escrow until milestones are met.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         6. Call to Action (CTA) Section
+         ========================================== -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Ready to build something amazing?</h2>
+          <p>Join thousands of companies accelerating their roadmap with top-tier freelance engineering talent.</p>
+          <a href="login.html" class="btn btn-white btn-lg">Start Now</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       7. Footer
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <h3>SKILLX</h3>
+          <p>© 2026 SKILLX Inc. All rights reserved. Connecting top talent with great projects.</p>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="find-work.html">Browse Developers</a></li>
+            <li><a href="find-work.html">Find Projects</a></li>
+            <li><a href="#popular-skills">Skill Categories</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Legal -->
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Support -->
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Built with clean HTML &amp; CSS for SKILLX</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
