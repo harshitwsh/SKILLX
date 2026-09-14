@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillX - Add Your Portfolio & Links (Step 2)</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- Main External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       1. Top Header with Step Tracker
+       ========================================== -->
+  <header class="profile-flow-header">
+    <div class="container profile-flow-nav">
+      <a href="index.html" class="logo" style="color: var(--primary-blue); font-weight: 800;">SkillX</a>
+      <div class="flow-step-tracker">
+        <span>Step 2 of 3: Portfolio & Links</span>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 66%;"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       Main Form Container
+       ========================================== -->
+  <main class="container profile-flow-wrapper">
+    <div class="profile-card">
+
+      <!-- Header Section -->
+      <div class="profile-card-header">
+        <h1>Add Your Portfolio & Links</h1>
+        <p>Showcase your best work and link your online profiles to stand out to clients. Providing concrete proof of your skills significantly increases your hireability.</p>
+      </div>
+
+      <form action="profile-creation-step-3.html" method="GET">
+        
+        <!-- ==========================================
+             Section 1: Featured Project
+             ========================================== -->
+        <div class="form-section-header">
+          <h3>Featured Project</h3>
+        </div>
+
+        <!-- Project Name -->
+        <div class="form-field-group">
+          <label for="projectName">Project Name <span style="color: #ef4444;">*</span></label>
+          <div class="input-with-icon">
+            <span class="material-symbols-outlined input-icon-left">inventory_2</span>
+            <input type="text" id="projectName" class="input-control" placeholder="e.g. Decentralized E-Commerce Platform" value="Decentralized E-Commerce Platform" required />
+          </div>
+        </div>
+
+        <!-- Project Description -->
+        <div class="form-field-group">
+          <label for="projectDesc">Project Description <span style="color: #ef4444;">*</span></label>
+          <textarea id="projectDesc" class="input-control no-icon" placeholder="Describe the problem you solved, your specific technical contributions, and the architecture choices you made (e.g. microservices, state management choice)..." required>Architected a high-throughput campus marketplace handling instant peer payments with automated escrow, reducing checkout dropoffs by 35%.</textarea>
+        </div>
+
+        <!-- Technologies Used -->
+        <div class="form-field-group">
+          <label>Technologies Used</label>
+          <div class="skill-tags-clickable" style="margin-top: 6px;">
+            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">React</button>
+            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">TypeScript</button>
+            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">Node.js</button>
+            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Next.js</button>
+            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Tailwind CSS</button>
+            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">PostgreSQL</button>
+          </div>
+        </div>
+
+        <!-- Project / Demo URL -->
+        <div class="form-field-group">
+          <label for="demoUrl">Project / Demo URL</label>
+          <div class="input-with-icon">
+            <span class="material-symbols-outlined input-icon-left">link</span>
+            <input type="url" id="demoUrl" class="input-control" placeholder="e.g. https://myprojectdemo.com" value="https://myprojectdemo.com" />
+          </div>
+        </div>
+
+        <button type="button" class="btn-add-item" onclick="alert('Additional project slot added!')">
+          <span class="material-symbols-outlined" style="font-size: 16px;">add</span>
+          Add Another Project
+        </button>
+
+        <!-- ==========================================
+             Section 2: Social & Professional Links
+             ========================================== -->
+        <div class="form-section-header" style="margin-top: 32px;">
+          <h3>Social & Professional Links</h3>
+        </div>
+
+        <!-- GitHub Profile -->
+        <div class="form-field-group">
+          <label for="githubUrl">GitHub Profile</label>
+          <div class="input-with-icon">
+            <span class="material-symbols-outlined input-icon-left">code</span>
+            <input type="url" id="githubUrl" class="input-control" placeholder="e.g. https://github.com/yourusername" value="https://github.com/sarahjenkins-dev" />
+          </div>
+        </div>
+
+        <!-- LinkedIn Profile -->
+        <div class="form-field-group">
+          <label for="linkedinUrl">LinkedIn Profile</label>
+          <div class="input-with-icon">
+            <span class="material-symbols-outlined input-icon-left">badge</span>
+            <input type="url" id="linkedinUrl" class="input-control" placeholder="e.g. https://linkedin.com/in/yourusername" value="https://linkedin.com/in/sarahjenkins" />
+          </div>
+        </div>
+
+        <!-- Personal Website -->
+        <div class="form-field-group">
+          <label for="portfolioUrl">Personal Website</label>
+          <div class="input-with-icon">
+            <span class="material-symbols-outlined input-icon-left">language</span>
+            <input type="url" id="portfolioUrl" class="input-control" placeholder="e.g. https://yourportfolio.dev" value="https://sarahjenkins.dev" />
+          </div>
+        </div>
+
+        <!-- Twitter / X Profile -->
+        <div class="form-field-group">
+          <label for="twitterUrl">Twitter / X Profile</label>
+          <div class="input-with-icon">
+            <span class="material-symbols-outlined input-icon-left">alternate_email</span>
+            <input type="url" id="twitterUrl" class="input-control" placeholder="e.g. https://x.com/yourusername" value="https://x.com/sarahj_codes" />
+          </div>
+        </div>
+
+        <!-- ==========================================
+             Section 3: Resume / CV
+             ========================================== -->
+        <div class="form-section-header" style="margin-top: 32px;">
+          <h3>Resume / CV</h3>
+        </div>
+
+        <div class="resume-dropzone" onclick="document.getElementById('resumeFile').click()">
+          <span class="material-symbols-outlined dropzone-icon">description</span>
+          <div class="dropzone-main-text" id="dropzoneText">Click to upload <span style="font-weight: 500; color: var(--text-body);">or drag and drop</span></div>
+          <div class="dropzone-sub-text">PDF, DOCX, or RTF (Max size 5MB)</div>
+          <input type="file" id="resumeFile" accept=".pdf,.docx,.rtf" style="display: none;" onchange="handleResumeUpload(event)" />
+        </div>
+
+        <!-- Action Row -->
+        <div class="profile-actions-bar">
+          <a href="profile-creation.html" class="link-back">
+            &larr; Back
+          </a>
+          <button type="submit" class="btn-continue-step">
+            Continue Setup &rarr;
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- Interactive Script for Step 2 -->
+  <script>
+    function toggleTag(btn) {
+      btn.classList.toggle('selected');
+    }
+
+    function handleResumeUpload(e) {
+      const file = e.target.files[0];
+      if (file) {
+        document.getElementById('dropzoneText').innerHTML = `<span style="color: var(--brand-green); font-weight: bold;">✓ ${file.name}</span> selected`;
+      }
+    }
+  </script>
+
+</body>
+</html>
