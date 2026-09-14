@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillX - Set Your Availability & Preferences (Step 3)</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- Main External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       1. Top Header with Step Tracker
+       ========================================== -->
+  <header class="profile-flow-header">
+    <div class="container profile-flow-nav">
+      <a href="index.html" class="logo" style="color: var(--primary-blue); font-weight: 800;">SkillX</a>
+      <div class="flow-step-tracker">
+        <span>Step 3 of 3: Availability & Preferences</span>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 100%;"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       Main Form Container
+       ========================================== -->
+  <main class="container profile-flow-wrapper">
+    <div class="profile-card">
+
+      <!-- Header Section -->
+      <div class="profile-card-header">
+        <h1>Set Your Availability & Preferences</h1>
+        <p>Let clients know how you prefer to work, your target rates, and how best to get in touch. You can adjust these settings at any time from your dashboard.</p>
+      </div>
+
+      <form action="find-work.html" method="GET" onsubmit="alert('🎉 Profile setup complete! Your developer profile is now live on SkillX.');">
+        
+        <!-- ==========================================
+             Section 1: Availability Status
+             ========================================== -->
+        <div class="form-field-group">
+          <label style="font-size: 0.95rem;">Availability Status</label>
+          <div class="avail-status-grid">
+            
+            <!-- Option 1: Available -->
+            <div class="avail-status-card selected" onclick="selectStatus(this)">
+              <div class="avail-card-header">
+                <h4>Available</h4>
+                <span class="material-symbols-outlined status-radio-icon" style="color: var(--primary-blue); font-size: 18px;">check_circle</span>
+              </div>
+              <p>Actively seeking new opportunities and ready to start immediately.</p>
+              <span class="status-badge-pill ready">READY TO WORK</span>
+            </div>
+
+            <!-- Option 2: Open to Offers -->
+            <div class="avail-status-card" onclick="selectStatus(this)">
+              <div class="avail-card-header">
+                <h4>Open to Offers</h4>
+                <span class="material-symbols-outlined status-radio-icon" style="color: #cbd5e1; font-size: 18px;">radio_button_unchecked</span>
+              </div>
+              <p>Happy at my current role, but open to hearing about interesting projects.</p>
+              <span class="status-badge-pill passive">PASSIVE</span>
+            </div>
+
+            <!-- Option 3: Busy -->
+            <div class="avail-status-card" onclick="selectStatus(this)">
+              <div class="avail-card-header">
+                <h4>Busy</h4>
+                <span class="material-symbols-outlined status-radio-icon" style="color: #cbd5e1; font-size: 18px;">radio_button_unchecked</span>
+              </div>
+              <p>Currently fully booked and not accepting client requests.</p>
+              <span class="status-badge-pill unavailable">UNAVAILABLE</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ==========================================
+             Section 2: Work Preferences
+             ========================================== -->
+        <div class="form-field-group" style="margin-top: 28px;">
+          <label style="font-size: 0.95rem; margin-bottom: 2px;">Work Preferences</label>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Select all employment models and work environments that match your goals.</p>
+          <div class="skill-tags-clickable">
+            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">Full-time</button>
+            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Part-time</button>
+            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">Contract</button>
+            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Freelance</button>
+            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">Hybrid</button>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             Section 3: Hourly Rate Range
+             ========================================== -->
+        <div class="form-field-group" style="margin-top: 28px;">
+          <label style="font-size: 0.95rem; margin-bottom: 2px;">Hourly Rate Range</label>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Set your target hourly rate window in USD. This helps clients filter candidates within budget.</p>
+          
+          <div class="min-max-rates-row">
+            <div>
+              <label for="minRate" style="font-size: 0.8rem; color: var(--text-main);">Minimum Rate</label>
+              <div class="input-with-icon">
+                <span class="material-symbols-outlined input-icon-left">attach_money</span>
+                <input type="number" id="minRate" class="input-control" value="50" placeholder="50" required />
+              </div>
+            </div>
+            <div>
+              <label for="maxRate" style="font-size: 0.8rem; color: var(--text-main);">Maximum Rate</label>
+              <div class="input-with-icon">
+                <span class="material-symbols-outlined input-icon-left">attach_money</span>
+                <input type="number" id="maxRate" class="input-control" value="100" placeholder="100" required />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             Section 4: Preferred Project Types
+             ========================================== -->
+        <div class="form-field-group" style="margin-top: 28px;">
+          <label style="font-size: 0.95rem; margin-bottom: 2px;">Preferred Project Types</label>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Highlight the types of architectures and challenges you prefer working on.</p>
+          <div class="skill-tags-clickable">
+            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">Web Apps</button>
+            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Mobile Apps</button>
+            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">APIs</button>
+            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">DevOps</button>
+            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">AI/ML</button>
+            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">E-commerce</button>
+            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Open Source</button>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             Section 5: Communication & Schedule
+             ========================================== -->
+        <div class="form-field-group" style="margin-top: 28px;">
+          <label style="font-size: 0.95rem; margin-bottom: 2px;">Communication & Schedule</label>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">Configure your time zone and the communication channels you prefer for client syncs.</p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 20px;">
+            <!-- Left: Channels -->
+            <div>
+              <label style="font-size: 0.82rem; font-weight: 700; color: var(--text-main);">Preferred Contact Channels</label>
+              <div class="contact-channels-checkboxes">
+                <label class="checkbox-item">
+                  <input type="checkbox" checked />
+                  <span>Email updates & pitches</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" checked />
+                  <span>Slack workspace invite</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" />
+                  <span>Discord channel link</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" checked />
+                  <span>Live Video Calls</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Right: Timezone -->
+            <div>
+              <label for="primaryTimezone" style="font-size: 0.82rem; font-weight: 700; color: var(--text-main);">Primary Timezone</label>
+              <div class="input-with-icon" style="margin-top: 8px;">
+                <span class="material-symbols-outlined input-icon-left">language</span>
+                <select id="primaryTimezone" class="input-control" style="background: var(--bg-input);">
+                  <option value="IST" selected>(UTC+05:30) Mumbai, New Delhi</option>
+                  <option value="PST">(UTC-08:00) Pacific Time (US & Canada)</option>
+                  <option value="EST">(UTC-05:00) Eastern Time (US & Canada)</option>
+                  <option value="GMT">(UTC+00:00) London, Edinburgh</option>
+                  <option value="CET">(UTC+01:00) Berlin, Paris, Madrid</option>
+                  <option value="SGT">(UTC+08:00) Singapore, Perth</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Row -->
+        <div class="profile-actions-bar">
+          <a href="profile-creation-step-2.html" class="link-back">
+            &larr; Back
+          </a>
+          <button type="submit" class="btn-continue-step">
+            Complete Profile &rarr;
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- Interactive Script for Step 3 -->
+  <script>
+    function selectStatus(card) {
+      document.querySelectorAll('.avail-status-card').forEach(c => {
+        c.classList.remove('selected');
+        const icon = c.querySelector('.status-radio-icon');
+        icon.textContent = 'radio_button_unchecked';
+        icon.style.color = '#cbd5e1';
+      });
+      card.classList.add('selected');
+      const activeIcon = card.querySelector('.status-radio-icon');
+      activeIcon.textContent = 'check_circle';
+      activeIcon.style.color = 'var(--primary-blue)';
+    }
+
+    function toggleTag(btn) {
+      btn.classList.toggle('selected');
+    }
+  </script>
+
+</body>
+</html>
