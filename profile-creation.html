@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillX - Create Your Professional Profile (Step 1)</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- Main External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       1. Top Header with Step Tracker
+       ========================================== -->
+  <header class="profile-flow-header">
+    <div class="container profile-flow-nav">
+      <a href="index.html" class="logo" style="color: var(--primary-blue); font-weight: 800;">SkillX</a>
+      <div class="flow-step-tracker">
+        <span>Step 1 of 3: Professional Info</span>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 33%;"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       Main Form Container
+       ========================================== -->
+  <main class="container profile-flow-wrapper">
+    <div class="profile-card">
+
+      <!-- Header Section -->
+      <div class="profile-card-header">
+        <h1>Create Your Professional Profile</h1>
+        <p>"Set up your profile on DevConnect. Clients will see this when they look for expert talent to hire."</p>
+      </div>
+
+      <form action="profile-creation-step-2.html" method="GET">
+        
+        <!-- Profile Photo Upload -->
+        <div class="form-field-group">
+          <label>Profile Photo</label>
+          <div class="profile-photo-row">
+            <div class="avatar-upload-circle" id="avatarPreview">
+              <span class="material-symbols-outlined">photo_camera</span>
+            </div>
+            <div class="avatar-upload-info">
+              <div class="avatar-btns-line">
+                <button type="button" class="btn-upload-pic" onclick="document.getElementById('photoInput').click()">Upload Image</button>
+                <button type="button" class="btn-delete-pic" onclick="resetAvatar()">Delete</button>
+                <input type="file" id="photoInput" accept="image/*" style="display: none;" onchange="handleImageUpload(event)" />
+              </div>
+              <p class="avatar-help-text">JPG, GIF or PNG. Max size of 800K. Standard square portrait recommended.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Name -->
+        <div class="form-field-group">
+          <label for="fullName">Full Name</label>
+          <div class="input-with-icon">
+            <span class="material-symbols-outlined input-icon-left">person</span>
+            <input type="text" id="fullName" class="input-control" placeholder="e.g. Sarah Jenkins" value="Sarah Jenkins" required />
+          </div>
+        </div>
+
+        <!-- Professional Title / Headline -->
+        <div class="form-field-group">
+          <label for="titleHeadline">Professional Title / Headline</label>
+          <div class="input-with-icon">
+            <span class="material-symbols-outlined input-icon-left">work</span>
+            <input type="text" id="titleHeadline" class="input-control" placeholder="e.g. Senior Full-Stack React Developer & Architect" value="Senior Full-Stack React Developer & Architect" required />
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="form-field-group">
+          <label for="locationInput">Location</label>
+          <div class="input-with-icon">
+            <span class="material-symbols-outlined input-icon-left">location_on</span>
+            <input type="text" id="locationInput" class="input-control" placeholder="e.g. San Francisco, CA (GMT-8)" value="San Francisco, CA (GMT-8)" />
+          </div>
+        </div>
+
+        <!-- Bio / About Me -->
+        <div class="form-field-group">
+          <label for="bioInput">Bio / About Me</label>
+          <textarea id="bioInput" class="input-control no-icon" placeholder="Describe your core expertise, key technical accomplishments, and the types of architecture challenges you enjoy solving...">Full-stack engineer with 4+ years of campus leadership and freelance experience. Specializing in high-concurrency Node.js architectures, React web applications, and intuitive UI/UX design systems.</textarea>
+          <span class="field-hint-right">Minimum 150 characters</span>
+        </div>
+
+        <!-- Experience Level Segmented Control -->
+        <div class="form-field-group">
+          <label>Experience Level</label>
+          <div class="experience-tabs-wrapper">
+            <button type="button" class="exp-tab-btn" onclick="selectExp(this)">Junior</button>
+            <button type="button" class="exp-tab-btn" onclick="selectExp(this)">Mid-level</button>
+            <button type="button" class="exp-tab-btn active" onclick="selectExp(this)">Senior</button>
+          </div>
+        </div>
+
+        <!-- Key Technical Skills Selector -->
+        <div class="skills-selection-container">
+          <div class="skills-selection-title">Select Your Key Technical Skills</div>
+          <div class="skills-selection-subtitle">We've organized skills like the DevConnect directory. Click to toggle your expertise tags.</div>
+
+          <div class="skills-boxes-grid">
+            <!-- Box 1: Front-end -->
+            <div class="skill-category-box active-category">
+              <h4>Front-end Development</h4>
+              <div class="skill-tags-clickable">
+                <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">React</button>
+                <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">TypeScript</button>
+                <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Next.js</button>
+                <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Tailwind</button>
+              </div>
+            </div>
+
+            <!-- Box 2: Back-end -->
+            <div class="skill-category-box neutral-title">
+              <h4>Back-end Development</h4>
+              <div class="skill-tags-clickable">
+                <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">Node.js</button>
+                <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Python</button>
+                <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">GraphQL</button>
+                <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">PostgreSQL</button>
+              </div>
+            </div>
+
+            <!-- Box 3: UI/UX Design -->
+            <div class="skill-category-box neutral-title">
+              <h4>UI/UX Design</h4>
+              <div class="skill-tags-clickable">
+                <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">Figma</button>
+                <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">User Flows</button>
+                <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Design Systems</button>
+                <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Prototyping</button>
+              </div>
+            </div>
+
+            <!-- Box 4: Systems & Deployment -->
+            <div class="skill-category-box neutral-title">
+              <h4>Systems & Deployment</h4>
+              <div class="skill-tags-clickable">
+                <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">AWS</button>
+                <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Docker</button>
+                <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">CI/CD</button>
+                <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Serverless</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Row -->
+        <div class="profile-actions-bar">
+          <a href="find-work.html" class="link-skip">Skip for now</a>
+          <button type="submit" class="btn-continue-step">
+            Continue Setup &rarr;
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- Interactive Script for Step 1 -->
+  <script>
+    function selectExp(btn) {
+      document.querySelectorAll('.exp-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function toggleTag(btn) {
+      btn.classList.toggle('selected');
+    }
+
+    function handleImageUpload(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          const preview = document.getElementById('avatarPreview');
+          preview.innerHTML = `<img src="${evt.target.result}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />`;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function resetAvatar() {
+      document.getElementById('photoInput').value = '';
+      document.getElementById('avatarPreview').innerHTML = `<span class="material-symbols-outlined">photo_camera</span>`;
+    }
+  </script>
+
+</body>
+</html>
