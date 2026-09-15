@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillX - Built by Engineers, for Engineering Excellence (Why Us)</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- Main External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       1. Navigation Bar
+       ========================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <div class="logo-area">
+        <a href="index.html" class="logo">SKILLX</a>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="find-work.html">Find Work</a></li>
+        <li><a href="index.html">Hire Talent</a></li>
+        <li><a href="why-us.html" class="active">Why Us</a></li>
+      </ul>
+
+      <!-- Right Search & Auth Buttons -->
+      <div class="nav-actions">
+        <div class="nav-search">
+          <span class="material-symbols-outlined" style="font-size: 18px; color: var(--text-muted);">search</span>
+          <input type="text" placeholder="Search..." />
+        </div>
+        <a href="login.html" class="btn btn-ghost">Login</a>
+        <a href="login.html?tab=signup" class="btn btn-royal">Sign Up</a>
+        <div style="width: 32px; height: 32px; border-radius: 50%; background: #e2e8f0; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
+          <span class="material-symbols-outlined" style="font-size: 20px;">person</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       Main Content Container
+       ========================================== -->
+  <main>
+
+    <!-- 2. Hero Section -->
+    <section class="why-hero-section">
+      <div class="container why-hero-grid">
+        <!-- Hero Left Column -->
+        <div class="why-hero-content">
+          <span class="pill-eyebrow">
+            <span class="material-symbols-outlined" style="font-size: 16px;">verified</span>
+            RIGOROUS VETTING & TALENT POOL
+          </span>
+          <h1>Built by Engineers, for Engineering Excellence</h1>
+          <p>
+            Traditional freelance platforms are flooded with unqualified resumes. SkillX rigorously vets the top 2% of software engineers so you can ship production code in days, not months.
+          </p>
+
+          <div class="hero-btn-group">
+            <a href="index.html#popular-skills" class="btn btn-royal">Hire Top Engineers &rarr;</a>
+            <a href="#vetting-pipeline" class="btn btn-outline">Explore Vetting Process</a>
+          </div>
+
+          <div class="why-trust-note">
+            ✓ No upfront commitments &bull; 100% worry-free 14-day evaluation window
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Interactive Vetting Scorecard -->
+        <div class="vetting-scorecard">
+          <div class="scorecard-header">
+            <div class="scorecard-header-left">
+              <span class="dot-status"></span>
+              <span>applicant's scorecards.json.v2</span>
+            </div>
+            <span class="scorecard-badge-top">98% Passed</span>
+          </div>
+
+          <div class="scorecard-title-row">
+            <div>
+              <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">CANDIDATE PASS THRESHOLD</span>
+              <h3>Top 2.14% Accepted</h3>
+            </div>
+            <span class="tag-badge" style="background: var(--primary-light); color: var(--primary-blue); font-weight: 700;">DEV #7741</span>
+          </div>
+
+          <!-- Score Progress Bars -->
+          <div class="score-progress-list">
+            <div>
+              <div class="score-progress-item">
+                <span>Architecture & Distributed Systems</span>
+                <strong>95.4 / 100</strong>
+              </div>
+              <div class="score-bar-bg">
+                <div class="score-bar-fill" style="width: 95.4%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="score-progress-item">
+                <span>Production Bug Identification & Fix Speed</span>
+                <strong>94.7 / 100</strong>
+              </div>
+              <div class="score-bar-bg">
+                <div class="score-bar-fill" style="width: 94.7%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="score-progress-item">
+                <span>Async Communication & Team Velocity</span>
+                <strong>96.1 / 100</strong>
+              </div>
+              <div class="score-bar-bg">
+                <div class="score-bar-fill" style="width: 96.1%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scorecard Footer Box -->
+          <div class="scorecard-footer-box">
+            <span class="material-symbols-outlined" style="color: var(--primary-blue); font-size: 20px;">timer</span>
+            <div>
+              <strong>Average Time to First PR</strong>
+              <div>Under 36 hours post-kickoff onboarding</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Metrics Row (99.4%, Top 2%, 14 Days) -->
+    <section class="container">
+      <div class="metrics-row">
+        <div class="metric-card">
+          <div class="metric-card-label">RELIABILITY</div>
+          <div class="metric-card-num">99.4%</div>
+          <p>Project Success Rate</p>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-card-label">SELECTIVITY</div>
+          <div class="metric-card-num">Top 2%</div>
+          <p>Rigorous Acceptance Rate</p>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-card-label">RISK-FREE</div>
+          <div class="metric-card-num green">14 Days</div>
+          <p>Zero-Risk Trial Period</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Engineering Without Compromises (4 Cards) -->
+    <section class="container">
+      <div class="section-title-center">
+        <span class="pill-eyebrow">WHY WE WIN</span>
+        <h2>Engineering Without Compromises</h2>
+        <p>Skip the noise of job boards and unvetted self-assessments. We engineered a platform that functions as an extension of your elite engineering team.</p>
+      </div>
+
+      <div class="features-four-grid">
+        <!-- Card 1 -->
+        <div class="why-feature-card">
+          <div>
+            <div class="skill-icon-bubble">
+              <span class="material-symbols-outlined">terminal</span>
+            </div>
+            <h3>Rigorously Vetted Technical Rigor</h3>
+            <p>Live-pair programming assessments, architecture system design reviews, and automated code quality benchmark testing before an engineer is added to our roster.</p>
+          </div>
+          <a href="#vetting-pipeline" class="link-feature-more">Explore vetting criteria &rarr;</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="why-feature-card">
+          <div>
+            <div class="skill-icon-bubble" style="background: var(--brand-green-light); color: var(--brand-green-dark);">
+              <span class="material-symbols-outlined">verified</span>
+            </div>
+            <h3>Risk-Free Trial Period</h3>
+            <p>Work with your developer for up to 14 days. If you're not 100% satisfied with code quality, velocity, and culture fit, you pay nothing.</p>
+          </div>
+          <a href="index.html#popular-skills" class="link-feature-more">Evaluation guarantee &rarr;</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="why-feature-card">
+          <div>
+            <div class="skill-icon-bubble">
+              <span class="material-symbols-outlined">credit_card</span>
+            </div>
+            <h3>Transparent, Zero-Bidding Model</h3>
+            <p>No negotiations, transparent hourly and monthly rates with no hidden platform markups, surprise surcharges, or race-to-the-bottom bidding wars.</p>
+          </div>
+          <a href="index.html" class="link-feature-more">Pricing & billing model &rarr;</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="why-feature-card">
+          <div>
+            <div class="skill-icon-bubble">
+              <span class="material-symbols-outlined">lock</span>
+            </div>
+            <h3>Escrow & Milestone Protection</h3>
+            <p>Funds are safely held in escrow and released only when code passes defined PR criteria, automated integration tests, and repository merges.</p>
+          </div>
+          <a href="login.html" class="link-feature-more">Escrow architecture &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 4-Stage Vetting Pipeline -->
+    <section class="container" id="vetting-pipeline" style="padding: 20px 0 40px;">
+      <div class="section-title-center">
+        <span class="pill-eyebrow">THE SELECTION FUNNEL</span>
+        <h2>Our 4-Stage Vetting Pipeline</h2>
+        <p>Over 4,500 developers apply monthly. Less than 90 pass our exhaustive live evaluation. Here is how we filter for true 10x contributors.</p>
+      </div>
+
+      <div class="pipeline-grid">
+        <!-- Step 1 -->
+        <div class="pipeline-card">
+          <span class="pipeline-step-badge">Pass Rate: Top 15%</span>
+          <span class="pipeline-card-num">01</span>
+          <h3>Language & Communication</h3>
+          <p>Evaluation of written technical communication, async collaboration protocols, and remote discipline via simulated PR feedback loops.</p>
+          <div class="pipeline-tags">
+            <span class="tag-badge">Async PRs</span>
+            <span class="tag-badge">English C1</span>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="pipeline-card">
+          <span class="pipeline-step-badge">Pass Rate: Top 8%</span>
+          <span class="pipeline-card-num">02</span>
+          <h3>Algorithms & Core CS</h3>
+          <p>Rigorous CS fundamentals, dynamic memory management, algorithmic efficiency, and framework mastery across modern frontend & backend stacks.</p>
+          <div class="pipeline-tags">
+            <span class="tag-badge">Alg & Data</span>
+            <span class="tag-badge">Concurrency</span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="pipeline-card">
+          <span class="pipeline-step-badge">Pass Rate: Top 4%</span>
+          <span class="pipeline-card-num">03</span>
+          <h3>Architecture & System Design</h3>
+          <p>Live hands-on session with a Senior Staff/Architect level tech lead, inspecting real-world scalability, design pattern trade-offs, and edge-case handling.</p>
+          <div class="pipeline-tags">
+            <span class="tag-badge">Live Session</span>
+            <span class="tag-badge">System Scale</span>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="pipeline-card highlight-card">
+          <span class="pipeline-step-badge">Accepted: Top 2%</span>
+          <span class="pipeline-card-num">04</span>
+          <h3>Production Simulation</h3>
+          <p>Building full-stack features from scratch in real-world live sandbox environments with automated CI/CD pipeline verification, unit tests, and security reviews.</p>
+          <div class="pipeline-tags">
+            <span class="tag-badge" style="background: var(--brand-green-light); color: var(--brand-green-dark);">14-Day Sandbox</span>
+            <span class="tag-badge" style="background: var(--brand-green-light); color: var(--brand-green-dark);">Production Ready</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Comparison Table Section -->
+    <section class="container">
+      <div class="comparison-wrapper">
+        <div class="section-title-center" style="margin-bottom: 20px;">
+          <span class="pill-eyebrow">HEAD-TO-HEAD</span>
+          <h2>Why the Best Engineering Teams Choose SkillX</h2>
+          <p>See how our developer-first, high-selectivity platform outperforms generic marketplaces and sluggish legacy recruiting firms.</p>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Evaluation Criteria</th>
+                <th class="col-skillx" style="width: 32%;">⭐ SkillX</th>
+                <th style="width: 23%;">Generic Freelance Boards</th>
+                <th style="width: 23%;">Traditional Staffing Agencies</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Technical Vetting</strong></td>
+                <td class="col-skillx">
+                  <div class="skillx-cell-content">
+                    <span class="icon-check">✓</span>
+                    <span>Rigorous 4-stage technical evaluation by senior lead architects</span>
+                  </div>
+                </td>
+                <td>Self-reported profile claims with no code validation</td>
+                <td>Non-tech recruiters matching keywords from generic resume PDFs</td>
+              </tr>
+              <tr>
+                <td><strong>Time-to-Hire</strong></td>
+                <td class="col-skillx">
+                  <div class="skillx-cell-content">
+                    <span class="icon-check">✓</span>
+                    <span>Under 48 hours to kickoff ready</span>
+                  </div>
+                </td>
+                <td>2 - 4 weeks of sifting through dozens of random proposals</td>
+                <td>3 - 6 months of cumbersome agency search and agency slacks</td>
+              </tr>
+              <tr>
+                <td><strong>Trial Guarantee</strong></td>
+                <td class="col-skillx">
+                  <div class="skillx-cell-content">
+                    <span class="icon-check">✓</span>
+                    <span>14-day risk-free guarantee: satisfaction or $0 owed</span>
+                  </div>
+                </td>
+                <td>None. Dispute resolution only with locked deposits</td>
+                <td>Fees paid upfront - non-refundable retainers</td>
+              </tr>
+              <tr>
+                <td><strong>Markups & Transparency</strong></td>
+                <td class="col-skillx">
+                  <div class="skillx-cell-content">
+                    <span class="icon-check">✓</span>
+                    <span>Direct transparent rates, 0 hidden commissions or fees</span>
+                  </div>
+                </td>
+                <td>Substantial hidden fees from both sides (up to 20%)</td>
+                <td>50% - 100% agency markups on contractor hourly rate</td>
+              </tr>
+              <tr>
+                <td><strong>Focus Area</strong></td>
+                <td class="col-skillx">
+                  <div class="skillx-cell-content">
+                    <span class="icon-check">✓</span>
+                    <span>Exclusively modern tech & cloud software engineering</span>
+                  </div>
+                </td>
+                <td>Everything from data entry and copy apps to logo design</td>
+                <td>Broad temporary IT and legacy enterprise maintenance</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Testimonials Section -->
+    <section class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <span class="pill-eyebrow">SOCIAL PROOF</span>
+          <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--text-main);">Trusted by Technical Leadership</h2>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Hear directly from VPs of Engineering, CTOs, and technical founders scaling on SkillX.</p>
+        </div>
+        <div style="font-size: 0.88rem; font-weight: 700; color: #f59e0b; display: flex; align-items: center; gap: 4px;">
+          <span>★★★★★</span>
+          <span style="color: var(--text-main); margin-left: 4px;">4.98/5.0 from 340+ tech leaders</span>
+        </div>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-box">
+          <p class="testimonial-quote">
+            "SkillX matched us with a senior Next.js architect within 24 hours. We shipped our MVP 3 weeks ahead of schedule. The developer understood clean architecture, component composition, and async state with zero ramp-up time."
+          </p>
+          <div class="testimonial-author-row">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Alex Rivera" class="author-avatar" />
+            <div class="author-meta">
+              <h4>Alex Rivera</h4>
+              <p>VP of Engineering &bull; ScaleCloud</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-box">
+          <p class="testimonial-quote">
+            "The technical vetting is real. Unlike other platforms where we spent 80 hours screening candidates, the first dev SkillX sent was an instant hire. He contributed merged code on Day 2."
+          </p>
+          <div class="testimonial-author-row">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&q=80" alt="Priya Patel" class="author-avatar" />
+            <div class="author-meta">
+              <h4>Priya Patel</h4>
+              <p>Chief Technology Officer &bull; FinFlow</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Blue CTA Banner -->
+    <section class="container">
+      <div class="cta-banner-box">
+        <div class="cta-banner-content">
+          <div class="cta-banner-text">
+            <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; opacity: 0.8; text-transform: uppercase;">START HIRING NOW</span>
+            <h2>Ready to scale your engineering team?</h2>
+            <p>Get matched with elite developers ready to write and merge production code today. Backed by our risk-free 14-day evaluation guarantee.</p>
+          </div>
+          <div class="cta-banner-btns">
+            <a href="index.html#popular-skills" class="btn-cta-white">Get Started Now &rarr;</a>
+            <a href="login.html" class="btn-cta-ghost">Talk to an Advisor</a>
+          </div>
+        </div>
+
+        <div class="cta-perks-row">
+          <span>✓ No placement fees</span>
+          <span>✓ Matched in &lt; 48 hours</span>
+          <span>✓ Top developers in 99th percentile</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       9. Footer
+       ========================================== -->
+  <footer class="footer-simple">
+    <div class="container footer-container">
+      <div class="logo">SKILLX</div>
+      <div class="footer-nav">
+        <a href="index.html#popular-skills">Browse Developers</a>
+        <a href="find-work.html">Find Projects</a>
+        <a href="login.html">Privacy Policy</a>
+        <a href="login.html">Terms of Service</a>
+        <a href="login.html">Help Center</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
