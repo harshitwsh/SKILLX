@@ -34,12 +34,12 @@
   --border-color: #e2e8f0;       /* Crisp border color */
   --border-focus: #0284c7;       /* Blue outline on focus */
 
-  /* Shadows */
+  /* Shadows & Elevation */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06);
   --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.08);
 
-  /* Border Radii */
+  /* Border Radii Tokens */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
