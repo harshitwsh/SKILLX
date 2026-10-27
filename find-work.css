@@ -1,0 +1,372 @@
+/* ==========================================================================
+   SKILLX - Find Work Page Stylesheet (find-work.css)
+   Applies to find-work.html
+   ========================================================================== */
+
+@import url('common.css');
+
+/* --------------------------------------------------------------------------
+   1. Find Work Hero & Large Search Bar
+   -------------------------------------------------------------------------- */
+.find-work-hero {
+  text-align: center;
+  padding: 40px 0 30px;
+}
+
+.find-work-hero h1 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.find-work-hero p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.large-search-bar {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: 6px 8px 6px 18px;
+  box-shadow: var(--shadow-sm);
+  gap: 10px;
+}
+
+.large-search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.large-search-bar .btn-search {
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 8px 22px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.large-search-bar .btn-search:hover {
+  background-color: var(--primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   2. Browse by Category
+   -------------------------------------------------------------------------- */
+.category-block {
+  margin: 36px 0;
+}
+
+.category-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.category-header-row h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.badge-specializations {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.category-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.category-box {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-box:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.category-box-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.category-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.category-texts h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.category-texts p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.category-chevron {
+  color: #94a3b8;
+  font-size: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Latest Projects Feed
+   -------------------------------------------------------------------------- */
+.projects-block {
+  margin: 40px 0;
+}
+
+.projects-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 18px;
+}
+
+.projects-header-row h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.projects-header-row p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.link-view-all {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.link-view-all:hover {
+  text-decoration: underline;
+}
+
+.project-item-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.2s ease;
+}
+
+.project-item-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-sm);
+}
+
+.project-info-left {
+  flex: 1;
+}
+
+.project-title-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.project-title-line h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.badge-tag-category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.project-description {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  line-height: 1.45;
+}
+
+.project-meta-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tech-tag-pill {
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #f1f5f9;
+  color: #334155;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+.post-time-author {
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
+
+.project-action-right {
+  text-align: right;
+  min-width: 130px;
+}
+
+.budget-type {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.budget-amount {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--brand-green);
+  margin-bottom: 10px;
+}
+
+.btn-apply {
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: inline-block;
+}
+
+.btn-apply:hover {
+  background-color: var(--primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   4. Three Feature Cards (Verified, Escrow, No Fake)
+   -------------------------------------------------------------------------- */
+.features-three-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 36px 0 50px;
+}
+
+.feature-box {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.feature-icon-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.feature-content h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.feature-content p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   5. Responsive Media Queries (Find Work Page)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .category-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .features-three-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .category-cards-grid,
+  .features-three-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-item-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .project-action-right {
+    text-align: left;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
