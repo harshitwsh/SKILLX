@@ -1,0 +1,280 @@
+/* ==========================================================================
+   SKILLX - Profile Creation Step 3: Availability & Preferences (profile-creation-step-3.css)
+   Applies to profile-creation-step-3.html
+   ========================================================================== */
+
+@import url('common.css');
+
+/* --------------------------------------------------------------------------
+   1. Profile Flow Header & Step Tracker
+   -------------------------------------------------------------------------- */
+.profile-flow-header {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-color);
+  background: #ffffff;
+}
+
+.profile-flow-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flow-step-tracker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.progress-track {
+  width: 100px;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary-blue);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. Profile Flow Main Card
+   -------------------------------------------------------------------------- */
+.profile-flow-wrapper {
+  max-width: 680px;
+  margin: 30px auto 50px;
+}
+
+.profile-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-card-header {
+  margin-bottom: 28px;
+}
+
+.profile-card-header h1 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+
+.profile-card-header p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. Availability Status 3-Cards Selection
+   -------------------------------------------------------------------------- */
+.avail-status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.avail-status-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px 14px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.avail-status-card.selected {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 1px var(--primary-blue);
+}
+
+.avail-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.avail-card-header h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.avail-status-card p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.status-badge-pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.status-badge-pill.ready {
+  background: var(--primary-blue);
+  color: #ffffff;
+}
+
+.status-badge-pill.passive,
+.status-badge-pill.unavailable {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* --------------------------------------------------------------------------
+   4. Rates & Contact Channels
+   -------------------------------------------------------------------------- */
+.min-max-rates-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.contact-channels-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-body);
+  cursor: pointer;
+}
+
+/* Clickable tags */
+.skill-tags-clickable {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag-btn-selectable {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background: #f8fafc;
+  color: var(--text-body);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tag-btn-selectable:hover {
+  border-color: #94a3b8;
+}
+
+.tag-btn-selectable.selected {
+  background: var(--primary-blue);
+  color: #ffffff;
+  border-color: var(--primary-blue);
+}
+
+/* --------------------------------------------------------------------------
+   5. Step Bottom Action Bar
+   -------------------------------------------------------------------------- */
+.profile-actions-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.link-skip {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.link-skip:hover {
+  color: var(--text-main);
+}
+
+.link-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.link-back:hover {
+  color: var(--text-main);
+}
+
+.btn-continue-step {
+  background: var(--primary-blue);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s ease;
+}
+
+.btn-continue-step:hover {
+  background: var(--primary-blue-dark);
+}
+
+textarea.input-control {
+  min-height: 90px;
+  resize: vertical;
+  padding: 10px 14px;
+}
+
+.field-hint-right {
+  display: block;
+  text-align: right;
+  font-size: 0.72rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Responsive Media Queries (Step 3)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .avail-status-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .profile-card {
+    padding: 24px 20px;
+  }
+}

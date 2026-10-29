@@ -13,8 +13,9 @@
   <!-- Google Material Symbols Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-  <!-- Main External Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Common Base & Page-Specific Stylesheet -->
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="profile-creation-step-3.css" />
 </head>
 <body>
 
@@ -45,7 +46,7 @@
         <p>Let clients know how you prefer to work, your target rates, and how best to get in touch. You can adjust these settings at any time from your dashboard.</p>
       </div>
 
-      <form action="find-work.html" method="GET" onsubmit="alert('🎉 Profile setup complete! Your developer profile is now live on SkillX.');">
+      <form id="profileStep3Form" onsubmit="handleProfileCompletion(event)">
         
         <!-- ==========================================
              Section 1: Availability Status
@@ -207,6 +208,8 @@
     </div>
   </main>
 
+  <!-- App Core JS -->
+  <script src="app.js"></script>
   <!-- Interactive Script for Step 3 -->
   <script>
     function selectStatus(card) {
@@ -224,6 +227,54 @@
 
     function toggleTag(btn) {
       btn.classList.toggle('selected');
+    }
+
+    function handleProfileCompletion(event) {
+      event.preventDefault();
+
+      // Selected status
+      const selectedCard = document.querySelector('.avail-status-card.selected');
+      const statusTitle = selectedCard ? selectedCard.querySelector('h4').innerText : 'Available';
+
+      // Selected preferences tags
+      const prefTags = Array.from(document.querySelectorAll('.skill-tags-clickable .tag-btn-selectable.selected'))
+        .map(t => t.innerText);
+
+      // Hourly rates
+      const minRate = document.getElementById('minRate') ? document.getElementById('minRate').value : 50;
+      const maxRate = document.getElementById('maxRate') ? document.getElementById('maxRate').value : 100;
+      const timezone = document.getElementById('primaryTimezone') ? document.getElementById('primaryTimezone').value : 'UTC-8';
+
+      // Channels
+      const channels = [];
+      if (document.getElementById('channelEmail') && document.getElementById('channelEmail').checked) channels.push('Email');
+      if (document.getElementById('channelDiscord') && document.getElementById('channelDiscord').checked) channels.push('Discord');
+      if (document.getElementById('channelSlack') && document.getElementById('channelSlack').checked) channels.push('Slack');
+
+      const profilePayload = {
+        name: "Tanish",
+        role: "Student Freelancer & Developer",
+        batch: "Batch of '26",
+        college: "Campus Engineering Institute",
+        availability: statusTitle,
+        hourlyRate: { min: minRate, max: maxRate, currency: 'USD' },
+        workPreferences: prefTags,
+        timezone: timezone,
+        contactChannels: channels,
+        completedAt: new Date().toISOString()
+      };
+
+      // 1. Save to localStorage
+      localStorage.setItem('skillx_user_profile', JSON.stringify(profilePayload));
+
+      // 2. Download profile as local JSON file
+      downloadJSON(profilePayload, 'skillx_profile.json');
+
+      showToast('🎉 Profile setup complete! Saved to local storage & JSON exported.', 'success');
+
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 1000);
     }
   </script>
 
