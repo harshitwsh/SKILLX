@@ -1,0 +1,229 @@
+/* ==========================================================================
+   SKILLX - Applications Tracking Stylesheet (applications.css)
+   Manage submitted proposals, statuses, and JSON exports
+   ========================================================================== */
+
+@import url('common.css');
+
+.applications-page {
+  padding: 30px 0 60px;
+}
+
+.applications-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.applications-header-row h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+}
+
+.applications-header-row p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.header-action-btns {
+  display: flex;
+  gap: 10px;
+}
+
+/* Applications Filter Bar */
+.applications-filter-bar {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-pills-row {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-pill-btn {
+  background: #f1f5f9;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-pill-btn:hover {
+  color: var(--primary-blue);
+}
+
+.filter-pill-btn.active {
+  background: var(--primary-light);
+  color: var(--primary-blue);
+  border-color: #bae6fd;
+}
+
+.search-app-input {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: 6px 12px;
+  width: 220px;
+}
+
+.search-app-input input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+/* Applications Cards List */
+.applications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.application-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.application-card:hover {
+  border-color: #cbd5e1;
+}
+
+.app-card-top-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.app-card-top-line h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.app-client-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.app-status-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.app-status-badge.review {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.app-status-badge.accepted {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.app-status-badge.shortlisted {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.app-cover-preview {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  line-height: 1.55;
+  background: #f8fafc;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.app-meta-details-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.app-meta-items {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.app-action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-json-dl {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  color: var(--primary-blue);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-json-dl:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-blue);
+}
+
+.empty-state-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.empty-state-card .material-symbols-outlined {
+  font-size: 48px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
