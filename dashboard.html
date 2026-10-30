@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKILLX - Student Dashboard</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- Common & Page Stylesheets -->
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body class="dashboard-body">
+
+  <!-- ==========================================
+       1. Left Sidebar
+       ========================================== -->
+  <aside class="dashboard-sidebar">
+    <div class="sidebar-top">
+      <div class="sidebar-brand">
+        <a href="index.html" class="logo" style="color: var(--primary-blue); font-size: 1.55rem; font-weight: 800;">SKILLX</a>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link active">
+          <span class="material-symbols-outlined">dashboard</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="find-work.html" class="sidebar-link">
+          <span class="material-symbols-outlined">work</span>
+          <span>Find Work</span>
+        </a>
+        <a href="applications.html" class="sidebar-link">
+          <span class="material-symbols-outlined">description</span>
+          <span>Applications</span>
+        </a>
+        <a href="messages.html" class="sidebar-link">
+          <span class="material-symbols-outlined">chat</span>
+          <span>Messages</span>
+        </a>
+        <a href="profile-creation.html" class="sidebar-link">
+          <span class="material-symbols-outlined">person</span>
+          <span>Profile</span>
+        </a>
+        <a href="#settings" class="sidebar-link" onclick="showToast('Profile & Notification settings ready', 'info')">
+          <span class="material-symbols-outlined">settings</span>
+          <span>Settings</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Bottom Sidebar Section -->
+    <div class="sidebar-footer">
+      <div class="student-badge-card">
+        <span class="material-symbols-outlined badge-icon">verified</span>
+        <div class="badge-info">
+          <h5>Verified Student</h5>
+          <p>Batch of '26</p>
+        </div>
+      </div>
+
+      <a href="login.html" class="logout-link">
+        <span class="material-symbols-outlined">logout</span>
+        <span>Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       2. Main Dashboard Area
+       ========================================== -->
+  <div class="dashboard-main-wrapper">
+    
+    <!-- Top Bar -->
+    <header class="dashboard-topbar">
+      <nav class="topbar-nav-links">
+        <a href="find-work.html">Find Work</a>
+        <a href="find-work.html">Find Talent</a>
+        <a href="dashboard.html">Projects</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <!-- Search Input -->
+        <div class="topbar-search">
+          <span class="material-symbols-outlined" style="font-size: 18px; color: var(--text-muted);">search</span>
+          <input type="text" id="dashboardSearchInput" placeholder="Search projects, skills..." onkeyup="filterSuggestedProjects(this.value)" />
+        </div>
+
+        <!-- Notification Bell -->
+        <button type="button" class="notification-btn" onclick="showToast('You have 1 new project match from Robotics Club!', 'info')" title="Notifications">
+          <span class="material-symbols-outlined">notifications</span>
+          <span style="position: absolute; top: -2px; right: -2px; width: 8px; height: 8px; background: #ef4444; border-radius: 50%;"></span>
+        </button>
+
+        <!-- User Profile Chip -->
+        <div class="user-profile-chip" onclick="window.location.href='profile-creation.html'">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Tanish Avatar" class="user-avatar-circle" />
+          <div class="user-name-role">
+            <h4>Tanish</h4>
+            <p>Student</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Body -->
+    <main class="dashboard-content">
+
+      <!-- 1. Welcome Card -->
+      <section class="welcome-banner-card">
+        <div class="welcome-badges-row">
+          <span class="tag-badge-pill freelancer">🎓 New Freelancer</span>
+          <span class="tag-badge-pill onboarding">Onboarding Mode 🟢</span>
+        </div>
+        <h1>Welcome to SKILLX, Tanish 👋</h1>
+        <p>Your student profile is primed and ready. Connect with peer clubs, collegiate startups, and local founders to build your campus portfolio.</p>
+        <div class="welcome-actions-row">
+          <a href="find-work.html" class="btn btn-royal">
+            <span>Explore Projects</span>
+            <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+          </a>
+          <a href="profile-creation.html" class="btn btn-outline" style="border-color: #cbd5e1; color: var(--text-main); background: #ffffff;">
+            <span class="material-symbols-outlined" style="font-size: 18px;">visibility</span>
+            <span>View Public Profile</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 2. Stats Row (3 Cards) -->
+      <section class="dashboard-stats-grid">
+        <!-- Active Projects -->
+        <div class="dash-stat-card">
+          <div class="stat-header-row">
+            <h4>Active Projects</h4>
+            <div class="stat-icon-circle blue">
+              <span class="material-symbols-outlined">rocket_launch</span>
+            </div>
+          </div>
+          <div>
+            <div class="stat-main-number" id="dashActiveProjectsCount">0</div>
+            <div class="stat-subtext">
+              <span class="material-symbols-outlined" style="font-size: 14px;">hourglass_empty</span>
+              <span>No ongoing gigs yet</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Completed Projects -->
+        <div class="dash-stat-card">
+          <div class="stat-header-row">
+            <h4>Completed Projects</h4>
+            <div class="stat-icon-circle green">
+              <span class="material-symbols-outlined">verified</span>
+            </div>
+          </div>
+          <div>
+            <div class="stat-main-number">0</div>
+            <div class="stat-subtext">
+              <span class="material-symbols-outlined" style="font-size: 14px;">emoji_events</span>
+              <span>Build reviews & campus cred</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Earnings -->
+        <div class="dash-stat-card">
+          <div class="stat-header-row">
+            <h4>Total Earnings</h4>
+            <div class="stat-icon-circle green">
+              <span class="material-symbols-outlined">payments</span>
+            </div>
+          </div>
+          <div>
+            <div class="stat-main-number" style="color: var(--brand-green);">₹0 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">INR</span></div>
+            <div class="stat-subtext">
+              <span class="material-symbols-outlined" style="font-size: 14px;">account_balance</span>
+              <span>Direct UPI / Bank transfer ready</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Quick Actions Section -->
+      <section class="quick-actions-section">
+        <div class="section-subhead-row">
+          <h3>Quick Actions</h3>
+          <span class="hint-text">Instant Shortcuts</span>
+        </div>
+
+        <div class="quick-actions-grid">
+          <!-- Card 1: Find Work -->
+          <div class="quick-action-card" onclick="window.location.href='find-work.html'">
+            <div class="quick-action-icon blue">
+              <span class="material-symbols-outlined">search</span>
+            </div>
+            <div class="quick-action-texts">
+              <h4>Find Work</h4>
+              <p>Browse available projects & student gigs</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Complete Profile -->
+          <div class="quick-action-card" onclick="window.location.href='profile-creation.html'">
+            <div class="quick-action-icon purple">
+              <span class="material-symbols-outlined">auto_awesome</span>
+            </div>
+            <div class="quick-action-texts">
+              <h4>Complete Profile</h4>
+              <p>Update skills, github, and college bio</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Messages -->
+          <div class="quick-action-card" onclick="window.location.href='messages.html'">
+            <div class="quick-action-icon blue">
+              <span class="material-symbols-outlined">chat</span>
+            </div>
+            <div class="quick-action-texts">
+              <h4>Messages</h4>
+              <p>Connect directly with clients</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Applications -->
+          <div class="quick-action-card" onclick="window.location.href='applications.html'">
+            <div class="quick-action-icon green">
+              <span class="material-symbols-outlined">account_balance_wallet</span>
+            </div>
+            <div class="quick-action-texts">
+              <h4>Applications</h4>
+              <p>Track your active proposals & statuses</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Suggested Projects Section -->
+      <section class="suggested-projects-section">
+        <div class="section-subhead-row">
+          <div class="suggested-title-left">
+            <h3>Suggested Projects</h3>
+            <span class="curated-badge">Curated for your skills</span>
+          </div>
+          <a href="find-work.html" class="link-browse-all">
+            <span>Browse all</span>
+            <span class="material-symbols-outlined" style="font-size: 16px;">open_in_new</span>
+          </a>
+        </div>
+
+        <div class="suggested-projects-list" id="suggestedProjectsContainer">
+          
+          <!-- Project Item 1 -->
+          <article class="suggested-item-card" data-keywords="web development html tailwind javascript campus event website">
+            <div class="suggested-item-left">
+              <div class="suggested-item-tags">
+                <span class="tag-verified-organizer">● Verified Campus Organizer</span>
+                <span style="color: var(--text-light);">•</span>
+                <span style="color: var(--text-muted);">⏱ 2 days left</span>
+              </div>
+              <h4>Campus Event Website</h4>
+              <p>Build a modern single-page event landing page with registration form for the annual tech summit. Responsive layout required.</p>
+              <div class="suggested-skills-pills">
+                <span class="pill">Web Development</span>
+                <span class="pill">HTML/Tailwind</span>
+                <span class="pill">JavaScript</span>
+              </div>
+            </div>
+            <div class="suggested-item-right">
+              <div class="suggested-budget-box">
+                <div class="label">Fixed Budget</div>
+                <div class="price">₹2000</div>
+              </div>
+              <a href="project-details.html?id=proj-2" class="btn-view-details">View Details</a>
+            </div>
+          </article>
+
+          <!-- Project Item 2 -->
+          <article class="suggested-item-card" data-keywords="ui ux design figma mobile app prototype urgent college fest">
+            <div class="suggested-item-left">
+              <div class="suggested-item-tags">
+                <span class="tag-urgent">⚡ Urgent</span>
+                <span style="color: var(--text-light);">•</span>
+                <span style="color: var(--text-muted);">College Fest Core Team</span>
+              </div>
+              <h4>UI/UX Design Project</h4>
+              <p>Need high-fidelity Figma screens and interactive micro-prototype for our inter-college festival schedule & passes app.</p>
+              <div class="suggested-skills-pills">
+                <span class="pill">Figma</span>
+                <span class="pill">Mobile App Prototype</span>
+                <span class="pill">Design System</span>
+              </div>
+            </div>
+            <div class="suggested-item-right">
+              <div class="suggested-budget-box">
+                <div class="label">Fixed Budget</div>
+                <div class="price">₹2500</div>
+              </div>
+              <a href="project-details.html?id=proj-3" class="btn-view-details">View Details</a>
+            </div>
+          </article>
+
+          <!-- Project Item 3 -->
+          <article class="suggested-item-card" data-keywords="python automation data scraping pandas research lab">
+            <div class="suggested-item-left">
+              <div class="suggested-item-tags">
+                <span class="tag-research">Research Lab</span>
+                <span style="color: var(--text-light);">•</span>
+                <span style="color: var(--text-muted);">Quick Delivery</span>
+              </div>
+              <h4>Python Automation Task</h4>
+              <p>Clean and extract tabular statistics from PDF research reports into structured CSV format using Python / BeautifulSoup / Pandas.</p>
+              <div class="suggested-skills-pills">
+                <span class="pill">Python</span>
+                <span class="pill">Data Scraping</span>
+                <span class="pill">Pandas</span>
+              </div>
+            </div>
+            <div class="suggested-item-right">
+              <div class="suggested-budget-box">
+                <div class="label">Fixed Budget</div>
+                <div class="price">₹1800</div>
+              </div>
+              <a href="project-details.html?id=proj-4" class="btn-view-details">View Details</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Shared App JS -->
+  <script src="app.js"></script>
+  <script>
+    // Live Search Filter for Suggested Projects
+    function filterSuggestedProjects(query) {
+      const q = query.toLowerCase().trim();
+      const cards = document.querySelectorAll('.suggested-item-card');
+      cards.forEach(card => {
+        const text = (card.getAttribute('data-keywords') + ' ' + card.innerText).toLowerCase();
+        if (!q || text.includes(q)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Refresh application count from localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+      const apps = getApplications();
+      const activeCount = apps.filter(a => a.status === 'Active' || a.status === 'Under Review').length;
+      const countEl = document.getElementById('dashActiveProjectsCount');
+      if (countEl) countEl.innerText = activeCount;
+    });
+  </script>
+</body>
+</html>
