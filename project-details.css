@@ -1,0 +1,308 @@
+/* ==========================================================================
+   SKILLX - Project Details Stylesheet (project-details.css)
+   Layout for Project View and Summary (Image 2)
+   ========================================================================== */
+
+@import url('common.css');
+
+.project-details-page {
+  padding: 30px 0 60px;
+}
+
+/* Back Link */
+.back-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.back-nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Two-column layout */
+.project-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 50px;
+}
+
+/* Left Project Container Card */
+.project-main-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.project-category-badge {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  background: var(--primary-light);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.project-header-info h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.project-budget-highlight {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--brand-green);
+}
+
+.project-section-block {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 18px;
+}
+
+.project-section-block h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.client-meta-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.client-meta-line .client-verified {
+  color: var(--brand-green-dark);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.project-description-text {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.project-skills-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.project-skills-list .skill-pill {
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.deadline-info-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.deadline-info-box .material-symbols-outlined {
+  color: var(--primary-blue);
+  font-size: 20px;
+}
+
+/* Right Project Summary Card */
+.project-summary-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.project-summary-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 20px;
+}
+
+.summary-rows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.summary-row .value {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.summary-row .value.price {
+  color: var(--brand-green);
+  font-size: 1.25rem;
+}
+
+.btn-apply-now {
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: var(--radius-full);
+  text-align: center;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-apply-now:hover {
+  background: #0369a1;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.apply-note-text {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   Similar Projects Section
+   -------------------------------------------------------------------------- */
+.similar-projects-section {
+  margin-top: 40px;
+}
+
+.similar-projects-section h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 20px;
+}
+
+.similar-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.similar-project-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.similar-project-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-sm);
+}
+
+.similar-project-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+.similar-tags-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.similar-tags-row .tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  background: #f1f5f9;
+  color: var(--text-body);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.similar-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.similar-budget {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.similar-budget .amount {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--brand-green);
+  display: block;
+}
+
+.link-view-project {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  .project-details-grid {
+    grid-template-columns: 1fr;
+  }
+  .similar-projects-grid {
+    grid-template-columns: 1fr;
+  }
+}

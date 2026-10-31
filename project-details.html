@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKILLX - Project Details</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- Common & Page Stylesheet -->
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="project-details.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       1. Top Navigation Bar
+       ========================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">SKILLX</a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="find-work.html">Find Work</a></li>
+        <li><a href="find-work.html">Find Talent</a></li>
+        <li><a href="dashboard.html" class="active">Projects</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="dashboard.html" class="btn btn-ghost">Dashboard</a>
+        <a href="profile-creation.html" class="btn btn-royal">My Profile</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       Main Content Container
+       ========================================== -->
+  <main class="container project-details-page">
+
+    <!-- Back to Find Work Link -->
+    <a href="find-work.html" class="back-nav-link">
+      <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span>
+      <span>Back to Find Work</span>
+    </a>
+
+    <!-- Two-Column Project Grid -->
+    <div class="project-details-grid">
+
+      <!-- Left Column: Primary Project Details -->
+      <section class="project-main-card">
+        
+        <div class="project-header-info">
+          <span class="project-category-badge" id="projCategory">Web Development</span>
+          <h1 id="projTitle">Campus Club Event Registration Web App</h1>
+          <div class="project-budget-highlight" id="projBudgetHighlight">₹2000 Fixed Budget</div>
+        </div>
+
+        <!-- Client Details -->
+        <div class="project-section-block">
+          <h3>Client Details</h3>
+          <p style="font-size: 0.92rem; color: var(--text-main); margin-bottom: 4px;">
+            Posted By: <strong id="projClientName">Robotics Club</strong>
+          </p>
+          <div class="client-meta-line">
+            <span class="client-verified">
+              <span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span>
+              <span>Verified Client</span>
+            </span>
+            <span style="color: var(--text-light);">•</span>
+            <span id="projRating">Rating: 4.8/5</span>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="project-section-block">
+          <h3>Description</h3>
+          <p class="project-description-text" id="projDescription">
+            We need a responsive portal for university student societies to manage event tickets, check-ins and memberships. The web application should allow student organizers to register participants, issue digital passes, and track check-ins at entry booths seamlessly.
+          </p>
+        </div>
+
+        <!-- Skills Required -->
+        <div class="project-section-block">
+          <h3>Skills Required</h3>
+          <div class="project-skills-list" id="projSkillsList">
+            <span class="skill-pill">React</span>
+            <span class="skill-pill">Tailwind CSS</span>
+            <span class="skill-pill">Firebase</span>
+          </div>
+        </div>
+
+        <!-- Application Deadline Box -->
+        <div class="deadline-info-box">
+          <span class="material-symbols-outlined">calendar_today</span>
+          <span>Application Deadline: <strong id="projDeadline">30 November 2026</strong></span>
+        </div>
+
+      </section>
+
+      <!-- Right Column: Project Summary Card -->
+      <aside class="project-summary-card">
+        <h3>Project Summary</h3>
+
+        <div class="summary-rows-list">
+          <div class="summary-row">
+            <span>Budget</span>
+            <span class="value price" id="summaryBudget">₹2000</span>
+          </div>
+          <div class="summary-row">
+            <span>Duration</span>
+            <span class="value" id="summaryDuration">2 Weeks</span>
+          </div>
+          <div class="summary-row">
+            <span>Level</span>
+            <span class="value" id="summaryLevel">Intermediate</span>
+          </div>
+          <div class="summary-row">
+            <span>Applicants</span>
+            <span class="value" id="summaryApplicants">12</span>
+          </div>
+        </div>
+
+        <button type="button" class="btn-apply-now" id="applyNowBtn" onclick="handleApplyClick()">
+          Apply Now
+        </button>
+
+        <p class="apply-note-text">
+          Share your proposal and relevant work with <span id="summaryClientName">Robotics Club</span>.
+        </p>
+      </aside>
+
+    </div>
+
+    <!-- ==========================================
+         Similar Projects Section
+         ========================================== -->
+    <section class="similar-projects-section">
+      <h2>Similar Projects</h2>
+
+      <div class="similar-projects-grid">
+        
+        <!-- Similar 1 -->
+        <div class="similar-project-card">
+          <div>
+            <h4>Student Attendance System</h4>
+            <div class="similar-tags-row">
+              <span class="tag">React</span>
+              <span class="tag">Firebase</span>
+            </div>
+          </div>
+          <div class="similar-bottom-row">
+            <div class="similar-budget">
+              <span>Fixed Budget</span>
+              <span class="amount">₹1500</span>
+            </div>
+            <a href="project-details.html?id=proj-5" class="link-view-project">
+              <span>View project</span>
+              <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Similar 2 -->
+        <div class="similar-project-card">
+          <div>
+            <h4>College Fest Website</h4>
+            <div class="similar-tags-row">
+              <span class="tag">React</span>
+              <span class="tag">Tailwind CSS</span>
+            </div>
+          </div>
+          <div class="similar-bottom-row">
+            <div class="similar-budget">
+              <span>Fixed Budget</span>
+              <span class="amount">₹2500</span>
+            </div>
+            <a href="project-details.html?id=proj-6" class="link-view-project">
+              <span>View project</span>
+              <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Similar 3 -->
+        <div class="similar-project-card">
+          <div>
+            <h4>Hostel Management App</h4>
+            <div class="similar-tags-row">
+              <span class="tag">React</span>
+              <span class="tag">Firebase</span>
+            </div>
+          </div>
+          <div class="similar-bottom-row">
+            <div class="similar-budget">
+              <span>Fixed Budget</span>
+              <span class="amount">₹2200</span>
+            </div>
+            <a href="project-details.html?id=proj-7" class="link-view-project">
+              <span>View project</span>
+              <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Simple Footer -->
+  <footer class="footer-simple">
+    <div class="container footer-container">
+      <p>© 2026 SKILLX. Built for Campus Freelancers.</p>
+      <div class="footer-nav">
+        <a href="#about" onclick="showToast('SKILLX Campus Marketplace v2.0')">About</a>
+        <a href="#contact" onclick="showToast('Contact support: help@skillx.campus')">Contact</a>
+        <a href="#terms" onclick="showToast('Terms of Service and Escrow Guarantee')">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App JS & Dynamic Loader -->
+  <script src="app.js"></script>
+  <script>
+    let currentProjectId = 'proj-1';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Read ?id= from URL
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id') || 'proj-1';
+      currentProjectId = id;
+
+      const project = getProjectById(id);
+      if (project) {
+        document.getElementById('projCategory').innerText = project.category;
+        document.getElementById('projTitle').innerText = project.title;
+        document.getElementById('projBudgetHighlight').innerText = `₹${project.budget} Fixed Budget`;
+        document.getElementById('projClientName').innerText = project.client.name;
+        document.getElementById('projRating').innerText = `Rating: ${project.client.rating}`;
+        document.getElementById('projDescription').innerText = project.description;
+        document.getElementById('projDeadline').innerText = project.deadline;
+
+        // Summary card
+        document.getElementById('summaryBudget').innerText = `₹${project.budget}`;
+        document.getElementById('summaryDuration').innerText = project.duration;
+        document.getElementById('summaryLevel').innerText = project.level;
+        document.getElementById('summaryApplicants').innerText = project.applicants;
+        document.getElementById('summaryClientName').innerText = project.client.name;
+
+        // Skills pills
+        const skillsContainer = document.getElementById('projSkillsList');
+        skillsContainer.innerHTML = '';
+        project.skills.forEach(skill => {
+          const span = document.createElement('span');
+          span.className = 'skill-pill';
+          span.innerText = skill;
+          skillsContainer.appendChild(span);
+        });
+      }
+    });
+
+    function handleApplyClick() {
+      window.location.href = `apply.html?id=${encodeURIComponent(currentProjectId)}`;
+    }
+  </script>
+</body>
+</html>
