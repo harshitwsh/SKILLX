@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKILLX - Application Form</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Google Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- Common & Page Stylesheet -->
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="apply.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       1. Top Navigation Bar
+       ========================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo-area">
+        <a href="index.html" class="logo">SKILLX</a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="find-work.html">Find Work</a></li>
+        <li><a href="find-work.html">Find Talent</a></li>
+        <li><a href="dashboard.html" class="active">Projects</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="dashboard.html" class="btn btn-ghost">Dashboard</a>
+        <a href="applications.html" class="btn btn-outline" style="border-color: #cbd5e1; color: var(--text-main);">My Applications</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       Main Form Container
+       ========================================== -->
+  <main class="container apply-page-wrapper">
+
+    <!-- Back to Project Details -->
+    <a href="project-details.html" id="backToProjectLink" class="back-nav-link">
+      <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span>
+      <span>Back to Project Details</span>
+    </a>
+
+    <!-- Page Title & Subtitle -->
+    <div class="apply-header-area">
+      <h1>Application Form</h1>
+      <p id="applyHeaderSubtitle">Tell Robotics Club how you'll bring their project to life.</p>
+    </div>
+
+    <!-- Two-Column Form Layout -->
+    <div class="apply-grid-layout">
+
+      <!-- Left Column: Main Form -->
+      <section class="proposal-form-card">
+        
+        <div class="form-header-row">
+          <h2>Your proposal</h2>
+          <span class="required-legend">* Required fields</span>
+        </div>
+
+        <form id="applicationForm" onsubmit="handleApplicationSubmit(event)">
+          
+          <!-- Field 1: Cover letter -->
+          <div class="apply-field-group">
+            <label for="coverLetterInput">Cover letter <span style="color: #ef4444;">*</span></label>
+            <p class="apply-field-hint">Introduce yourself, outline your approach and explain why you're a good fit.</p>
+            <div class="textarea-wrapper">
+              <textarea 
+                id="coverLetterInput" 
+                class="apply-textarea" 
+                placeholder="Describe how you would build the event registration portal..." 
+                maxlength="2000" 
+                required 
+                oninput="updateCharCount(this)"
+              ></textarea>
+              <div class="char-counter" id="charCounter">0 / 2000 characters</div>
+            </div>
+          </div>
+
+          <!-- Field 2: Relevant portfolio link -->
+          <div class="apply-field-group">
+            <label for="portfolioLinkInput">Relevant portfolio link <span style="color: #ef4444;">*</span></label>
+            <p class="apply-field-hint">Share a live project, GitHub repository or portfolio that shows similar work.</p>
+            <input 
+              type="url" 
+              id="portfolioLinkInput" 
+              class="apply-input-text" 
+              placeholder="https://github.com/your-name/your-project" 
+              required 
+            />
+          </div>
+
+          <!-- Field 3: Work sample (optional) -->
+          <div class="apply-field-group">
+            <label>Work sample (optional)</label>
+            
+            <div class="file-upload-box" id="uploadDropzone" onclick="document.getElementById('workSampleFile').click()">
+              <div class="upload-icon-circle">
+                <span class="material-symbols-outlined">upload</span>
+              </div>
+              <div class="upload-text-info">
+                <div class="main-prompt">Choose a file or drag it here</div>
+                <div class="sub-prompt">PDF, PNG or JPG · Up to 10 MB</div>
+              </div>
+              <input type="file" id="workSampleFile" accept=".pdf,.png,.jpg,.jpeg" style="display: none;" onchange="handleFileSelected(event)" />
+            </div>
+
+            <!-- Preview chip when file is chosen -->
+            <div class="file-preview-pill" id="filePreviewPill">
+              <span id="fileNameLabel">sample_portfolio.pdf</span>
+              <button type="button" class="remove-file-btn" onclick="clearSelectedFile()" title="Remove file">
+                <span class="material-symbols-outlined">close</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Field 4: Estimated delivery -->
+          <div class="apply-field-group">
+            <label for="estimatedDeliverySelect">Estimated delivery <span style="color: #ef4444;">*</span></label>
+            <select id="estimatedDeliverySelect" class="apply-select" required>
+              <option value="1 Week">1 Week</option>
+              <option value="2 Weeks" selected>2 Weeks</option>
+              <option value="3 Weeks">3 Weeks</option>
+              <option value="1 Month">1 Month</option>
+            </select>
+            <p class="apply-field-hint" style="margin-top: 6px;">From the project start date agreed with the client.</p>
+          </div>
+
+          <!-- Field 5: Terms Checkbox -->
+          <div class="agreement-check-row">
+            <input type="checkbox" id="budgetAgreementCheck" required />
+            <label for="budgetAgreementCheck">
+              I've reviewed the project requirements and can work within the <strong id="agreementBudget">₹2000</strong> fixed budget.
+            </label>
+          </div>
+
+          <!-- Footer Action Bar -->
+          <div class="form-footer-action-bar">
+            <p class="note-text">
+              Review your proposal before submitting. It will be shared with <span id="formFooterClientName">Robotics Club</span>.
+            </p>
+            <button type="submit" class="btn-submit-app" id="submitAppBtn">
+              <span>Submit Application</span>
+              <span class="material-symbols-outlined" style="font-size: 18px;">send</span>
+            </button>
+          </div>
+
+        </form>
+
+      </section>
+
+      <!-- Right Column: Sidebar Stack -->
+      <aside class="apply-sidebar-stack">
+        
+        <!-- You're Applying For Card -->
+        <div class="youre-applying-card">
+          <h3>You're applying for</h3>
+          
+          <span class="project-category-badge" id="sideCategory">Web Development</span>
+          <h4 id="sideTitle">Campus Club Event Registration Web App</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+            Posted By: <strong id="sideClientName" style="color: var(--text-main);">Robotics Club</strong>
+          </p>
+          
+          <div style="font-size: 0.82rem; color: var(--brand-green-dark); font-weight: 600; display: flex; align-items: center; gap: 4px; margin-bottom: 16px;">
+            <span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span>
+            <span>Verified Client</span>
+          </div>
+
+          <div style="border-top: 1px solid #f1f5f9; padding-top: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Fixed Budget</span>
+              <strong style="color: var(--brand-green); font-size: 1.15rem;" id="sideBudget">₹2000</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Duration</span>
+              <strong id="sideDuration">2 Weeks</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Level</span>
+              <strong id="sideLevel">Intermediate</strong>
+            </div>
+          </div>
+
+          <div style="border-top: 1px solid #f1f5f9; padding-top: 14px; margin-top: 14px;">
+            <span style="font-size: 0.78rem; color: var(--text-muted); display: block; margin-bottom: 2px;">Application Deadline</span>
+            <strong style="font-size: 0.92rem; color: var(--text-main);" id="sideDeadline">30 November 2026</strong>
+          </div>
+        </div>
+
+        <!-- Tip Card: Make Your Proposal Stand Out -->
+        <div class="stand-out-tip-card">
+          <h4>Make your proposal stand out</h4>
+          <p id="tipText">
+            Keep it specific. Share a relevant React project and explain your approach to tickets, check-ins and memberships.
+          </p>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-simple">
+    <div class="container footer-container">
+      <p>© 2026 SKILLX. Built for Campus Freelancers.</p>
+      <div class="footer-nav">
+        <a href="#about" onclick="showToast('SKILLX Campus Marketplace v2.0')">About</a>
+        <a href="#contact" onclick="showToast('Contact support: help@skillx.campus')">Contact</a>
+        <a href="#terms" onclick="showToast('Terms of Service and Escrow Guarantee')">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Core JS -->
+  <script src="app.js"></script>
+  <script>
+    let activeProject = null;
+    let selectedFileObject = null;
+
+    // Load Project details based on ?id=
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const projId = params.get('id') || 'proj-1';
+      activeProject = getProjectById(projId);
+
+      if (activeProject) {
+        document.getElementById('backToProjectLink').href = `project-details.html?id=${activeProject.id}`;
+        document.getElementById('applyHeaderSubtitle').innerText = `Tell ${activeProject.client.name} how you'll bring their project to life.`;
+        document.getElementById('agreementBudget').innerText = `₹${activeProject.budget}`;
+        document.getElementById('formFooterClientName').innerText = activeProject.client.name;
+
+        // Sidebar info
+        document.getElementById('sideCategory').innerText = activeProject.category;
+        document.getElementById('sideTitle').innerText = activeProject.title;
+        document.getElementById('sideClientName').innerText = activeProject.client.name;
+        document.getElementById('sideBudget').innerText = `₹${activeProject.budget}`;
+        document.getElementById('sideDuration').innerText = activeProject.duration;
+        document.getElementById('sideLevel').innerText = activeProject.level;
+        document.getElementById('sideDeadline').innerText = activeProject.deadline;
+
+        // Custom tip
+        const skillsText = activeProject.skills.join(', ');
+        document.getElementById('tipText').innerText = 
+          `Keep it specific. Highlight your experience in ${skillsText} and explain your approach to project deliverables.`;
+      }
+
+      // Drag and drop setup for file dropzone
+      const dropzone = document.getElementById('uploadDropzone');
+      dropzone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = 'var(--primary-blue)';
+        dropzone.style.background = '#f0f7ff';
+      });
+      dropzone.addEventListener('dragleave', () => {
+        dropzone.style.borderColor = '#cbd5e1';
+        dropzone.style.background = '#f8fafc';
+      });
+      dropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = '#cbd5e1';
+        dropzone.style.background = '#f8fafc';
+        if (e.dataTransfer.files.length > 0) {
+          applyFile(e.dataTransfer.files[0]);
+        }
+      });
+    });
+
+    // Character Counter
+    function updateCharCount(textarea) {
+      const count = textarea.value.length;
+      document.getElementById('charCounter').innerText = `${count} / 2000 characters`;
+    }
+
+    // File Selector handler
+    function handleFileSelected(event) {
+      if (event.target.files.length > 0) {
+        applyFile(event.target.files[0]);
+      }
+    }
+
+    function applyFile(file) {
+      selectedFileObject = file;
+      document.getElementById('fileNameLabel').innerText = file.name;
+      document.getElementById('filePreviewPill').style.display = 'inline-flex';
+    }
+
+    function clearSelectedFile() {
+      selectedFileObject = null;
+      document.getElementById('workSampleFile').value = '';
+      document.getElementById('filePreviewPill').style.display = 'none';
+    }
+
+    // Form Submission & Local JSON Saving
+    async function handleApplicationSubmit(event) {
+      event.preventDefault();
+
+      const coverLetter = document.getElementById('coverLetterInput').value.trim();
+      const portfolioLink = document.getElementById('portfolioLinkInput').value.trim();
+      const estimatedDelivery = document.getElementById('estimatedDeliverySelect').value;
+      const budgetAgreed = document.getElementById('budgetAgreementCheck').checked;
+
+      // Validation
+      if (coverLetter.length < 20) {
+        showToast('Please provide a slightly more descriptive cover letter (minimum 20 characters).', 'error');
+        document.getElementById('coverLetterInput').focus();
+        return;
+      }
+
+      if (!portfolioLink.startsWith('http://') && !portfolioLink.startsWith('https://')) {
+        showToast('Please enter a valid URL beginning with https:// for your portfolio link.', 'error');
+        document.getElementById('portfolioLinkInput').focus();
+        return;
+      }
+
+      if (!budgetAgreed) {
+        showToast('Please check the budget agreement checkbox to proceed.', 'error');
+        return;
+      }
+
+      const submitBtn = document.getElementById('submitAppBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>Saving...</span> <span class="material-symbols-outlined" style="animation: spin 1s linear infinite;">sync</span>`;
+
+      // Construct application record object
+      const newApplication = {
+        id: 'app-' + Date.now(),
+        projectId: activeProject ? activeProject.id : 'proj-1',
+        projectTitle: activeProject ? activeProject.title : 'Campus Club Event Registration Web App',
+        clientName: activeProject ? activeProject.client.name : 'Robotics Club',
+        budget: activeProject ? `₹${activeProject.budget}` : '₹2000',
+        submittedAt: new Date().toISOString(),
+        status: 'Under Review',
+        coverLetter: coverLetter,
+        portfolioLink: portfolioLink,
+        fileName: selectedFileObject ? selectedFileObject.name : 'No file attached',
+        estimatedDelivery: estimatedDelivery,
+        termsAgreed: budgetAgreed,
+        applicant: {
+          name: 'Tanish',
+          role: 'Student & Freelancer',
+          email: 'tanish@campus.edu'
+        }
+      };
+
+      // 1. Save to localStorage
+      saveApplication(newApplication);
+
+      // 2. Automatically prompt download of the submitted JSON record to local user disk
+      downloadJSON(newApplication, `application_${newApplication.id}.json`);
+
+      // 3. Attempt async sync to Node server (if running)
+      await trySyncToServer('/api/save-application', newApplication);
+
+      showToast('🎉 Application submitted & saved to local JSON successfully!', 'success');
+
+      setTimeout(() => {
+        window.location.href = 'applications.html?submitted=true';
+      }, 1200);
+    }
+  </script>
+</body>
+</html>
