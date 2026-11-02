@@ -1,0 +1,173 @@
+[
+  {
+    "id": "proj-1",
+    "title": "Campus Club Event Registration Web App",
+    "category": "Web Development",
+    "budget": 2000,
+    "duration": "2 Weeks",
+    "level": "Intermediate",
+    "applicants": 12,
+    "deadline": "30 November 2026",
+    "client": {
+      "name": "Robotics Club",
+      "verified": true,
+      "rating": "4.8/5"
+    },
+    "description": "We need a responsive portal for university student societies to manage event tickets, check-ins and memberships. The web application should allow student organizers to register participants, issue digital passes, and track check-ins at entry booths seamlessly.",
+    "skills": ["React", "Tailwind CSS", "Firebase"],
+    "badge": "Verified Campus Organizer",
+    "timeRemaining": "2 days left"
+  },
+  {
+    "id": "proj-2",
+    "title": "Campus Event Website",
+    "category": "Web Development",
+    "budget": 2000,
+    "duration": "2 Weeks",
+    "level": "Beginner to Intermediate",
+    "applicants": 8,
+    "deadline": "15 December 2026",
+    "client": {
+      "name": "Annual Tech Summit Core Team",
+      "verified": true,
+      "rating": "4.9/5"
+    },
+    "description": "Build a modern single-page event landing page with registration form for the annual tech summit. Responsive layout required with speaker profiles, agenda timetable, and RSVP collection.",
+    "skills": ["Web Development", "HTML/Tailwind", "JavaScript"],
+    "badge": "Verified Campus Organizer",
+    "timeRemaining": "2 days left"
+  },
+  {
+    "id": "proj-3",
+    "title": "UI/UX Design Project",
+    "category": "Design & Creative",
+    "budget": 2500,
+    "duration": "1 Week",
+    "level": "Intermediate",
+    "applicants": 15,
+    "deadline": "25 November 2026",
+    "client": {
+      "name": "College Fest Core Team",
+      "verified": true,
+      "rating": "4.7/5"
+    },
+    "description": "Need high-fidelity Figma screens and interactive micro-prototype for our inter-college festival schedule & passes app. Must include light/dark mode campus themes and ticket QR mockups.",
+    "skills": ["Figma", "Mobile App Prototype", "Design System"],
+    "badge": "Urgent",
+    "timeRemaining": "3 days left"
+  },
+  {
+    "id": "proj-4",
+    "title": "Python Automation Task",
+    "category": "Data & Python",
+    "budget": 1800,
+    "duration": "1 Week",
+    "level": "Intermediate",
+    "applicants": 6,
+    "deadline": "28 November 2026",
+    "client": {
+      "name": "Campus AI & Data Research Lab",
+      "verified": true,
+      "rating": "5.0/5"
+    },
+    "description": "Clean and extract tabular statistics from PDF research reports into structured CSV format using Python / BeautifulSoup / Pandas. Deliver clean code and reproducible Jupyter notebooks.",
+    "skills": ["Python", "Data Scraping", "Pandas"],
+    "badge": "Research Lab",
+    "timeRemaining": "Quick Delivery"
+  },
+  {
+    "id": "proj-5",
+    "title": "Student Attendance System",
+    "category": "Web Development",
+    "budget": 1500,
+    "duration": "2 Weeks",
+    "level": "Intermediate",
+    "applicants": 9,
+    "deadline": "05 December 2026",
+    "client": {
+      "name": "CS Department Lab Assistant",
+      "verified": true,
+      "rating": "4.6/5"
+    },
+    "description": "Develop a lightweight QR-based student attendance logger with export to Excel/CSV for lab sessions.",
+    "skills": ["React", "Firebase"],
+    "badge": "Verified Campus",
+    "timeRemaining": "5 days left"
+  },
+  {
+    "id": "proj-6",
+    "title": "College Fest Website",
+    "category": "Web Development",
+    "budget": 2500,
+    "duration": "3 Weeks",
+    "level": "Advanced",
+    "applicants": 20,
+    "deadline": "10 December 2026",
+    "client": {
+      "name": "Student Council",
+      "verified": true,
+      "rating": "4.9/5"
+    },
+    "description": "Official portal for annual college cultural fest including competitions registration, artist lineup, and live social feed.",
+    "skills": ["React", "Tailwind CSS"],
+    "badge": "College Fest",
+    "timeRemaining": "1 week left"
+  },
+  {
+    "id": "proj-7",
+    "title": "Hostel Management App",
+    "category": "App Development",
+    "budget": 2200,
+    "duration": "2 Weeks",
+    "level": "Intermediate",
+    "applicants": 11,
+    "deadline": "12 December 2026",
+    "client": {
+      "name": "Campus Residential Board",
+      "verified": true,
+      "rating": "4.8/5"
+    },
+    "description": "Hostel room allocation and maintenance ticketing mobile/web app for university residents with room inventory and complaint escalation.",
+    "skills": ["React", "Firebase"],
+    "badge": "Verified",
+    "timeRemaining": "2 weeks left"
+  },
+  {
+    "id": "proj-8",
+    "title": "Tech Blog & Newsletter Writer",
+    "category": "Content Writing",
+    "budget": 1200,
+    "duration": "1 Week",
+    "level": "Beginner to Intermediate",
+    "applicants": 5,
+    "deadline": "29 November 2026",
+    "client": {
+      "name": "Campus Entrepreneurship Cell",
+      "verified": true,
+      "rating": "4.9/5"
+    },
+    "description": "Write 4 engaging technical blog posts and weekly founder newsletters showcasing campus startup launches and hackathon winners.",
+    "skills": ["Technical Writing", "SEO", "Copywriting"],
+    "badge": "Verified Club",
+    "timeRemaining": "4 days left"
+  },
+  {
+    "id": "proj-9",
+    "title": "CI/CD Pipeline & Docker Setup",
+    "category": "DevOps",
+    "budget": 2400,
+    "duration": "1 Week",
+    "level": "Intermediate",
+    "applicants": 4,
+    "deadline": "02 December 2026",
+    "client": {
+      "name": "Open Source Campus Club",
+      "verified": true,
+      "rating": "4.8/5"
+    },
+    "description": "Containerize our student timetable API with Docker and configure GitHub Actions automated test and deployment workflows.",
+    "skills": ["Docker", "GitHub Actions", "Nginx"],
+    "badge": "Open Source",
+    "timeRemaining": "5 days left"
+  }
+]
