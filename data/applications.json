@@ -1,0 +1,16 @@
+[
+  {
+    "id": "app-101",
+    "projectId": "proj-1",
+    "projectTitle": "Campus Club Event Registration Web App",
+    "clientName": "Robotics Club",
+    "budget": "₹2000",
+    "submittedAt": "2026-10-31T14:30:00.000Z",
+    "status": "Under Review",
+    "coverLetter": "Hello Robotics Club team! I have built several campus registration portals with QR ticket verification and dynamic attendance check-in. Excited to bring this to life for your society within 2 weeks.",
+    "portfolioLink": "https://github.com/tanish-dev/campus-events",
+    "fileName": "tanish_sample_work.pdf",
+    "estimatedDelivery": "2 Weeks",
+    "termsAgreed": true
+  }
+]
