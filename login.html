@@ -63,11 +63,11 @@
     <div class="auth-main-card">
       <!-- Top Navigation Tabs (Sign In / Create Account) -->
       <div class="auth-tabs-row">
-        <button type="button" class="auth-tab-item active" id="tabSignInBtn" onclick="switchAuthTab('signin')">
+        <button type="button" class="auth-tab-item active" id="tabSignInBtn">
           <span class="material-symbols-outlined" style="font-size: 18px;">login</span>
           Sign In
         </button>
-        <button type="button" class="auth-tab-item" id="tabSignUpBtn" onclick="switchAuthTab('signup')">
+        <button type="button" class="auth-tab-item" id="tabSignUpBtn">
           <span class="material-symbols-outlined" style="font-size: 18px;">person_add</span>
           Create Account
           <span class="auth-tab-badge">Freelancer</span>
@@ -83,7 +83,7 @@
 
         <!-- Social Buttons -->
         <div class="social-auth-buttons">
-          <button type="button" class="btn-social-item" onclick="quickDemoLogin('Tanish (Student)')">
+          <button type="button" class="btn-social-item" data-demo-user="Tanish (Student)">
             <!-- Google Icon -->
             <svg viewBox="0 0 24 24" width="16" height="16">
               <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.9C6.2 7.3 8.9 5 12 5z"/>
@@ -94,7 +94,7 @@
             Continue with Google
           </button>
 
-          <button type="button" class="btn-social-item" onclick="quickDemoLogin('Sarah (Developer)')">
+          <button type="button" class="btn-social-item" data-demo-user="Harshit (Developer)">
             <!-- GitHub Icon -->
             <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -108,7 +108,7 @@
         </div>
 
         <!-- Form Fields -->
-        <form onsubmit="handleSignInSubmit(event)">
+        <form id="signInForm" novalidate>
           <div class="form-field-group">
             <label for="signinEmail">Email address</label>
             <div class="input-with-icon">
@@ -122,7 +122,7 @@
             <div class="input-with-icon">
               <span class="material-symbols-outlined input-icon-left">lock</span>
               <input type="password" id="signinPassword" class="input-control" placeholder="••••••••••••" value="student123" required />
-              <span class="material-symbols-outlined input-icon-right" onclick="togglePasswordVisibility('signinPassword', this)">visibility</span>
+              <span class="material-symbols-outlined input-icon-right" data-toggle-password="signinPassword">visibility</span>
             </div>
           </div>
 
@@ -131,7 +131,7 @@
               <input type="checkbox" checked id="rememberMeCheck" />
               <span>Remember Me</span>
             </label>
-            <a href="#" class="link-forgot" onclick="showToast('Password reset link sent to registered college email', 'info')">Forgot Password?</a>
+            <a href="#" class="link-forgot" id="forgotPasswordLink">Forgot Password?</a>
           </div>
 
           <button type="submit" class="btn btn-primary btn-full" style="padding: 12px; font-size: 0.95rem;">
@@ -140,7 +140,7 @@
         </form>
 
         <div class="auth-bottom-switch">
-          Don't have an account yet? <a href="javascript:void(0)" onclick="switchAuthTab('signup')">Create Freelancer Account</a>
+          Don't have an account yet? <a href="#" data-switch-tab="signup">Create Freelancer Account</a>
         </div>
       </div>
 
@@ -151,7 +151,7 @@
           <p>Create your verified profile to start winning campus gigs</p>
         </div>
 
-        <form onsubmit="handleSignUpSubmit(event)">
+        <form id="signUpForm" novalidate>
           <div class="form-field-group">
             <label for="signupName">Full Name</label>
             <div class="input-with-icon">
@@ -173,7 +173,7 @@
             <div class="input-with-icon">
               <span class="material-symbols-outlined input-icon-left">lock</span>
               <input type="password" id="signupPassword" class="input-control" placeholder="At least 8 characters" minlength="8" required />
-              <span class="material-symbols-outlined input-icon-right" onclick="togglePasswordVisibility('signupPassword', this)">visibility</span>
+              <span class="material-symbols-outlined input-icon-right" data-toggle-password="signupPassword">visibility</span>
             </div>
           </div>
 
@@ -183,7 +183,7 @@
         </form>
 
         <div class="auth-bottom-switch">
-          Already have an account? <a href="javascript:void(0)" onclick="switchAuthTab('signin')">Sign In here</a>
+          Already have an account? <a href="#" data-switch-tab="signin">Sign In here</a>
         </div>
       </div>
     </div>
@@ -237,100 +237,9 @@
     </div>
   </footer>
 
-  <!-- App Core JS -->
+  <!-- App Core & Page JS -->
   <script src="app.js"></script>
-  <script>
-    function switchAuthTab(tab) {
-      const signinBtn = document.getElementById('tabSignInBtn');
-      const signupBtn = document.getElementById('tabSignUpBtn');
-      const signinBody = document.getElementById('signinBody');
-      const signupBody = document.getElementById('signupBody');
-
-      if (tab === 'signin') {
-        signinBtn.classList.add('active');
-        signupBtn.classList.remove('active');
-        signinBody.style.display = 'block';
-        signupBody.style.display = 'none';
-      } else {
-        signupBtn.classList.add('active');
-        signinBtn.classList.remove('active');
-        signupBody.style.display = 'block';
-        signinBody.style.display = 'none';
-      }
-    }
-
-    function togglePasswordVisibility(inputId, iconElem) {
-      const input = document.getElementById(inputId);
-      if (input.type === 'password') {
-        input.type = 'text';
-        iconElem.textContent = 'visibility_off';
-      } else {
-        input.type = 'password';
-        iconElem.textContent = 'visibility';
-      }
-    }
-
-    function handleSignInSubmit(event) {
-      event.preventDefault();
-      const email = document.getElementById('signinEmail').value.trim();
-      const password = document.getElementById('signinPassword').value;
-
-      if (!email || !password) {
-        showToast('Please enter both email and password', 'error');
-        return;
-      }
-
-      showToast('Welcome back, Tanish! Loading your Dashboard...', 'success');
-      setTimeout(() => {
-        window.location.href = 'dashboard.html';
-      }, 700);
-    }
-
-    function handleSignUpSubmit(event) {
-      event.preventDefault();
-      const name = document.getElementById('signupName').value.trim();
-      const email = document.getElementById('signupEmail').value.trim();
-      const password = document.getElementById('signupPassword').value;
-
-      if (!name || !email || !password) {
-        showToast('All fields are required', 'error');
-        return;
-      }
-
-      if (password.length < 8) {
-        showToast('Password must be at least 8 characters long', 'error');
-        return;
-      }
-
-      // Save user account data
-      const userData = {
-        name: name,
-        email: email,
-        batch: "Batch of '26",
-        role: "Student Freelancer",
-        created: new Date().toISOString()
-      };
-      localStorage.setItem('skillx_user_account', JSON.stringify(userData));
-
-      showToast(`Account created for ${name}! Continuing to profile setup...`, 'success');
-      setTimeout(() => {
-        window.location.href = 'profile-creation.html';
-      }, 800);
-    }
-
-    function quickDemoLogin(userLabel) {
-      showToast(`Logged in as ${userLabel}. Redirecting to Dashboard...`, 'success');
-      setTimeout(() => {
-        window.location.href = 'dashboard.html';
-      }, 700);
-    }
-
-    // Check URL params for tab
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('tab') === 'signup') {
-      switchAuthTab('signup');
-    }
-  </script>
+  <script src="login.js"></script>
 
 </body>
 </html>
