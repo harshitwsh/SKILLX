@@ -1,0 +1,16 @@
+{
+  "name": "Tanish Mehlawat",
+  "email": "tanish@campus.edu",
+  "role": "Student",
+  "headline": "Junior Full-Stack React & Node.js Developer",
+  "batch": "Batch of '26",
+  "college": "Campus Engineering Institute",
+  "location": "New Delhi, India (IST)",
+  "verifiedStudent": true,
+  "skills": ["React", "TypeScript", "Node.js", "Figma"],
+  "stats": {
+    "activeProjects": 0,
+    "completedProjects": 0,
+    "totalEarnings": 0
+  }
+}
