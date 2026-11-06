@@ -46,7 +46,7 @@
         <p>Showcase your best work and link your online profiles to stand out to clients. Providing concrete proof of your skills significantly increases your hireability.</p>
       </div>
 
-      <form action="profile-creation-step-3.html" method="GET">
+      <form id="profileStep2Form" novalidate>
         
         <!-- ==========================================
              Section 1: Featured Project
@@ -74,12 +74,12 @@
         <div class="form-field-group">
           <label>Technologies Used</label>
           <div class="skill-tags-clickable" style="margin-top: 6px;">
-            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">React</button>
-            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">TypeScript</button>
-            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">Node.js</button>
-            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Next.js</button>
-            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Tailwind CSS</button>
-            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">PostgreSQL</button>
+            <button type="button" class="tag-btn-selectable selected">React</button>
+            <button type="button" class="tag-btn-selectable selected">TypeScript</button>
+            <button type="button" class="tag-btn-selectable selected">Node.js</button>
+            <button type="button" class="tag-btn-selectable">Next.js</button>
+            <button type="button" class="tag-btn-selectable">Tailwind CSS</button>
+            <button type="button" class="tag-btn-selectable">PostgreSQL</button>
           </div>
         </div>
 
@@ -92,7 +92,9 @@
           </div>
         </div>
 
-        <button type="button" class="btn-add-item" onclick="alert('Additional project slot added!')">
+        <div id="extraProjectsList"></div>
+
+        <button type="button" class="btn-add-item" id="addProjectBtn">
           <span class="material-symbols-outlined" style="font-size: 16px;">add</span>
           Add Another Project
         </button>
@@ -109,7 +111,7 @@
           <label for="githubUrl">GitHub Profile</label>
           <div class="input-with-icon">
             <span class="material-symbols-outlined input-icon-left">code</span>
-            <input type="url" id="githubUrl" class="input-control" placeholder="e.g. https://github.com/yourusername" value="https://github.com/sarahjenkins-dev" />
+            <input type="url" id="githubUrl" class="input-control" placeholder="e.g. https://github.com/yourusername" value="https://github.com/tanish-dev" />
           </div>
         </div>
 
@@ -118,7 +120,7 @@
           <label for="linkedinUrl">LinkedIn Profile</label>
           <div class="input-with-icon">
             <span class="material-symbols-outlined input-icon-left">badge</span>
-            <input type="url" id="linkedinUrl" class="input-control" placeholder="e.g. https://linkedin.com/in/yourusername" value="https://linkedin.com/in/sarahjenkins" />
+            <input type="url" id="linkedinUrl" class="input-control" placeholder="e.g. https://linkedin.com/in/yourusername" value="https://linkedin.com/in/tanish-mehlawat" />
           </div>
         </div>
 
@@ -127,7 +129,7 @@
           <label for="portfolioUrl">Personal Website</label>
           <div class="input-with-icon">
             <span class="material-symbols-outlined input-icon-left">language</span>
-            <input type="url" id="portfolioUrl" class="input-control" placeholder="e.g. https://yourportfolio.dev" value="https://sarahjenkins.dev" />
+            <input type="url" id="portfolioUrl" class="input-control" placeholder="e.g. https://yourportfolio.dev" value="https://tanish.dev" />
           </div>
         </div>
 
@@ -136,7 +138,7 @@
           <label for="twitterUrl">Twitter / X Profile</label>
           <div class="input-with-icon">
             <span class="material-symbols-outlined input-icon-left">alternate_email</span>
-            <input type="url" id="twitterUrl" class="input-control" placeholder="e.g. https://x.com/yourusername" value="https://x.com/sarahj_codes" />
+            <input type="url" id="twitterUrl" class="input-control" placeholder="e.g. https://x.com/yourusername" value="https://x.com/tanish_codes" />
           </div>
         </div>
 
@@ -147,11 +149,11 @@
           <h3>Resume / CV</h3>
         </div>
 
-        <div class="resume-dropzone" onclick="document.getElementById('resumeFile').click()">
+        <div class="resume-dropzone" id="resumeDropzone">
           <span class="material-symbols-outlined dropzone-icon">description</span>
           <div class="dropzone-main-text" id="dropzoneText">Click to upload <span style="font-weight: 500; color: var(--text-body);">or drag and drop</span></div>
           <div class="dropzone-sub-text">PDF, DOCX, or RTF (Max size 5MB)</div>
-          <input type="file" id="resumeFile" accept=".pdf,.docx,.rtf" style="display: none;" onchange="handleResumeUpload(event)" />
+          <input type="file" id="resumeFile" accept=".pdf,.docx,.rtf" style="display: none;" />
         </div>
 
         <!-- Action Row -->
@@ -168,19 +170,9 @@
     </div>
   </main>
 
-  <!-- Interactive Script for Step 2 -->
-  <script>
-    function toggleTag(btn) {
-      btn.classList.toggle('selected');
-    }
-
-    function handleResumeUpload(e) {
-      const file = e.target.files[0];
-      if (file) {
-        document.getElementById('dropzoneText').innerHTML = `<span style="color: var(--brand-green); font-weight: bold;">✓ ${file.name}</span> selected`;
-      }
-    }
-  </script>
+  <!-- App Core & Page JS -->
+  <script src="app.js"></script>
+  <script src="profile-creation-step-2.js"></script>
 
 </body>
 </html>
