@@ -46,7 +46,7 @@
         <p>Let clients know how you prefer to work, your target rates, and how best to get in touch. You can adjust these settings at any time from your dashboard.</p>
       </div>
 
-      <form id="profileStep3Form" onsubmit="handleProfileCompletion(event)">
+      <form id="profileStep3Form" novalidate>
         
         <!-- ==========================================
              Section 1: Availability Status
@@ -56,7 +56,7 @@
           <div class="avail-status-grid">
             
             <!-- Option 1: Available -->
-            <div class="avail-status-card selected" onclick="selectStatus(this)">
+            <div class="avail-status-card selected">
               <div class="avail-card-header">
                 <h4>Available</h4>
                 <span class="material-symbols-outlined status-radio-icon" style="color: var(--primary-blue); font-size: 18px;">check_circle</span>
@@ -66,7 +66,7 @@
             </div>
 
             <!-- Option 2: Open to Offers -->
-            <div class="avail-status-card" onclick="selectStatus(this)">
+            <div class="avail-status-card">
               <div class="avail-card-header">
                 <h4>Open to Offers</h4>
                 <span class="material-symbols-outlined status-radio-icon" style="color: #cbd5e1; font-size: 18px;">radio_button_unchecked</span>
@@ -76,7 +76,7 @@
             </div>
 
             <!-- Option 3: Busy -->
-            <div class="avail-status-card" onclick="selectStatus(this)">
+            <div class="avail-status-card">
               <div class="avail-card-header">
                 <h4>Busy</h4>
                 <span class="material-symbols-outlined status-radio-icon" style="color: #cbd5e1; font-size: 18px;">radio_button_unchecked</span>
@@ -94,12 +94,12 @@
         <div class="form-field-group" style="margin-top: 28px;">
           <label style="font-size: 0.95rem; margin-bottom: 2px;">Work Preferences</label>
           <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Select all employment models and work environments that match your goals.</p>
-          <div class="skill-tags-clickable">
-            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">Full-time</button>
-            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Part-time</button>
-            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">Contract</button>
-            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Freelance</button>
-            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">Hybrid</button>
+          <div class="skill-tags-clickable" id="workPrefTags">
+            <button type="button" class="tag-btn-selectable selected">Full-time</button>
+            <button type="button" class="tag-btn-selectable">Part-time</button>
+            <button type="button" class="tag-btn-selectable selected">Contract</button>
+            <button type="button" class="tag-btn-selectable">Freelance</button>
+            <button type="button" class="tag-btn-selectable selected">Hybrid</button>
           </div>
         </div>
 
@@ -134,14 +134,14 @@
         <div class="form-field-group" style="margin-top: 28px;">
           <label style="font-size: 0.95rem; margin-bottom: 2px;">Preferred Project Types</label>
           <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Highlight the types of architectures and challenges you prefer working on.</p>
-          <div class="skill-tags-clickable">
-            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">Web Apps</button>
-            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Mobile Apps</button>
-            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">APIs</button>
-            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">DevOps</button>
-            <button type="button" class="tag-btn-selectable selected" onclick="toggleTag(this)">AI/ML</button>
-            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">E-commerce</button>
-            <button type="button" class="tag-btn-selectable" onclick="toggleTag(this)">Open Source</button>
+          <div class="skill-tags-clickable" id="projectTypeTags">
+            <button type="button" class="tag-btn-selectable selected">Web Apps</button>
+            <button type="button" class="tag-btn-selectable">Mobile Apps</button>
+            <button type="button" class="tag-btn-selectable selected">APIs</button>
+            <button type="button" class="tag-btn-selectable">DevOps</button>
+            <button type="button" class="tag-btn-selectable selected">AI/ML</button>
+            <button type="button" class="tag-btn-selectable">E-commerce</button>
+            <button type="button" class="tag-btn-selectable">Open Source</button>
           </div>
         </div>
 
@@ -158,19 +158,19 @@
               <label style="font-size: 0.82rem; font-weight: 700; color: var(--text-main);">Preferred Contact Channels</label>
               <div class="contact-channels-checkboxes">
                 <label class="checkbox-item">
-                  <input type="checkbox" checked />
+                  <input type="checkbox" name="contactChannel" value="Email" checked />
                   <span>Email updates & pitches</span>
                 </label>
                 <label class="checkbox-item">
-                  <input type="checkbox" checked />
+                  <input type="checkbox" name="contactChannel" value="Slack" checked />
                   <span>Slack workspace invite</span>
                 </label>
                 <label class="checkbox-item">
-                  <input type="checkbox" />
+                  <input type="checkbox" name="contactChannel" value="Discord" />
                   <span>Discord channel link</span>
                 </label>
                 <label class="checkbox-item">
-                  <input type="checkbox" checked />
+                  <input type="checkbox" name="contactChannel" value="Video Calls" checked />
                   <span>Live Video Calls</span>
                 </label>
               </div>
@@ -208,75 +208,9 @@
     </div>
   </main>
 
-  <!-- App Core JS -->
+  <!-- App Core & Page JS -->
   <script src="app.js"></script>
-  <!-- Interactive Script for Step 3 -->
-  <script>
-    function selectStatus(card) {
-      document.querySelectorAll('.avail-status-card').forEach(c => {
-        c.classList.remove('selected');
-        const icon = c.querySelector('.status-radio-icon');
-        icon.textContent = 'radio_button_unchecked';
-        icon.style.color = '#cbd5e1';
-      });
-      card.classList.add('selected');
-      const activeIcon = card.querySelector('.status-radio-icon');
-      activeIcon.textContent = 'check_circle';
-      activeIcon.style.color = 'var(--primary-blue)';
-    }
-
-    function toggleTag(btn) {
-      btn.classList.toggle('selected');
-    }
-
-    function handleProfileCompletion(event) {
-      event.preventDefault();
-
-      // Selected status
-      const selectedCard = document.querySelector('.avail-status-card.selected');
-      const statusTitle = selectedCard ? selectedCard.querySelector('h4').innerText : 'Available';
-
-      // Selected preferences tags
-      const prefTags = Array.from(document.querySelectorAll('.skill-tags-clickable .tag-btn-selectable.selected'))
-        .map(t => t.innerText);
-
-      // Hourly rates
-      const minRate = document.getElementById('minRate') ? document.getElementById('minRate').value : 50;
-      const maxRate = document.getElementById('maxRate') ? document.getElementById('maxRate').value : 100;
-      const timezone = document.getElementById('primaryTimezone') ? document.getElementById('primaryTimezone').value : 'UTC-8';
-
-      // Channels
-      const channels = [];
-      if (document.getElementById('channelEmail') && document.getElementById('channelEmail').checked) channels.push('Email');
-      if (document.getElementById('channelDiscord') && document.getElementById('channelDiscord').checked) channels.push('Discord');
-      if (document.getElementById('channelSlack') && document.getElementById('channelSlack').checked) channels.push('Slack');
-
-      const profilePayload = {
-        name: "Tanish",
-        role: "Student Freelancer & Developer",
-        batch: "Batch of '26",
-        college: "Campus Engineering Institute",
-        availability: statusTitle,
-        hourlyRate: { min: minRate, max: maxRate, currency: 'USD' },
-        workPreferences: prefTags,
-        timezone: timezone,
-        contactChannels: channels,
-        completedAt: new Date().toISOString()
-      };
-
-      // 1. Save to localStorage
-      localStorage.setItem('skillx_user_profile', JSON.stringify(profilePayload));
-
-      // 2. Download profile as local JSON file
-      downloadJSON(profilePayload, 'skillx_profile.json');
-
-      showToast('🎉 Profile setup complete! Saved to local storage & JSON exported.', 'success');
-
-      setTimeout(() => {
-        window.location.href = 'dashboard.html';
-      }, 1000);
-    }
-  </script>
+  <script src="profile-creation-step-3.js"></script>
 
 </body>
 </html>
