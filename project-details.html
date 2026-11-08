@@ -129,7 +129,7 @@
           </div>
         </div>
 
-        <button type="button" class="btn-apply-now" id="applyNowBtn" onclick="handleApplyClick()">
+        <button type="button" class="btn-apply-now" id="applyNowBtn">
           Apply Now
         </button>
 
@@ -221,56 +221,15 @@
     <div class="container footer-container">
       <p>© 2026 SKILLX. Built for Campus Freelancers.</p>
       <div class="footer-nav">
-        <a href="#about" onclick="showToast('SKILLX Campus Marketplace v2.0')">About</a>
-        <a href="#contact" onclick="showToast('Contact support: help@skillx.campus')">Contact</a>
-        <a href="#terms" onclick="showToast('Terms of Service and Escrow Guarantee')">Terms</a>
+        <a href="#" data-toast="SKILLX Campus Marketplace v2.0">About</a>
+        <a href="#" data-toast="Contact support: help@skillx.campus">Contact</a>
+        <a href="#" data-toast="Terms of Service and Escrow Guarantee">Terms</a>
       </div>
     </div>
   </footer>
 
-  <!-- App JS & Dynamic Loader -->
+  <!-- App Core & Page JS -->
   <script src="app.js"></script>
-  <script>
-    let currentProjectId = 'proj-1';
-
-    document.addEventListener('DOMContentLoaded', () => {
-      // Read ?id= from URL
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get('id') || 'proj-1';
-      currentProjectId = id;
-
-      const project = getProjectById(id);
-      if (project) {
-        document.getElementById('projCategory').innerText = project.category;
-        document.getElementById('projTitle').innerText = project.title;
-        document.getElementById('projBudgetHighlight').innerText = `₹${project.budget} Fixed Budget`;
-        document.getElementById('projClientName').innerText = project.client.name;
-        document.getElementById('projRating').innerText = `Rating: ${project.client.rating}`;
-        document.getElementById('projDescription').innerText = project.description;
-        document.getElementById('projDeadline').innerText = project.deadline;
-
-        // Summary card
-        document.getElementById('summaryBudget').innerText = `₹${project.budget}`;
-        document.getElementById('summaryDuration').innerText = project.duration;
-        document.getElementById('summaryLevel').innerText = project.level;
-        document.getElementById('summaryApplicants').innerText = project.applicants;
-        document.getElementById('summaryClientName').innerText = project.client.name;
-
-        // Skills pills
-        const skillsContainer = document.getElementById('projSkillsList');
-        skillsContainer.innerHTML = '';
-        project.skills.forEach(skill => {
-          const span = document.createElement('span');
-          span.className = 'skill-pill';
-          span.innerText = skill;
-          skillsContainer.appendChild(span);
-        });
-      }
-    });
-
-    function handleApplyClick() {
-      window.location.href = `apply.html?id=${encodeURIComponent(currentProjectId)}`;
-    }
-  </script>
+  <script src="project-details.js"></script>
 </body>
 </html>
