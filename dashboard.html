@@ -50,7 +50,7 @@
           <span class="material-symbols-outlined">person</span>
           <span>Profile</span>
         </a>
-        <a href="#settings" class="sidebar-link" onclick="showToast('Profile & Notification settings ready', 'info')">
+        <a href="settings.html" class="sidebar-link" id="sidebarSettingsLink">
           <span class="material-symbols-outlined">settings</span>
           <span>Settings</span>
         </a>
@@ -91,21 +91,21 @@
         <!-- Search Input -->
         <div class="topbar-search">
           <span class="material-symbols-outlined" style="font-size: 18px; color: var(--text-muted);">search</span>
-          <input type="text" id="dashboardSearchInput" placeholder="Search projects, skills..." onkeyup="filterSuggestedProjects(this.value)" />
+          <input type="text" id="dashboardSearchInput" placeholder="Search projects, skills..." />
         </div>
 
         <!-- Notification Bell -->
-        <button type="button" class="notification-btn" onclick="showToast('You have 1 new project match from Robotics Club!', 'info')" title="Notifications">
+        <button type="button" class="notification-btn" id="notificationBtn" title="Notifications">
           <span class="material-symbols-outlined">notifications</span>
-          <span style="position: absolute; top: -2px; right: -2px; width: 8px; height: 8px; background: #ef4444; border-radius: 50%;"></span>
+          <span class="notif-dot" style="position: absolute; top: -2px; right: -2px; width: 8px; height: 8px; background: #ef4444; border-radius: 50%;"></span>
         </button>
 
         <!-- User Profile Chip -->
-        <div class="user-profile-chip" onclick="window.location.href='profile-creation.html'">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Tanish Avatar" class="user-avatar-circle" />
+        <div class="user-profile-chip" data-href="profile-creation.html">
+          <img id="chipUserAvatar" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2080%2080%22%3E%3Crect%20width%3D%2280%22%20height%3D%2280%22%20rx%3D%2240%22%20fill%3D%22%23eff6ff%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2254%25%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20font-family%3D%22Inter%2CArial%2Csans-serif%22%20font-size%3D%2230%22%20font-weight%3D%22700%22%20fill%3D%22%232563eb%22%3ETM%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Student Avatar" class="user-avatar-circle" />
           <div class="user-name-role">
-            <h4>Tanish</h4>
-            <p>Student</p>
+            <h4 id="chipUserName">Tanish Mehlawat</h4>
+            <p id="chipUserRole">Student</p>
           </div>
         </div>
       </div>
@@ -120,7 +120,7 @@
           <span class="tag-badge-pill freelancer">🎓 New Freelancer</span>
           <span class="tag-badge-pill onboarding">Onboarding Mode 🟢</span>
         </div>
-        <h1>Welcome to SKILLX, Tanish 👋</h1>
+        <h1 id="welcomeHeading">Welcome to SKILLX, Tanish 👋</h1>
         <p>Your student profile is primed and ready. Connect with peer clubs, collegiate startups, and local founders to build your campus portfolio.</p>
         <div class="welcome-actions-row">
           <a href="find-work.html" class="btn btn-royal">
@@ -148,7 +148,7 @@
             <div class="stat-main-number" id="dashActiveProjectsCount">0</div>
             <div class="stat-subtext">
               <span class="material-symbols-outlined" style="font-size: 14px;">hourglass_empty</span>
-              <span>No ongoing gigs yet</span>
+              <span id="dashActiveSubtext">No ongoing gigs yet</span>
             </div>
           </div>
         </div>
@@ -162,7 +162,7 @@
             </div>
           </div>
           <div>
-            <div class="stat-main-number">0</div>
+            <div class="stat-main-number" id="dashCompletedCount">0</div>
             <div class="stat-subtext">
               <span class="material-symbols-outlined" style="font-size: 14px;">emoji_events</span>
               <span>Build reviews & campus cred</span>
@@ -197,7 +197,7 @@
 
         <div class="quick-actions-grid">
           <!-- Card 1: Find Work -->
-          <div class="quick-action-card" onclick="window.location.href='find-work.html'">
+          <div class="quick-action-card" data-href="find-work.html">
             <div class="quick-action-icon blue">
               <span class="material-symbols-outlined">search</span>
             </div>
@@ -208,7 +208,7 @@
           </div>
 
           <!-- Card 2: Complete Profile -->
-          <div class="quick-action-card" onclick="window.location.href='profile-creation.html'">
+          <div class="quick-action-card" data-href="profile-creation.html">
             <div class="quick-action-icon purple">
               <span class="material-symbols-outlined">auto_awesome</span>
             </div>
@@ -219,7 +219,7 @@
           </div>
 
           <!-- Card 3: Messages -->
-          <div class="quick-action-card" onclick="window.location.href='messages.html'">
+          <div class="quick-action-card" data-href="messages.html">
             <div class="quick-action-icon blue">
               <span class="material-symbols-outlined">chat</span>
             </div>
@@ -230,7 +230,7 @@
           </div>
 
           <!-- Card 4: Applications -->
-          <div class="quick-action-card" onclick="window.location.href='applications.html'">
+          <div class="quick-action-card" data-href="applications.html">
             <div class="quick-action-icon green">
               <span class="material-symbols-outlined">account_balance_wallet</span>
             </div>
@@ -338,30 +338,8 @@
     </main>
   </div>
 
-  <!-- Shared App JS -->
+  <!-- App Core & Page JS -->
   <script src="app.js"></script>
-  <script>
-    // Live Search Filter for Suggested Projects
-    function filterSuggestedProjects(query) {
-      const q = query.toLowerCase().trim();
-      const cards = document.querySelectorAll('.suggested-item-card');
-      cards.forEach(card => {
-        const text = (card.getAttribute('data-keywords') + ' ' + card.innerText).toLowerCase();
-        if (!q || text.includes(q)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    // Refresh application count from localStorage
-    document.addEventListener('DOMContentLoaded', () => {
-      const apps = getApplications();
-      const activeCount = apps.filter(a => a.status === 'Active' || a.status === 'Under Review').length;
-      const countEl = document.getElementById('dashActiveProjectsCount');
-      if (countEl) countEl.innerText = activeCount;
-    });
-  </script>
+  <script src="dashboard.js"></script>
 </body>
 </html>
