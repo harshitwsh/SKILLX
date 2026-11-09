@@ -69,7 +69,7 @@
           <span class="required-legend">* Required fields</span>
         </div>
 
-        <form id="applicationForm" onsubmit="handleApplicationSubmit(event)">
+        <form id="applicationForm" novalidate>
           
           <!-- Field 1: Cover letter -->
           <div class="apply-field-group">
@@ -82,7 +82,6 @@
                 placeholder="Describe how you would build the event registration portal..." 
                 maxlength="2000" 
                 required 
-                oninput="updateCharCount(this)"
               ></textarea>
               <div class="char-counter" id="charCounter">0 / 2000 characters</div>
             </div>
@@ -105,7 +104,7 @@
           <div class="apply-field-group">
             <label>Work sample (optional)</label>
             
-            <div class="file-upload-box" id="uploadDropzone" onclick="document.getElementById('workSampleFile').click()">
+            <div class="file-upload-box" id="uploadDropzone">
               <div class="upload-icon-circle">
                 <span class="material-symbols-outlined">upload</span>
               </div>
@@ -113,13 +112,13 @@
                 <div class="main-prompt">Choose a file or drag it here</div>
                 <div class="sub-prompt">PDF, PNG or JPG · Up to 10 MB</div>
               </div>
-              <input type="file" id="workSampleFile" accept=".pdf,.png,.jpg,.jpeg" style="display: none;" onchange="handleFileSelected(event)" />
+              <input type="file" id="workSampleFile" accept=".pdf,.png,.jpg,.jpeg" style="display: none;" />
             </div>
 
             <!-- Preview chip when file is chosen -->
             <div class="file-preview-pill" id="filePreviewPill">
               <span id="fileNameLabel">sample_portfolio.pdf</span>
-              <button type="button" class="remove-file-btn" onclick="clearSelectedFile()" title="Remove file">
+              <button type="button" class="remove-file-btn" id="removeFileBtn" title="Remove file">
                 <span class="material-symbols-outlined">close</span>
               </button>
             </div>
@@ -218,159 +217,15 @@
     <div class="container footer-container">
       <p>© 2026 SKILLX. Built for Campus Freelancers.</p>
       <div class="footer-nav">
-        <a href="#about" onclick="showToast('SKILLX Campus Marketplace v2.0')">About</a>
-        <a href="#contact" onclick="showToast('Contact support: help@skillx.campus')">Contact</a>
-        <a href="#terms" onclick="showToast('Terms of Service and Escrow Guarantee')">Terms</a>
+        <a href="#" data-toast="SKILLX Campus Marketplace v2.0">About</a>
+        <a href="#" data-toast="Contact support: help@skillx.campus">Contact</a>
+        <a href="#" data-toast="Terms of Service and Escrow Guarantee">Terms</a>
       </div>
     </div>
   </footer>
 
-  <!-- App Core JS -->
+  <!-- App Core & Page JS -->
   <script src="app.js"></script>
-  <script>
-    let activeProject = null;
-    let selectedFileObject = null;
-
-    // Load Project details based on ?id=
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      const projId = params.get('id') || 'proj-1';
-      activeProject = getProjectById(projId);
-
-      if (activeProject) {
-        document.getElementById('backToProjectLink').href = `project-details.html?id=${activeProject.id}`;
-        document.getElementById('applyHeaderSubtitle').innerText = `Tell ${activeProject.client.name} how you'll bring their project to life.`;
-        document.getElementById('agreementBudget').innerText = `₹${activeProject.budget}`;
-        document.getElementById('formFooterClientName').innerText = activeProject.client.name;
-
-        // Sidebar info
-        document.getElementById('sideCategory').innerText = activeProject.category;
-        document.getElementById('sideTitle').innerText = activeProject.title;
-        document.getElementById('sideClientName').innerText = activeProject.client.name;
-        document.getElementById('sideBudget').innerText = `₹${activeProject.budget}`;
-        document.getElementById('sideDuration').innerText = activeProject.duration;
-        document.getElementById('sideLevel').innerText = activeProject.level;
-        document.getElementById('sideDeadline').innerText = activeProject.deadline;
-
-        // Custom tip
-        const skillsText = activeProject.skills.join(', ');
-        document.getElementById('tipText').innerText = 
-          `Keep it specific. Highlight your experience in ${skillsText} and explain your approach to project deliverables.`;
-      }
-
-      // Drag and drop setup for file dropzone
-      const dropzone = document.getElementById('uploadDropzone');
-      dropzone.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        dropzone.style.borderColor = 'var(--primary-blue)';
-        dropzone.style.background = '#f0f7ff';
-      });
-      dropzone.addEventListener('dragleave', () => {
-        dropzone.style.borderColor = '#cbd5e1';
-        dropzone.style.background = '#f8fafc';
-      });
-      dropzone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        dropzone.style.borderColor = '#cbd5e1';
-        dropzone.style.background = '#f8fafc';
-        if (e.dataTransfer.files.length > 0) {
-          applyFile(e.dataTransfer.files[0]);
-        }
-      });
-    });
-
-    // Character Counter
-    function updateCharCount(textarea) {
-      const count = textarea.value.length;
-      document.getElementById('charCounter').innerText = `${count} / 2000 characters`;
-    }
-
-    // File Selector handler
-    function handleFileSelected(event) {
-      if (event.target.files.length > 0) {
-        applyFile(event.target.files[0]);
-      }
-    }
-
-    function applyFile(file) {
-      selectedFileObject = file;
-      document.getElementById('fileNameLabel').innerText = file.name;
-      document.getElementById('filePreviewPill').style.display = 'inline-flex';
-    }
-
-    function clearSelectedFile() {
-      selectedFileObject = null;
-      document.getElementById('workSampleFile').value = '';
-      document.getElementById('filePreviewPill').style.display = 'none';
-    }
-
-    // Form Submission & Local JSON Saving
-    async function handleApplicationSubmit(event) {
-      event.preventDefault();
-
-      const coverLetter = document.getElementById('coverLetterInput').value.trim();
-      const portfolioLink = document.getElementById('portfolioLinkInput').value.trim();
-      const estimatedDelivery = document.getElementById('estimatedDeliverySelect').value;
-      const budgetAgreed = document.getElementById('budgetAgreementCheck').checked;
-
-      // Validation
-      if (coverLetter.length < 20) {
-        showToast('Please provide a slightly more descriptive cover letter (minimum 20 characters).', 'error');
-        document.getElementById('coverLetterInput').focus();
-        return;
-      }
-
-      if (!portfolioLink.startsWith('http://') && !portfolioLink.startsWith('https://')) {
-        showToast('Please enter a valid URL beginning with https:// for your portfolio link.', 'error');
-        document.getElementById('portfolioLinkInput').focus();
-        return;
-      }
-
-      if (!budgetAgreed) {
-        showToast('Please check the budget agreement checkbox to proceed.', 'error');
-        return;
-      }
-
-      const submitBtn = document.getElementById('submitAppBtn');
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Saving...</span> <span class="material-symbols-outlined" style="animation: spin 1s linear infinite;">sync</span>`;
-
-      // Construct application record object
-      const newApplication = {
-        id: 'app-' + Date.now(),
-        projectId: activeProject ? activeProject.id : 'proj-1',
-        projectTitle: activeProject ? activeProject.title : 'Campus Club Event Registration Web App',
-        clientName: activeProject ? activeProject.client.name : 'Robotics Club',
-        budget: activeProject ? `₹${activeProject.budget}` : '₹2000',
-        submittedAt: new Date().toISOString(),
-        status: 'Under Review',
-        coverLetter: coverLetter,
-        portfolioLink: portfolioLink,
-        fileName: selectedFileObject ? selectedFileObject.name : 'No file attached',
-        estimatedDelivery: estimatedDelivery,
-        termsAgreed: budgetAgreed,
-        applicant: {
-          name: 'Tanish',
-          role: 'Student & Freelancer',
-          email: 'tanish@campus.edu'
-        }
-      };
-
-      // 1. Save to localStorage
-      saveApplication(newApplication);
-
-      // 2. Automatically prompt download of the submitted JSON record to local user disk
-      downloadJSON(newApplication, `application_${newApplication.id}.json`);
-
-      // 3. Attempt async sync to Node server (if running)
-      await trySyncToServer('/api/save-application', newApplication);
-
-      showToast('🎉 Application submitted & saved to local JSON successfully!', 'success');
-
-      setTimeout(() => {
-        window.location.href = 'applications.html?submitted=true';
-      }, 1200);
-    }
-  </script>
+  <script src="apply.js"></script>
 </body>
 </html>
