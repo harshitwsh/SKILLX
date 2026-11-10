@@ -55,13 +55,13 @@
           <h2>Direct Messages</h2>
           <div class="conv-search-box">
             <span class="material-symbols-outlined" style="font-size: 16px; color: var(--text-light);">search</span>
-            <input type="text" placeholder="Search conversations..." id="searchConvInput" onkeyup="filterConversations(this.value)" />
+            <input type="text" placeholder="Search conversations..." id="searchConvInput" />
           </div>
         </div>
 
         <div class="conversations-list" id="convList">
           <!-- Conversation 1: Robotics Club -->
-          <div class="conv-item active" onclick="switchConversation('Robotics Club', 'Online • Verified Campus Organizer')">
+          <div class="conv-item active" data-partner="Robotics Club">
             <div class="conv-avatar">RC</div>
             <div class="conv-info">
               <div class="conv-top-row">
@@ -73,7 +73,7 @@
           </div>
 
           <!-- Conversation 2: Annual Tech Summit -->
-          <div class="conv-item" onclick="switchConversation('Tech Summit Lead', 'Offline • Active 1h ago')">
+          <div class="conv-item" data-partner="Tech Summit Lead">
             <div class="conv-avatar" style="background: #fef3c7; color: #b45309;">TS</div>
             <div class="conv-info">
               <div class="conv-top-row">
@@ -85,7 +85,7 @@
           </div>
 
           <!-- Conversation 3: College Fest Core Team -->
-          <div class="conv-item" onclick="switchConversation('College Fest Core', 'Online')">
+          <div class="conv-item" data-partner="College Fest Core">
             <div class="conv-avatar" style="background: #ede9fe; color: #7c3aed;">CF</div>
             <div class="conv-info">
               <div class="conv-top-row">
@@ -106,31 +106,18 @@
             <h3 id="activeChatName">Robotics Club</h3>
             <p id="activeChatStatus">● Online • Verified Campus Organizer</p>
           </div>
-          <a href="project-details.html?id=proj-1" class="btn btn-outline" style="font-size: 0.8rem; padding: 6px 14px;">
+          <a href="project-details.html?id=proj-1" id="viewBriefLink" class="btn btn-outline" style="font-size: 0.8rem; padding: 6px 14px;">
             <span>View Project Brief</span>
           </a>
         </div>
 
         <div class="chat-messages-container" id="chatContainer">
-          <div class="message-bubble incoming">
-            Hi Tanish! Thanks for applying to the <strong>Campus Club Event Registration Web App</strong> project. We checked your portfolio link and were impressed by your previous React experience.
-            <div class="message-time">10:42 AM</div>
-          </div>
-
-          <div class="message-bubble incoming">
-            Are you able to start next Monday and deliver the QR check-in feature within the 2-week timeframe?
-            <div class="message-time">10:45 AM</div>
-          </div>
-
-          <div class="message-bubble outgoing">
-            Hi team! Yes, absolutely. I already have a reusable QR scanning component built with React & HTML5-QRCode that can integrate directly with Firebase. Happy to begin this Monday!
-            <div class="message-time">10:48 AM</div>
-          </div>
+          <!-- Loaded dynamically by messages.js -->
         </div>
 
         <!-- Chat Input Bar -->
-        <form class="chat-input-bar" onsubmit="handleSendMessage(event)">
-          <input type="text" id="chatInput" placeholder="Type a message to Robotics Club..." required autocomplete="off" />
+        <form class="chat-input-bar" id="chatForm" novalidate>
+          <input type="text" id="chatInput" placeholder="Type a message to Robotics Club..." autocomplete="off" />
           <button type="submit" class="btn-send-msg" title="Send Message">
             <span class="material-symbols-outlined" style="font-size: 20px;">send</span>
           </button>
@@ -147,70 +134,15 @@
     <div class="container footer-container">
       <p>© 2026 SKILLX. Built for Campus Freelancers.</p>
       <div class="footer-nav">
-        <a href="#about" onclick="showToast('SKILLX Campus Marketplace v2.0')">About</a>
-        <a href="#contact" onclick="showToast('Contact support: help@skillx.campus')">Contact</a>
-        <a href="#terms" onclick="showToast('Terms of Service and Escrow Guarantee')">Terms</a>
+        <a href="#" data-toast="SKILLX Campus Marketplace v2.0">About</a>
+        <a href="#" data-toast="Contact support: help@skillx.campus">Contact</a>
+        <a href="#" data-toast="Terms of Service and Escrow Guarantee">Terms</a>
       </div>
     </div>
   </footer>
 
-  <!-- App Core JS -->
+  <!-- App Core & Page JS -->
   <script src="app.js"></script>
-  <script>
-    function handleSendMessage(event) {
-      event.preventDefault();
-      const input = document.getElementById('chatInput');
-      const text = input.value.trim();
-      if (!text) return;
-
-      const container = document.getElementById('chatContainer');
-      const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-      // Add user message
-      const msg = document.createElement('div');
-      msg.className = 'message-bubble outgoing';
-      msg.innerHTML = `${escapeHtml(text)}<div class="message-time">${timeStr}</div>`;
-      container.appendChild(msg);
-
-      input.value = '';
-      container.scrollTop = container.scrollHeight;
-
-      // Simulated client response after 1.2s
-      setTimeout(() => {
-        const reply = document.createElement('div');
-        reply.className = 'message-bubble incoming';
-        reply.innerHTML = `Great! I've marked your application as shortlisted. Let's set up the campus milestone escrow tomorrow.<div class="message-time">${timeStr}</div>`;
-        container.appendChild(reply);
-        container.scrollTop = container.scrollHeight;
-        showToast('New message received from client', 'info');
-      }, 1200);
-    }
-
-    function switchConversation(name, status) {
-      document.getElementById('activeChatName').innerText = name;
-      document.getElementById('activeChatStatus').innerText = '● ' + status;
-      document.getElementById('chatInput').placeholder = `Type a message to ${name}...`;
-      document.querySelectorAll('.conv-item').forEach(i => i.classList.remove('active'));
-      event.currentTarget.classList.add('active');
-    }
-
-    function filterConversations(val) {
-      const q = val.toLowerCase();
-      document.querySelectorAll('.conv-item').forEach(item => {
-        const text = item.innerText.toLowerCase();
-        item.style.display = text.includes(q) ? 'flex' : 'none';
-      });
-    }
-
-    function escapeHtml(str) {
-      if (!str) return '';
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-    }
-  </script>
+  <script src="messages.js"></script>
 </body>
 </html>
