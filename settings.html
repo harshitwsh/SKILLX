@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings - SKILLX</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Material Symbols Outlined -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- Shared & Page Stylesheets -->
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="settings.css" />
+</head>
+<body class="dashboard-body">
+
+  <!-- Left Navigation Sidebar -->
+  <aside class="dashboard-sidebar">
+    <div class="sidebar-top">
+      <div class="sidebar-brand">
+        <a href="index.html" class="logo" style="color: var(--primary-blue); font-size: 1.55rem; font-weight: 800;">SKILLX</a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link">
+          <span class="material-symbols-outlined">grid_view</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="find-work.html" class="sidebar-link">
+          <span class="material-symbols-outlined">work</span>
+          <span>Find Work</span>
+        </a>
+        <a href="applications.html" class="sidebar-link">
+          <span class="material-symbols-outlined">description</span>
+          <span>Applications</span>
+        </a>
+        <a href="messages.html" class="sidebar-link">
+          <span class="material-symbols-outlined">chat_bubble_outline</span>
+          <span>Messages</span>
+        </a>
+        <a href="profile-creation.html" class="sidebar-link">
+          <span class="material-symbols-outlined">person</span>
+          <span>Profile</span>
+        </a>
+        <a href="settings.html" class="sidebar-link active">
+          <span class="material-symbols-outlined">settings</span>
+          <span>Settings</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="student-badge-card">
+        <span class="material-symbols-outlined badge-icon">verified</span>
+        <div class="badge-info">
+          <h5>Verified Student</h5>
+          <p id="sidebarBadgeSub">Batch of '26</p>
+        </div>
+      </div>
+
+      <a href="login.html" class="logout-link">
+        <span class="material-symbols-outlined">logout</span>
+        <span>Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="dashboard-main-wrapper">
+
+    <!-- Top Header Bar -->
+    <header class="dashboard-topbar">
+      <nav class="topbar-nav-links">
+        <a href="find-work.html">Find Work</a>
+        <a href="find-work.html">Find Talent</a>
+        <a href="dashboard.html">Projects</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <div class="topbar-search">
+          <span class="material-symbols-outlined" style="font-size: 18px; color: var(--text-muted);">search</span>
+          <input type="text" id="topbarSearchInput" placeholder="Search projects, skills..." />
+        </div>
+
+        <button class="notification-btn" id="notificationBtn" title="Notifications" type="button">
+          <span class="material-symbols-outlined">notifications</span>
+          <span style="position: absolute; top: 0; right: 2px; width: 7px; height: 7px; background: #ef4444; border-radius: 50%;"></span>
+        </button>
+
+        <!-- Synced User Profile Chip -->
+        <div class="user-profile-chip" data-href="profile-creation.html">
+          <img id="chipUserAvatar" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2080%2080%22%3E%3Crect%20width%3D%2280%22%20height%3D%2280%22%20rx%3D%2240%22%20fill%3D%22%23eff6ff%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2254%25%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20font-family%3D%22Inter%2CArial%2Csans-serif%22%20font-size%3D%2230%22%20font-weight%3D%22700%22%20fill%3D%22%232563eb%22%3ETM%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Student Avatar" class="user-avatar-circle" />
+          <div class="user-name-role">
+            <h4 id="chipUserName">Tanish Mehlawat</h4>
+            <p id="chipUserRole">Student</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Settings Content -->
+    <main class="dashboard-content">
+      <div class="settings-page-header">
+        <div>
+          <h1>Account &amp; Profile Settings</h1>
+          <p>Manage your student details, notification alerts, password, and local JSON backups.</p>
+        </div>
+        <a href="profile-creation.html" class="btn btn-outline">Edit Full Profile &rarr;</a>
+      </div>
+
+      <div class="settings-grid">
+        <!-- Card 1: Account & Identity Details -->
+        <section class="settings-card">
+          <div class="settings-card-header">
+            <span class="material-symbols-outlined settings-card-icon">badge</span>
+            <div>
+              <h2>Student Identity</h2>
+              <p>Keep your name, campus email, and headline consistent across SKILLX.</p>
+            </div>
+          </div>
+
+          <form id="accountSettingsForm" class="settings-form" novalidate>
+            <div class="settings-two-col">
+              <div class="form-field-group">
+                <label for="settingFullName">Full Name</label>
+                <input type="text" id="settingFullName" class="input-control no-icon" placeholder="e.g. Tanish Mehlawat" required />
+              </div>
+
+              <div class="form-field-group">
+                <label for="settingEmail">Campus Email</label>
+                <input type="email" id="settingEmail" class="input-control no-icon" placeholder="tanish@campus.edu" required />
+              </div>
+            </div>
+
+            <div class="form-field-group">
+              <label for="settingHeadline">Headline</label>
+              <input type="text" id="settingHeadline" class="input-control no-icon" placeholder="e.g. Junior Full-Stack React & Node.js Developer" required />
+            </div>
+
+            <div class="settings-two-col">
+              <div class="form-field-group">
+                <label for="settingCollege">College / Institute</label>
+                <input type="text" id="settingCollege" class="input-control no-icon" placeholder="Campus Engineering Institute" required />
+              </div>
+
+              <div class="form-field-group">
+                <label for="settingBatch">Batch</label>
+                <select id="settingBatch" class="input-control no-icon">
+                  <option value="Batch of '25">Batch of '25</option>
+                  <option value="Batch of '26">Batch of '26</option>
+                  <option value="Batch of '27">Batch of '27</option>
+                  <option value="Batch of '28">Batch of '28</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field-group">
+              <label for="settingLocation">Location</label>
+              <input type="text" id="settingLocation" class="input-control no-icon" placeholder="e.g. New Delhi, India (IST)" />
+            </div>
+
+            <div class="settings-card-footer">
+              <button type="submit" class="btn btn-royal">Save Account Settings</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Card 2: Notifications & Privacy -->
+        <section class="settings-card">
+          <div class="settings-card-header">
+            <span class="material-symbols-outlined settings-card-icon">notifications_active</span>
+            <div>
+              <h2>Notifications &amp; Privacy</h2>
+              <p>Choose which campus updates and project alerts you want to receive.</p>
+            </div>
+          </div>
+
+          <form id="preferencesSettingsForm" class="settings-form" novalidate>
+            <label class="toggle-row">
+              <div>
+                <strong>Email Notifications</strong>
+                <span>Get updates when campus clubs review your application.</span>
+              </div>
+              <input type="checkbox" id="prefEmailNotifications" class="toggle-checkbox" />
+            </label>
+
+            <label class="toggle-row">
+              <div>
+                <strong>Project Match Alerts</strong>
+                <span>Notify me when new React, UI/UX, or Python gigs match my skills.</span>
+              </div>
+              <input type="checkbox" id="prefProjectAlerts" class="toggle-checkbox" />
+            </label>
+
+            <label class="toggle-row">
+              <div>
+                <strong>Client Message Alerts</strong>
+                <span>Highlight unread messages from robotics clubs and fest teams.</span>
+              </div>
+              <input type="checkbox" id="prefMessageAlerts" class="toggle-checkbox" />
+            </label>
+
+            <label class="toggle-row">
+              <div>
+                <strong>Public Student Profile</strong>
+                <span>Allow verified campus organizers to discover your SKILLX profile.</span>
+              </div>
+              <input type="checkbox" id="prefProfilePublic" class="toggle-checkbox" />
+            </label>
+
+            <div class="form-field-group">
+              <label for="prefDigestFrequency">Summary Frequency</label>
+              <select id="prefDigestFrequency" class="input-control no-icon">
+                <option value="Daily">Daily Digest</option>
+                <option value="Weekly">Weekly Digest</option>
+                <option value="Important Only">Important Alerts Only</option>
+              </select>
+            </div>
+
+            <div class="settings-card-footer">
+              <button type="submit" class="btn btn-royal">Save Preferences</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Card 3: Security & Password -->
+        <section class="settings-card">
+          <div class="settings-card-header">
+            <span class="material-symbols-outlined settings-card-icon">lock</span>
+            <div>
+              <h2>Password &amp; Security</h2>
+              <p>Update your account password anytime.</p>
+            </div>
+          </div>
+
+          <form id="passwordSettingsForm" class="settings-form" novalidate>
+            <div class="form-field-group">
+              <label for="currentPasswordInput">Current Password</label>
+              <div class="input-with-icon">
+                <span class="material-symbols-outlined input-icon-left">key</span>
+                <input type="password" id="currentPasswordInput" class="input-control" placeholder="Enter current password" required />
+                <button type="button" class="toggle-password-btn" data-toggle-target="currentPasswordInput" aria-label="Toggle current password">
+                  <span class="material-symbols-outlined">visibility</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="settings-two-col">
+              <div class="form-field-group">
+                <label for="newPasswordInput">New Password</label>
+                <div class="input-with-icon">
+                  <span class="material-symbols-outlined input-icon-left">lock</span>
+                  <input type="password" id="newPasswordInput" class="input-control" placeholder="Min. 8 characters" required />
+                  <button type="button" class="toggle-password-btn" data-toggle-target="newPasswordInput" aria-label="Toggle new password">
+                    <span class="material-symbols-outlined">visibility</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-field-group">
+                <label for="confirmPasswordInput">Confirm New Password</label>
+                <div class="input-with-icon">
+                  <span class="material-symbols-outlined input-icon-left">lock_reset</span>
+                  <input type="password" id="confirmPasswordInput" class="input-control" placeholder="Re-enter new password" required />
+                  <button type="button" class="toggle-password-btn" data-toggle-target="confirmPasswordInput" aria-label="Toggle confirm password">
+                    <span class="material-symbols-outlined">visibility</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-card-footer">
+              <button type="submit" class="btn btn-outline">Update Password</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Card 4: Local JSON Backup & Demo Reset -->
+        <section class="settings-card">
+          <div class="settings-card-header">
+            <span class="material-symbols-outlined settings-card-icon">folder_zip</span>
+            <div>
+              <h2>Local Data &amp; JSON Export</h2>
+              <p>Download your saved profile and settings JSON files, or restore default campus demo data.</p>
+            </div>
+          </div>
+
+          <div class="data-actions-box">
+            <button type="button" id="downloadProfileJsonBtn" class="btn btn-outline">
+              <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+              Download Profile JSON
+            </button>
+            <button type="button" id="downloadSettingsJsonBtn" class="btn btn-outline">
+              <span class="material-symbols-outlined" style="font-size: 18px;">tune</span>
+              Download Settings JSON
+            </button>
+            <button type="button" id="resetDemoDataBtn" class="btn btn-danger-outline">
+              <span class="material-symbols-outlined" style="font-size: 18px;">restart_alt</span>
+              Reset Demo Data
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- App Core & Page JS -->
+  <script src="app.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>
