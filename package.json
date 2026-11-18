@@ -1,0 +1,28 @@
+{
+  "name": "skillx",
+  "version": "1.0.0",
+  "description": "SKILLX is a modern, responsive web application connecting talented student freelancers and vetted software engineers with campus clubs, collegiate startups, and local founders.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harshitwsh/SKILLX.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/harshitwsh/SKILLX/issues"
+  },
+  "homepage": "https://github.com/harshitwsh/SKILLX#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "mongoose": "^9.12.2"
+  }
+}

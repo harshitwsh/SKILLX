@@ -101,11 +101,20 @@ function renderApplications() {
   });
 
   container.querySelectorAll('[data-delete-id]').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       const id = btn.getAttribute('data-delete-id');
       deleteApplication(id);
+
+      // Delete from MongoDB Atlas (Parameter 4) & Local JSON (Parameter 3)
+      try {
+        await fetch(`/api/db/applications/${id}`, { method: 'DELETE' });
+        await fetch(`/api/json/applications/${id}`, { method: 'DELETE' });
+      } catch (e) {
+        console.warn('Backend sync warning:', e.message);
+      }
+
       renderApplications();
-      showToast('Application withdrawn from your local tracker.', 'info');
+      showToast('Application withdrawn & removed from MongoDB database.', 'info');
     });
   });
 }
@@ -194,4 +203,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   renderApplications();
+
+  // Asynchronously sync latest applications from MongoDB Atlas
+  try {
+    fetch('/api/db/applications')
+      .then(res => res.json())
+      .then(json => {
+        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+          localStorage.setItem(STORAGE_KEYS.APPLICATIONS, JSON.stringify(json.data));
+          renderApplications();
+        }
+      })
+      .catch(() => {});
+  } catch (e) {}
 });

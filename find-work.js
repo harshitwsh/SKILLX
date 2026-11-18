@@ -1,9 +1,47 @@
 /**
  * SKILLX - Find Work Page JavaScript (find-work.js)
- * Renders project listings, handles category filtering, search queries, and empty states.
+ * Renders project listings, handles category filtering, search queries, empty states,
+ * live currency conversion (External API), and MongoDB Atlas project fetching.
  */
 
 let activeCategory = 'All';
+let selectedCurrency = 'INR';
+let liveExchangeRates = {
+  INR: 1.0,
+  USD: 0.012,
+  EUR: 0.011,
+  GBP: 0.0095
+};
+
+async function initExchangeRates() {
+  try {
+    const res = await fetch('/api/external/currency');
+    const data = await res.json();
+    if (data.success && data.rates) {
+      liveExchangeRates = Object.assign(liveExchangeRates, data.rates);
+      const badge = document.getElementById('rateBadge');
+      if (badge) {
+        badge.textContent = data.fallback ? 'Cached API' : 'Live API (open.er-api)';
+        badge.style.color = '#059669';
+      }
+    }
+  } catch (e) {
+    console.warn('Using cached exchange rates:', e.message);
+  }
+}
+
+function formatProjectBudget(amount) {
+  const numericAmount = parseFloat(amount) || 0;
+  if (selectedCurrency === 'INR') {
+    return `₹${numericAmount.toLocaleString()}`;
+  }
+
+  const rate = liveExchangeRates[selectedCurrency] || 1;
+  const converted = (numericAmount * rate).toFixed(2);
+  const symbolMap = { USD: '$', EUR: '€', GBP: '£' };
+  const symbol = symbolMap[selectedCurrency] || '';
+  return `${symbol}${converted} <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">(₹${numericAmount.toLocaleString()})</span>`;
+}
 
 function renderProjectList() {
   const container = document.getElementById('projectsListContainer');
@@ -52,6 +90,7 @@ function renderProjectList() {
       .map(skill => `<span class="tech-tag-pill">${escapeHtml(skill)}</span>`)
       .join('');
     const postedBy = proj.postedText || `Posted by ${proj.client ? proj.client.name : 'Campus Client'}`;
+    const budgetDisplay = formatProjectBudget(proj.budget);
 
     return `
       <div class="project-item-card" data-category="${escapeHtml(proj.category)}">
@@ -68,7 +107,7 @@ function renderProjectList() {
         </div>
         <div class="project-action-right">
           <div class="budget-type">Fixed Budget</div>
-          <div class="budget-amount">₹${escapeHtml(String(proj.budget))}</div>
+          <div class="budget-amount">${budgetDisplay}</div>
           <a href="project-details.html?id=${encodeURIComponent(proj.id)}" class="btn-apply">View & Apply</a>
         </div>
       </div>
@@ -84,19 +123,16 @@ function selectCategory(categoryName, boxEl, scroll = true) {
   if (badge) badge.innerText = `Filtered: ${categoryName}`;
   if (clearBtn) clearBtn.style.display = 'inline';
 
-  document.querySelectorAll('.category-box').forEach(box => {
-    box.style.borderColor = 'var(--border-color)';
-  });
-  if (boxEl) {
-    boxEl.style.borderColor = 'var(--primary-blue)';
-  }
+  document.querySelectorAll('.category-box').forEach(b => b.classList.remove('active'));
+  if (boxEl) boxEl.classList.add('active');
 
   renderProjectList();
 
   if (scroll) {
-    showToast(`Filtered by ${categoryName}`, 'info');
-    const target = document.getElementById('all-projects');
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    const listSection = document.getElementById('all-projects');
+    if (listSection) {
+      listSection.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }
 
@@ -104,12 +140,13 @@ function resetCategoryFilter() {
   activeCategory = 'All';
   const badge = document.getElementById('activeCategoryBadge');
   const clearBtn = document.getElementById('clearCatBtn');
-  if (badge) badge.innerText = 'All Categories';
+  if (badge) badge.innerText = 'All Opportunities';
   if (clearBtn) clearBtn.style.display = 'none';
 
-  document.querySelectorAll('.category-box').forEach(box => {
-    box.style.borderColor = 'var(--border-color)';
-  });
+  document.querySelectorAll('.category-box').forEach(b => b.classList.remove('active'));
+  const allBox = document.querySelector('.category-box[data-category="All"]');
+  if (allBox) allBox.classList.add('active');
+
   renderProjectList();
 }
 
@@ -119,10 +156,35 @@ function resetAllFilters() {
   resetCategoryFilter();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+// Fetch live projects from MongoDB Atlas if server is running
+async function syncProjectsFromBackend() {
+  try {
+    const res = await fetch('/api/db/projects');
+    const json = await res.json();
+    if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+      localStorage.setItem('SKILLX_PROJECTS', JSON.stringify(json.data));
+      renderProjectList();
+    }
+  } catch (e) {
+    // Falls back seamlessly to localStorage projects
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
   const searchInput = document.getElementById('projectSearchInput');
   const searchBtn = document.querySelector('.btn-search');
   const clearBtn = document.getElementById('clearCatBtn');
+  const currencySelector = document.getElementById('currencySelector');
+
+  // Initialize currency exchange
+  await initExchangeRates();
+
+  if (currencySelector) {
+    currencySelector.addEventListener('change', (e) => {
+      selectedCurrency = e.target.value;
+      renderProjectList();
+    });
+  }
 
   // Bind search listeners
   if (searchInput) {
@@ -141,14 +203,14 @@ document.addEventListener('DOMContentLoaded', () => {
     clearBtn.addEventListener('click', resetCategoryFilter);
   }
 
-  // Bind category box clicks using data-category attribute
+  // Bind category box clicks
   document.querySelectorAll('.category-box[data-category]').forEach(box => {
     box.addEventListener('click', () => {
       selectCategory(box.getAttribute('data-category'), box, true);
     });
   });
 
-  // Read optional ?q= or ?category= URL parameters
+  // Read optional URL parameters
   const params = new URLSearchParams(window.location.search);
   const urlQuery = params.get('q');
   const urlCategory = params.get('category');
@@ -163,4 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     renderProjectList();
   }
+
+  // Asynchronously sync from MongoDB Atlas
+  syncProjectsFromBackend();
 });

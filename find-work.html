@@ -35,6 +35,7 @@
         <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="applications.html">Applications</a></li>
         <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="api-explorer.html" style="color: #2563eb; font-weight: 700;">Evaluation Suite</a></li>
       </ul>
 
       <!-- Right Actions: Auth Buttons -->
@@ -162,12 +163,26 @@
 
     <!-- 4. Latest Projects Section -->
     <section class="projects-block" id="all-projects">
-      <div class="projects-header-row">
+      <div class="projects-header-row" style="align-items: center; flex-wrap: wrap; gap: 12px;">
         <div>
           <h2>Latest Projects</h2>
           <p>Fresh opportunities posted by verified student clubs and campus ventures</p>
         </div>
-        <span id="projectsCountLabel" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Showing 7 projects</span>
+        <div style="display: flex; align-items: center; gap: 14px; margin-left: auto;">
+          <!-- Currency Converter Widget (Parameter 1: External API) -->
+          <div class="currency-converter-widget" style="display: flex; align-items: center; gap: 8px; background: #ffffff; border: 1px solid var(--border-color); padding: 5px 12px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+            <span class="material-symbols-outlined" style="font-size: 16px; color: #10b981;">currency_exchange</span>
+            <span style="color: var(--text-muted);">Currency:</span>
+            <select id="currencySelector" style="border: none; background: transparent; font-weight: 700; color: var(--text-main); cursor: pointer; outline: none;">
+              <option value="INR" selected>INR (₹)</option>
+              <option value="USD">USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+            </select>
+            <span id="rateBadge" style="font-size: 0.72rem; color: #10b981; font-weight: 700; background: #ecfdf5; padding: 2px 6px; border-radius: 4px;" title="Live external exchange rate from open.er-api.com">Live API</span>
+          </div>
+          <span id="projectsCountLabel" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Showing 7 projects</span>
+        </div>
       </div>
 
       <div id="projectsListContainer">

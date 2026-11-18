@@ -4,67 +4,142 @@ SKILLX is a modern, responsive web application connecting talented student freel
 
 ---
 
+## 🏆 3rd Evaluation Deliverables & Parameters Overview
+
+| Parameter | Feature Implemented | Endpoints & Key Files |
+| :--- | :--- | :--- |
+| **1. External APIs Calls** | Live Currency Exchange Rate API (`open.er-api.com`), GitHub Developer Profile Verifier (`api.github.com`), Motivational Quotes API | `GET /api/external/currency`<br>`GET /api/external/github/:username`<br>`GET /api/external/quote`<br>Integrated in `find-work.html` & `api-explorer.html` |
+| **2. Node & Express Setup** | Express 5.3 backend server with CORS, JSON body parser, URLencoded parser, request logging, and static asset delivery | `server.js`, `package.json`, `.env`<br>Runs on `http://localhost:3000` |
+| **3. Express APIs for Local JSON Files** | Express endpoints that save and fetch real-time application data directly into `data/*.json` | `GET /api/json/projects`<br>`POST /api/json/projects`<br>`GET /api/json/applications`<br>`POST /api/json/applications`<br>`DELETE /api/json/applications/:id`<br>`GET /api/json/profile`<br>`POST /api/json/profile` |
+| **4. MongoDB Atlas CRUD Operations** | Full Mongoose models & Create, Read, Update, Delete REST operations connected to MongoDB Atlas | `POST /api/db/projects` (Create)<br>`GET /api/db/projects` (Read all)<br>`GET /api/db/projects/:id` (Read one)<br>`PUT /api/db/projects/:id` (Update)<br>`DELETE /api/db/projects/:id` (Delete)<br>`POST /api/db/applications` (Create)<br>`GET /api/db/applications` (Read all)<br>`PATCH /api/db/applications/:id/status` (Update status)<br>`DELETE /api/db/applications/:id` (Delete/Withdraw) |
+
+---
+
+## 🚀 Quick Start Guide
+
+### 1. Install Dependencies
+```bash
+npm install
+```
+*(Dependencies: `express`, `mongoose`, `cors`, `dotenv`)*
+
+### 2. Configure Environment (`.env`)
+The database connection string is pre-configured in `.env`:
+```env
+PORT=3000
+MONGODB_URI=mongodb+srv://teamsftgym_db_user:giAPYPupc04qfZUw@cluster0.nktdewv.mongodb.net/backend_db?retryWrites=true&w=majority
+```
+
+### 3. Start the Express Server
+```bash
+npm start
+# or: node server.js
+```
+The server will output:
+```
+[MongoDB Atlas] Connected successfully to: backend_db
+🚀 SKILLX Production Express Server running on:
+👉 Local:     http://localhost:3000
+👉 API Docs:  http://localhost:3000/api-explorer.html
+👉 Status:    http://localhost:3000/api/health
+```
+
+### 4. Open the Interactive Evaluation Suite
+Open your browser and navigate to:
+**`http://localhost:3000/api-explorer.html`**
+
+In this interactive suite, the evaluator can:
+- View live MongoDB Atlas connection status (green pulsing indicator).
+- Test **External APIs** (Live currency conversion from INR to USD/EUR/GBP & GitHub user lookup).
+- Test **Local JSON APIs** (Read/Write to `data/projects.json` and `data/applications.json`).
+- Execute all **MongoDB CRUD Operations** (Create project, Read projects/applications, Update status, Delete documents) with live feedback and auto-refresh!
+
+---
+
+## 📡 API Reference & Testing Commands
+
+### Parameter 1: External APIs
+- **Currency Exchange Rate**:
+  ```bash
+  curl http://localhost:3000/api/external/currency
+  ```
+- **GitHub Profile Verification**:
+  ```bash
+  curl http://localhost:3000/api/external/github/harshitwsh
+  ```
+- **Tech Motivation Quote**:
+  ```bash
+  curl http://localhost:3000/api/external/quote
+  ```
+
+### Parameter 2: Server Health & Node Setup
+- **Health Check**:
+  ```bash
+  curl http://localhost:3000/api/health
+  ```
+
+### Parameter 3: Express Local JSON APIs
+- **Get Projects from JSON**:
+  ```bash
+  curl http://localhost:3000/api/json/projects
+  ```
+- **Get Applications from JSON**:
+  ```bash
+  curl http://localhost:3000/api/json/applications
+  ```
+- **Post Application to JSON**:
+  ```bash
+  curl -X POST http://localhost:3000/api/json/applications \
+    -H "Content-Type: application/json" \
+    -d '{"projectTitle":"React Campus App","clientName":"Tech Club","budget":"₹2500"}'
+  ```
+
+### Parameter 4: MongoDB Atlas CRUD APIs
+- **Create Project (CREATE)**:
+  ```bash
+  curl -X POST http://localhost:3000/api/db/projects \
+    -H "Content-Type: application/json" \
+    -d '{"title":"AI Bot for Library","category":"AI & ML","budget":3000,"skills":["Python","FastAPI"]}'
+  ```
+- **Read All Projects (READ)**:
+  ```bash
+  curl http://localhost:3000/api/db/projects
+  ```
+- **Read One Project (READ)**:
+  ```bash
+  curl http://localhost:3000/api/db/projects/proj-1
+  ```
+- **Update Project (UPDATE)**:
+  ```bash
+  curl -X PUT http://localhost:3000/api/db/projects/proj-1 \
+    -H "Content-Type: application/json" \
+    -d '{"budget":2200}'
+  ```
+- **Delete Project (DELETE)**:
+  ```bash
+  curl -X DELETE http://localhost:3000/api/db/projects/proj-1
+  ```
+- **Create Application (CREATE)**:
+  ```bash
+  curl -X POST http://localhost:3000/api/db/applications \
+    -H "Content-Type: application/json" \
+    -d '{"projectId":"proj-2","projectTitle":"Campus Event Website","clientName":"Tech Summit","budget":"₹2000"}'
+  ```
+- **Update Application Status (UPDATE)**:
+  ```bash
+  curl -X PATCH http://localhost:3000/api/db/applications/app-101/status \
+    -H "Content-Type: application/json" \
+    -d '{"status":"Accepted"}'
+  ```
+- **Delete Application (DELETE)**:
+  ```bash
+  curl -X DELETE http://localhost:3000/api/db/applications/app-101
+  ```
+
+---
+
 ## 👥 Project Team & Contributors
-- **Harshit Yadav** (`@harshitwsh`) - Core Architecture (`app.js`, `common.css`), Profile Step 1, Student Dashboard, Messaging & `user_profile.json`
-- **Tamish Mehlawat** (`@mehlawattamish-art`) - Landing Page (`index.html`/`skillx.html`), Profile Step 2, Project Details & Local Server (`server.js`)
+- **Harshit Yadav** (`@harshitwsh`) - Core Architecture (`app.js`, `common.css`), Express & MongoDB Server (`server.js`), Profile Step 1, Student Dashboard, Messaging & `user_profile.json`
+- **Tamish Mehlawat** (`@mehlawattamish-art`) - Landing Page (`index.html`/`skillx.html`), Profile Step 2, Project Details & Evaluation Suite (`api-explorer.html`)
 - **Aviraj** (`@sviraj-vsc`) - Find Work Marketplace, Profile Step 3, Application Proposal Form, `projects.json` & `applications.json`
 - **Vansh Arora** (`@vansharoravka`) - Authentication (`login.html`), Why Us Pipeline, Applications Tracker, Settings Page & Project Documentation
-
----
-
-## 🌐 Complete Pages & Modular Assets
-
-Every page has its own dedicated CSS stylesheet (alongside `common.css`) and its own dedicated JavaScript file (alongside `app.js`):
-
-1. **Landing & Hire Talent** (`index.html` / `skillx.html`, `index.css`, `index.js`)
-   - Platform hero showcase, popular skill cards with project filtering, navbar search redirect, and smooth scrolling.
-2. **Find Work & Gigs** (`find-work.html`, `find-work.css`, `find-work.js`)
-   - Live project feed across 6 categories, budget listings, category filters, URL query filtering (`?q=` / `?category=`), and empty-state reset.
-3. **Authentication & Campus Sign In** (`login.html`, `login.css`, `login.js`)
-   - Tabbed Sign In / Create Account system, password visibility toggles, inline & toast validation, and demo student login.
-4. **Step 1: Professional Info** (`profile-creation.html`, `profile-creation.css`, `profile-creation.js`)
-   - Avatar upload & size check, live bio minimum character counter, experience tabs, multi-select skills, and local profile saving.
-5. **Step 2: Portfolio & Links** (`profile-creation-step-2.html`, `profile-creation-step-2.css`, `profile-creation-step-2.js`)
-   - Featured project validation, dynamic extra project rows, URL validation, and resume drag-and-drop uploader.
-6. **Step 3: Availability & Preferences** (`profile-creation-step-3.html`, `profile-creation-step-3.css`, `profile-creation-step-3.js`)
-   - Availability status cards, hourly rate range validation, contact channels, timezone sync, and automatic profile JSON export.
-7. **Why Us & Vetting Pipeline** (`why-us.html`, `why-us.css`, `why-us.js`)
-   - Interactive 4-stage vetting pipeline cards, animated candidate scorecard, navbar search, and comparison matrix.
-8. **Student Dashboard** (`dashboard.html`, `dashboard.css`, `dashboard.js`)
-   - Personalized greeting, sidebar navigation, live application stats, quick action shortcuts, and suggested project search filter.
-9. **Project Details** (`project-details.html`, `project-details.css`, `project-details.js`)
-   - Dynamic project loader via `?id=`, client verification badge, required skills, duplicate-proposal status check, and similar gigs.
-10. **Application & Proposal Form** (`apply.html`, `apply.css`, `apply.js`)
-    - Proposal form with live character count (0/2000), portfolio URL validator, drag-and-drop work sample uploader, agreement validation, and instant JSON download.
-11. **Applications Tracking & JSON Manager** (`applications.html`, `applications.css`, `applications.js`)
-    - Proposal tracking list with status badges, search & status filtering, withdraw option, per-item JSON download, bulk export, and JSON import.
-12. **Direct Client Messaging** (`messages.html`, `messages.css`, `messages.js`)
-    - Multi-thread client chat with persistent conversation storage, live conversation filtering, message validation, and simulated replies.
-13. **Account & Profile Settings** (`settings.html`, `settings.css`, `settings.js`)
-    - Synced student identity form, notification & privacy toggles, password validation, local JSON downloads, and demo data reset.
-
----
-
-## 💾 Form Submission & Local JSON Data Storage
-
-SKILLX implements client-side and filesystem JSON storage:
-1. **Local Storage Persistence**: Submissions, profile steps, and messages persist in browser `localStorage` across all pages.
-2. **Automatic & 1-Click JSON Download**:
-   - Submitting an application on `apply.html` automatically exports and downloads `application_<id>.json`.
-   - Completing profile setup on `profile-creation-step-3.html` exports `skillx_profile.json`.
-   - On `applications.html`, users can click **Save JSON** on any individual proposal or **Export All (JSON)**.
-3. **Structured Data Directory**:
-   - `data/projects.json`: Database of campus projects across all 6 categories.
-   - `data/applications.json`: Submitted application proposals.
-   - `data/user_profile.json`: Verified student freelancer profiles.
-4. **Optional Node.js Server (`server.js`)**:
-   - Zero external dependencies. Uses Node built-in `http` and `fs`.
-   - Run `node server.js` to serve on `http://localhost:3000` with direct JSON endpoints (`/api/save-application`, `/api/save-profile`).
-   - Works out of the box even when opened statically without running the server!
-
----
-
-## 🛠️ Tech Stack
-- **HTML5**: Semantic markup and clean page links
-- **CSS3**: Modular stylesheets per page (`common.css` + page CSS), Flexbox, CSS Grid, responsive layouts
-- **Vanilla JavaScript (`app.js` + per-page `.js` files)**: Form validation, character counting, dynamic filtering, drag-and-drop uploads, `localStorage` state, and Blob JSON downloading
