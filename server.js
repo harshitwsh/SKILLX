@@ -35,14 +35,26 @@ if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
-// ==========================================
-// Middleware Setup
-// ==========================================
+// ============================================================================
+// ⚙️ PARAMETER 2: Node and Express Server Setup
+// ============================================================================
+// Features implemented for Parameter 2:
+//   - Express 5.3 server instance (const app = express())
+//   - Environment variables configuration (dotenv)
+//   - CORS Cross-Origin Resource Sharing middleware (app.use(cors()))
+//   - JSON body parser (app.use(express.json()))
+//   - URL-encoded form data parser (app.use(express.urlencoded({ extended: true })))
+//   - Custom request logger middleware for response time & status monitoring
+//   - Health check & diagnostics endpoint (GET /api/health)
+//   - Static file server for client assets (app.use(express.static(__dirname)))
+//   - Process listener on port (process.env.PORT || 3000)
+// ============================================================================
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Request Logger
+// Request Logger Middleware
 app.use((req, res, next) => {
   const start = Date.now();
   res.on('finish', () => {
@@ -142,9 +154,11 @@ mongoose
     console.error('[MongoDB Atlas Connection Error]', err.message);
   });
 
-// ==========================================
-// 1. Health & Status API
-// ==========================================
+// ----------------------------------------------------------------------------
+// [PARAMETER 2 CONTINUED] Diagnostics Health & Server Status Endpoint
+// ----------------------------------------------------------------------------
+// Route: GET /api/health
+// Purpose: Confirms Express 5 server is alive, reports uptime, and shows MongoDB state
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
@@ -159,9 +173,13 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// ==========================================
-// 2. External APIs Calls (Parameter 1)
-// ==========================================
+// ============================================================================
+// 🌐 PARAMETER 1: Fetching and Showing Data via External APIs Calls
+// ============================================================================
+// 1. GET /api/external/currency          -> Live Currency Exchange Rates (open.er-api.com)
+// 2. GET /api/external/github/:username  -> Live Student GitHub Profile Verifier (api.github.com)
+// 3. GET /api/external/quote             -> Daily Motivational Dev Quote (dummyjson.com)
+// ============================================================================
 
 // External API: Real-time Currency Converter
 app.get('/api/external/currency', async (req, res) => {
@@ -266,9 +284,20 @@ app.get('/api/external/quote', async (req, res) => {
   });
 });
 
-// ==========================================
-// 3. Express APIs for Local JSON Storage (Parameter 3)
-// ==========================================
+// ============================================================================
+// 💾 PARAMETER 3: Express APIs Creation to Save/Fetch Data to Local JSON Files
+// ============================================================================
+// Reads and writes persisted data directly into local files inside data/*.json:
+//   - GET    /api/json/projects          -> Reads data/projects.json
+//   - POST   /api/json/projects          -> Appends new project to data/projects.json
+//   - GET    /api/json/applications      -> Reads data/applications.json
+//   - POST   /api/json/applications      -> Appends proposal to data/applications.json
+//   - DELETE /api/json/applications/:id  -> Removes proposal from data/applications.json
+//   - GET    /api/json/profile           -> Reads data/user_profile.json
+//   - POST   /api/json/profile           -> Saves profile to data/user_profile.json
+//   - POST   /api/save-application       -> Dual-sync to JSON & MongoDB
+//   - POST   /api/save-profile           -> Dual-sync to JSON & MongoDB
+// ============================================================================
 
 // GET /api/json/projects -> Fetch all projects from data/projects.json
 app.get('/api/json/projects', (req, res) => {
@@ -411,9 +440,34 @@ app.get('/api/projects', (req, res) => {
   res.json(projects);
 });
 
-// ==========================================
-// 4. CRUD Operations on MongoDB (Parameter 4)
-// ==========================================
+// ============================================================================
+// 🗄️ PARAMETER 4: CRUD Operations Using Express APIs to Manage Data in MongoDB
+// ============================================================================
+// Connected to MongoDB Atlas Cloud Database: 'backend_db'
+// Collections: projects, applications, profiles, users
+//
+// PROJECTS CRUD:
+//   - CREATE : POST   /api/db/projects            (Inserts new gig into Atlas)
+//   - READ   : GET    /api/db/projects            (Reads all gigs with filter/search)
+//   - READ 1 : GET    /api/db/projects/:id        (Reads single gig by ID)
+//   - UPDATE : PUT    /api/db/projects/:id        (Updates gig in Atlas)
+//   - DELETE : DELETE /api/db/projects/:id        (Deletes gig from Atlas)
+//
+// APPLICATIONS CRUD:
+//   - CREATE : POST   /api/db/applications        (Submits new proposal to Atlas)
+//   - READ   : GET    /api/db/applications        (Reads all proposals from Atlas)
+//   - READ 1 : GET    /api/db/applications/:id    (Reads single proposal by ID)
+//   - UPDATE : PUT    /api/db/applications/:id    (Updates proposal)
+//   - STATUS : PATCH  /api/db/applications/:id/status (Updates review status)
+//   - DELETE : DELETE /api/db/applications/:id    (Withdraws/deletes proposal)
+//
+// USERS & PROFILE CRUD:
+//   - READ   : GET    /api/db/users               (Reads verified users)
+//   - CREATE : POST   /api/db/users               (Registers new user)
+//   - DELETE : DELETE /api/db/users/:id           (Deletes user)
+//   - READ   : GET    /api/db/profile             (Reads student profile)
+//   - UPDATE : PUT    /api/db/profile             (Updates student profile)
+// ============================================================================
 
 // --- PROJECTS CRUD ---
 
@@ -757,9 +811,9 @@ app.post('/api/db/seed', async (req, res) => {
   }
 });
 
-// ==========================================
-// 5. Static File Serving
-// ==========================================
+// ----------------------------------------------------------------------------
+// [PARAMETER 2 CONTINUED] Static Client Asset Hosting & Server Listener
+// ----------------------------------------------------------------------------
 app.use(express.static(PUBLIC_DIR));
 
 // Fallback route for index.html
@@ -767,7 +821,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(PUBLIC_DIR, 'index.html'));
 });
 
-// Start Express Server
+// Start Express Server Process
 const server = app.listen(PORT, () => {
   console.log('====================================================');
   console.log(`🚀 SKILLX Production Express Server running on:`);
