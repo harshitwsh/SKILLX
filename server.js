@@ -23,9 +23,10 @@ const User = require('./models/User');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI =
-  process.env.MONGODB_URI ||
-  'mongodb+srv://teamsftgym_db_user:giAPYPupc04qfZUw@cluster0.nktdewv.mongodb.net/backend_db?retryWrites=true&w=majority';
+const MONGODB_URI = process.env.MONGODB_URI;
+if (!MONGODB_URI) {
+  console.warn('⚠️ Warning: MONGODB_URI is not set in your .env file. Database operations may fail.');
+}
 
 const DATA_DIR = path.join(__dirname, 'data');
 const PUBLIC_DIR = __dirname;

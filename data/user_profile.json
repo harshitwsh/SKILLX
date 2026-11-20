@@ -1,16 +1,62 @@
 {
-  "name": "Tanish Mehlawat",
+  "name": "Tanihhsh",
   "email": "tanish@campus.edu",
-  "role": "Student",
-  "headline": "Junior Full-Stack React & Node.js Developer",
-  "batch": "Batch of '26",
+  "role": "Student Freelancer & Developer",
+  "headline": "Junior Full-Stack React & Node.js Developersh",
   "college": "Campus Engineering Institute",
   "location": "New Delhi, India (IST)",
+  "batch": "Batch of '26",
   "verifiedStudent": true,
-  "skills": ["React", "TypeScript", "Node.js", "Figma"],
-  "stats": {
-    "activeProjects": 0,
-    "completedProjects": 0,
-    "totalEarnings": 0
-  }
+  "experienceLevel": "Junior",
+  "skills": [
+    "React",
+    "TypeScript",
+    "Next.js",
+    "Node.js",
+    "Figma",
+    "Docker"
+  ],
+  "bio": "Computer Science student at Campus Engineering Institute specializing in React web applications, Node.js REST APIs, and clean responsive UI/UX systems for student clubs and startups.",
+  "links": {
+    "github": "https://github.com/tanish-dev",
+    "linkedin": "https://linkedin.com/in/tanish-mehlawat",
+    "website": "https://tanish.dev",
+    "twitter": "https://x.com/tanish_codes"
+  },
+  "hourlyRate": {
+    "min": 50,
+    "max": 100,
+    "currency": "USD"
+  },
+  "availability": "Available",
+  "timezone": "IST",
+  "avatar": "",
+  "featuredProject": {
+    "name": "Decentralized E-Commerce Platform",
+    "description": "Architected a high-throughput campus marketplace handling instant peer payments with automated escrow, reducing checkout dropoffs by 35%.",
+    "demoUrl": "https://myprojectdemo.com",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Node.js"
+    ]
+  },
+  "extraProjects": [],
+  "resumeFileName": "",
+  "workPreferences": [
+    "Full-time",
+    "Contract",
+    "Hybrid"
+  ],
+  "preferredProjectTypes": [
+    "Web Apps",
+    "APIs",
+    "AI/ML"
+  ],
+  "contactChannels": [
+    "Email",
+    "Slack",
+    "Video Calls"
+  ],
+  "completedAt": "2026-11-19T10:15:01.264Z"
 }

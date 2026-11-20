@@ -27,7 +27,7 @@ npm install
 The database connection string is pre-configured in `.env`:
 ```env
 PORT=3000
-MONGODB_URI=mongodb+srv://teamsftgym_db_user:giAPYPupc04qfZUw@cluster0.nktdewv.mongodb.net/backend_db?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.nktdewv.mongodb.net/backend_db?retryWrites=true&w=majority
 ```
 
 ### 3. Start the Express Server
